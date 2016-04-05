@@ -89,9 +89,17 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/swRO9PL.png' title='Login' width='200' />  <img src='http://i.imgur.com/XfVnHi1.png' title='Getting Start' width='200' />  <img src='http://i.imgur.com/2WbPldJ.png' title='Your interested' width='200' /> <img src='http://i.imgur.com/lsmjSEJ.png' title='Home' width='200' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+<img src='http://i.imgur.com/z3Dq00k.png' title='Events - Mine' width='200' />  <img src='http://i.imgur.com/2wArAv5.png' title='Events - Private' width='200' />  <img src='http://i.imgur.com/GY6dH0D.png' title='Events - Public' width='200' /> <img src='http://i.imgur.com/7Tb5rUh.png' title='Notification - Friend Request' width='200' />
+
+<img src='http://i.imgur.com/qFjIqc2.png' title='Notification - Reminder' width='200' />  <img src='http://i.imgur.com/ps5gW4S.png' title='Message' width='200' />  <img src='http://i.imgur.com/s1MVLjx.png' title='Message - Create New' width='200' /> <img src='http://i.imgur.com/nbVnsfx.png' title='Conversations' width='200' />
+
+<img src='http://i.imgur.com/Rsdh5Cp.png' title='Profile - My Profile' width='200' />  <img src='http://i.imgur.com/aPzcW80.png' title='Profile - User profile' width='200' />  <img src='http://i.imgur.com/KfY10Oc.png' title='Event - Create New' width='200' /> <img src='http://i.imgur.com/B0ME1GC.png' title='Event Detail - Photos' width='200' />
+
+<img src='http://i.imgur.com/CSYQA9E.png' title='Event Detail - Comments' width='200' />  <img src='http://i.imgur.com/2sEyG3W.png' title='Settings' width='200' />  
+
+Wireframe created with [NinjaMock](https://www.ninjamock.com).
 
 ## Notes
 
