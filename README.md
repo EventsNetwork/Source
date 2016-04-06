@@ -101,6 +101,42 @@ Here's a walkthrough of implemented user stories:
 
 Wireframe created with [NinjaMock](https://www.ninjamock.com).
 
+##Survey
+**Here's some charts from survey result. (we have 7 answers)**
+
+1. How do you know if there is any interesting events?
+<img src='http://i.imgur.com/x13SzVg.png' title='Survey result 1' width='' />
+
+2. Do you want to know is there any interesting events is coming (and/or nearby you) ?
+<img src='http://i.imgur.com/V7wc36Q.png' title='Survey result 2' width='' />
+
+3. What kinds of event do you want to join ?
+<img src='http://i.imgur.com/I3hpQN6.png' title='Survey result 3' width='' />
+
+4. Do you want to know who will join that event ? (friends, family, or may be someone you like, ...)
+<img src='http://i.imgur.com/3h76Z1u.png' title='Survey result 4' width='' />
+
+5. Do you want to share and invite your friends to join the event?
+<img src='http://i.imgur.com/cefKqUQ.png' title='Survey result 5' width='' />
+
+6. Do you want to create your own event and invite your friends to join yours ?
+<img src='http://i.imgur.com/hsIahlv.png' title='Survey result 6' width='' />
+
+7. How do you schedule and notify some events to all members ?
+<img src='http://i.imgur.com/I4W3wPf.png' title='Survey result 7' width='' />
+
+8. Have you ever regretted that you can not join the event because you knew that event lately ?
+<img src='http://i.imgur.com/B0IBSrD.png' title='Survey result 8' width='' />
+
+9. Have you ever forgotten to come to the event you had registered ?
+<img src='http://i.imgur.com/sjGC9lP.png' title='Survey result 9' width='' />
+
+10. Have you ever used Facebook Event ? What would you like or dislike about Facebook Event ?
+<img src='http://i.imgur.com/2IKBafr.png' title='Survey result 10' width='' />
+
+11. Do you want to have app that have great features for events? What is your suggestion for this app ?
+<img src='http://i.imgur.com/GQfIrJq.png' title='Survey result 11' width='' />
+
 ## Notes
 
 Describe any challenges encountered while building the app.
