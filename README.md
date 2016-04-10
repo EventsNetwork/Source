@@ -1,9 +1,9 @@
-# Final Project - *Tripbot*
+# Final Project - *Let's Travel*
 
 Time spent: **4** weeks spent in total
 ## Overall
    
-   Tripbot gives you the convenient way to create your travel plan. This application suggests some of amazing travel tours/plans base on your location. In addition, you can customize your unique plan such as add more activities, drag to arrange them on timeline.
+   Let's Travel gives you the convenient way to create your travel plan. This application suggests some of amazing travel tours/plans base on your location. In addition, you can customize your unique plan such as add more activities, drag to arrange them on timeline.
 
 ## User Stories
 
