@@ -32,12 +32,14 @@ The following **required** functionality is completed:
    - It shows map.
 
 The following **optional** functionality is completed:
+
 1. Share facebook + deep link
 2. Place's comments
 3. Place's ratings
 4. Weather api
 
 The following **bonus** functionality is completed:
+
 1. Local push to reminder user
 2. Map direction
 
