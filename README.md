@@ -54,17 +54,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/70kpFzz.png' title='Tutorials' width='300' />  <img src='http://i.imgur.com/qyESTOt.png' title='Tours' width='300' />  <img src='http://imgur.com/lbeKvTO' title='Timeline A' width='300' />
-<img src='http://i.imgur.com/va8MUQH.png' title='Timeline B' width='300' /> <img src='http://i.imgur.com/iS8NXR2.png' title='Home' width='300' />
+<img src='http://i.imgur.com/70kpFzz.png' title='Tutorials' width='240' />  <img src='http://i.imgur.com/qyESTOt.png' title='Tours' width='240' />  <img src='http://i.imgur.com/lbeKvTO.png' title='Timeline A' width='240' />
+<img src='http://i.imgur.com/va8MUQH.png' title='Timeline B' width='240' /> <img src='http://i.imgur.com/iS8NXR2.png' title='Home' width='240' />
 
 
 Wireframe created with [NinjaMock](https://www.ninjamock.com).
 
 ##Survey
 **Here's some charts from survey result. (we have 7 answers)**
-
-1. How do you know if there is any interesting events?
-<img src='http://i.imgur.com/x13SzVg.png' title='Survey result 1' width='' />
 
 ## Notes
 
