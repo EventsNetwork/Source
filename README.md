@@ -59,8 +59,11 @@ Here's a walkthrough of implemented user stories:
 <img src='http://i.imgur.com/70kpFzz.png' title='Tutorials' width='240' />  <img src='http://i.imgur.com/qyESTOt.png' title='Tours' width='240' />  <img src='http://i.imgur.com/lbeKvTO.png' title='Timeline A' width='240' />
 <img src='http://i.imgur.com/va8MUQH.png' title='Timeline B' width='240' /> <img src='http://i.imgur.com/iS8NXR2.png' title='Home' width='240' />
 
-
 Wireframe created with [NinjaMock](https://www.ninjamock.com).
+
+## Database schema
+
+<img src='http://i.imgur.com/6aTVRxO.png' title='Timeline B' width='' />
 
 ##Survey
 **Here's some charts from survey result. (we have 7 answers)**
