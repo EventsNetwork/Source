@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55B9E492369B81B586F11543 /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */; };
+		EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DE4C01CBAC6B800B84394 /* AppDelegate.swift */; };
+		EB3DE4C31CBAC6B800B84394 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DE4C21CBAC6B800B84394 /* ViewController.swift */; };
+		EB3DE4C61CBAC6B800B84394 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB3DE4C41CBAC6B800B84394 /* Main.storyboard */; };
+		EB3DE4C81CBAC6B800B84394 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3DE4C71CBAC6B800B84394 /* Assets.xcassets */; };
+		EB3DE4CB1CBAC6B800B84394 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB3DE4C91CBAC6B800B84394 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
+		E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3DE4BD1CBAC6B800B84394 /* LetsTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB3DE4C01CBAC6B800B84394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB3DE4C21CBAC6B800B84394 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB3DE4C51CBAC6B800B84394 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB3DE4C71CBAC6B800B84394 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB3DE4CA1CBAC6B800B84394 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB3DE4CC1CBAC6B800B84394 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB3DE4BA1CBAC6B800B84394 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55B9E492369B81B586F11543 /* Pods_LetsTravel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F5B0B766558BD19FC19A35C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */,
+				67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D84991D7E151DBC058B52A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB3DE4B41CBAC6B800B84394 = {
+			isa = PBXGroup;
+			children = (
+				EB3DE4BF1CBAC6B800B84394 /* LetsTravel */,
+				EB3DE4BE1CBAC6B800B84394 /* Products */,
+				5F5B0B766558BD19FC19A35C /* Pods */,
+				9D84991D7E151DBC058B52A9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EB3DE4BE1CBAC6B800B84394 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB3DE4BD1CBAC6B800B84394 /* LetsTravel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB3DE4BF1CBAC6B800B84394 /* LetsTravel */ = {
+			isa = PBXGroup;
+			children = (
+				EB3DE4C01CBAC6B800B84394 /* AppDelegate.swift */,
+				EB3DE4C21CBAC6B800B84394 /* ViewController.swift */,
+				EB3DE4C41CBAC6B800B84394 /* Main.storyboard */,
+				EB3DE4C71CBAC6B800B84394 /* Assets.xcassets */,
+				EB3DE4C91CBAC6B800B84394 /* LaunchScreen.storyboard */,
+				EB3DE4CC1CBAC6B800B84394 /* Info.plist */,
+			);
+			path = LetsTravel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB3DE4BC1CBAC6B800B84394 /* LetsTravel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB3DE4CF1CBAC6B800B84394 /* Build configuration list for PBXNativeTarget "LetsTravel" */;
+			buildPhases = (
+				37F8D5E9832CABD415F4C1D0 /* Check Pods Manifest.lock */,
+				EB3DE4B91CBAC6B800B84394 /* Sources */,
+				EB3DE4BA1CBAC6B800B84394 /* Frameworks */,
+				EB3DE4BB1CBAC6B800B84394 /* Resources */,
+				C6F3C985B96D31AFE3883269 /* Embed Pods Frameworks */,
+				39CA17FB39347B103873D85F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LetsTravel;
+			productName = LetsTravel;
+			productReference = EB3DE4BD1CBAC6B800B84394 /* LetsTravel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB3DE4B51CBAC6B800B84394 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = TriNgo;
+				TargetAttributes = {
+					EB3DE4BC1CBAC6B800B84394 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = QWZQFWGZMG;
+					};
+				};
+			};
+			buildConfigurationList = EB3DE4B81CBAC6B800B84394 /* Build configuration list for PBXProject "LetsTravel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB3DE4B41CBAC6B800B84394;
+			productRefGroup = EB3DE4BE1CBAC6B800B84394 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB3DE4BC1CBAC6B800B84394 /* LetsTravel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB3DE4BB1CBAC6B800B84394 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3DE4CB1CBAC6B800B84394 /* LaunchScreen.storyboard in Resources */,
+				EB3DE4C81CBAC6B800B84394 /* Assets.xcassets in Resources */,
+				EB3DE4C61CBAC6B800B84394 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37F8D5E9832CABD415F4C1D0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		39CA17FB39347B103873D85F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6F3C985B96D31AFE3883269 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB3DE4B91CBAC6B800B84394 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3DE4C31CBAC6B800B84394 /* ViewController.swift in Sources */,
+				EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EB3DE4C41CBAC6B800B84394 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB3DE4C51CBAC6B800B84394 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EB3DE4C91CBAC6B800B84394 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB3DE4CA1CBAC6B800B84394 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB3DE4CD1CBAC6B800B84394 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB3DE4CE1CBAC6B800B84394 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB3DE4D01CBAC6B800B84394 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LetsTravel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TriNgo.LetsTravel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EB3DE4D11CBAC6B800B84394 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LetsTravel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TriNgo.LetsTravel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB3DE4B81CBAC6B800B84394 /* Build configuration list for PBXProject "LetsTravel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB3DE4CD1CBAC6B800B84394 /* Debug */,
+				EB3DE4CE1CBAC6B800B84394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB3DE4CF1CBAC6B800B84394 /* Build configuration list for PBXNativeTarget "LetsTravel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB3DE4D01CBAC6B800B84394 /* Debug */,
+				EB3DE4D11CBAC6B800B84394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB3DE4B51CBAC6B800B84394 /* Project object */;
+}
