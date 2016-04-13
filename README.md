@@ -37,11 +37,15 @@ The following **optional** functionality is completed:
 2. Place's comments
 3. Place's ratings
 4. Weather api
+5. Invite friend after create tour, friend confirm function.
+6. Suggest some tricky/tip and recommend things should carry on.
 
 The following **bonus** functionality is completed:
 
 1. Local push to reminder user
 2. Map direction
+3. Tour comments
+4. Tour ratings
 
 ## Mobile-oriented features:
    - Application use Map, location, push.
