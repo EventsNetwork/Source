@@ -66,7 +66,35 @@ Wireframe created with [NinjaMock](https://www.ninjamock.com).
 <img src='http://i.imgur.com/6aTVRxO.png' title='Timeline B' width='' />
 
 ##Survey
-**Here's some charts from survey result. (we have 7 answers)**
+**Here's some charts from survey result. (we have 24 answers)**
+
+###1. How often do you travel?
+<img src='http://i.imgur.com/EqKxPjC.png' title='Timeline B' width='' />
+
+###2. How long does it take to plan a trip?
+<img src='http://i.imgur.com/qNfAvWg.png' title='Timeline B' width='' />
+
+###3. How do you plan a trip?
+<img src='http://i.imgur.com/wSQ4igW.png' title='Timeline B' width='' />
+   - 66.7%  >> Search on internet
+   - 62.5%  >> Ask friends for some interesting places
+   - 25.0%  >> Contact with trips company and choose a tour
+   - 4.20%  >> Other
+   
+###4. What things make you consider when you plan a trip?
+<img src='http://i.imgur.com/tU3UyZ1.png' title='Timeline B' width='' />
+   - 70.8%  >> Money
+   - 45.8%  >> Find some good places to eat
+   - 66.7%  >> Find some interesting places to go/play
+   - 41.7%  >> Find good places to rest
+   - 37.5%  >> Which vehicle to go (motobike, car, plan, ...)
+   - 4.20%  >> Other
+   
+###5. Which apps or websites do you often visit to find informations about trips/travel?
+<img src='http://i.imgur.com/Cp6qmLL.png' title='Timeline B' width='' />
+
+###6. Would you like to have an app that help you plan trips easier?
+<img src='http://i.imgur.com/XegRdFy.png' title='Timeline B' width='' />
 
 ## Notes
 
