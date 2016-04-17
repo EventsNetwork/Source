@@ -34,7 +34,15 @@ class Tour: NSObject {
         provinceId = dictionary["province_id"] as? Int
         totalDay = dictionary["total_date"] as? Int
         favouriteCount = dictionary["favourite_count"] as? Int
-        tourEvents = dictionary["event_day"] as? [TourEvent]
+        tourEvents = TourEvent.getTourEvents(dictionary["event_day"] as! [NSDictionary])
     }
     
+    class func getTours(dictionaries: [NSDictionary]) -> [Tour]{
+        var tours = [Tour]()
+        for dictionary in dictionaries {
+            let tour = Tour(dictionary: dictionary)
+            tours.append(tour)
+        }
+        return tours
+    }
 }

@@ -38,6 +38,16 @@ class TravelClient: NSObject {
         }
     }
     
+    private func fetchDataWithArray(dictionary: NSDictionary) -> [NSDictionary]?
+    {
+        let statusCode = dictionary["code"] as! Int
+        if (statusCode != -1) {
+            return dictionary["data"] as? [NSDictionary]
+        }else {
+            return nil
+        }
+    }
+    
     private func generateError(response: AnyObject) -> NSError {
         let errorCode = (response as! NSDictionary)["code"] as! Int
         let errorMessage = (response as! NSDictionary)["msg"] as! String
@@ -46,6 +56,7 @@ class TravelClient: NSObject {
         return error
     }
     
+    // Login
     func login(facebookId: String, fullName: String, avatarUrl: String, success: (User) -> (), failure: (NSError) -> ()) {
         let postData = ["facebook_id":facebookId, "full_name":fullName, "avatar_url":avatarUrl]
         let params = ["command": "U_LOGIN", "data" : postData]
@@ -63,25 +74,118 @@ class TravelClient: NSObject {
         })
     }
     
-    func searchPlaceViaCategoryAndProvince(provinceId: String, categoryId: String, placeName: String, success: () -> (), failure: (NSError) -> ()) {
+    // Search places with category and province
+    func searchPlaceViaCategoryAndProvince(provinceId: String, categoryId: String, placeName: String, success: (Tour) -> (), failure: (NSError) -> ()) {
         
         let postData = ["province_id":provinceId, "category_id":categoryId, "place_name":placeName]
         let params = ["command": "U_PLACE_SEARCH_CATEGORY", "data" : postData]
         
         self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
-
+            let tourDictionary = self.fetchData(response as! NSDictionary)
+            if (tourDictionary != nil) {
+                let tour = Tour(dictionary: tourDictionary!)
+                success(tour)
+            } else {
+                failure(self.generateError(response!))
+            }
         }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
             failure(error)
         })
     }
     
-    func retrieveTours(success: ([Tour]) -> (), failure: (NSError) -> ()) {
+    // Get province list
+    func getProvinces(success: ([Province]) -> (), failure: (NSError) -> ()) {
+        let params = ["command": "U_PROVINCE_LIST", "data" : ""]
         
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
+            let provinceDictionaries = self.fetchDataWithArray(response as! NSDictionary)
+            if (provinceDictionaries != nil) {
+                let provinces = Province.getProvinces(provinceDictionaries!)
+                success(provinces)
+            } else {
+                failure(self.generateError(response!))
+            }
+        }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
+            failure(error)
+        })
     }
     
-    func retrieveTourEvents(success: ([TourEvent]) -> (), failure: (NSError) -> ()) {
+    // Get categories list
+    func getCategories(success: ([Category]) -> (), failure: (NSError) -> ()) {
+        let params = ["command": "U_CATEGORY_LIST", "data" : ""]
         
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
+            let categoryDictionaries = self.fetchDataWithArray(response as! NSDictionary)
+            if (categoryDictionaries != nil) {
+                let categories = Category.getCategories(categoryDictionaries!)
+                success(categories)
+            } else {
+                failure(self.generateError(response!))
+            }
+        }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
+            failure(error)
+        })
+    }
+    
+    // Get hot tours
+    func getHotTours(success: ([Tour]) -> (), failure: (NSError) -> ()) {
+        let params = ["command": "U_TOUR_HOT_LIST", "data" : ""]
+        
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let tourDictionaries = self.fetchDataWithArray(response as! NSDictionary)
+            if (tourDictionaries != nil) {
+                let tours = Tour.getTours(tourDictionaries!)
+                success(tours)
+            } else {
+                failure(self.generateError(response!))
+            }
+        }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+            failure(error)
+        })
+    }
+    
+    // Get tour detail
+    func getTourDetail(tourId: Int, success: (Tour) -> (), failure: (NSError) -> ()) {
+        let postData = ["tour_id":tourId]
+        let params = ["command": "U_TOUR_DETAIL", "data" : postData]
+        
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
+            let tourDictionary = self.fetchData(response as! NSDictionary)
+            if (tourDictionary != nil) {
+                let tour = Tour(dictionary: tourDictionary!)
+                success(tour)
+            } else {
+                failure(self.generateError(response!))
+            }
+        }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
+                failure(error)
+        })
     }
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

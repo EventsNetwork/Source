@@ -27,6 +27,14 @@ class Province: NSObject {
         latitude = dictionary["latitude"] as? Double
     }
     
+    class func getProvinces(dictionaries: [NSDictionary]) -> [Province]{
+        var provinces = [Province]()
+        for dictionary in dictionaries {
+            let province = Province(dictionary: dictionary)
+            provinces.append(province)
+        }
+        return provinces
+    }
     
 }
 

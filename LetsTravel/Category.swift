@@ -22,4 +22,13 @@ class Category: NSObject {
         categoryName = dictionary["category_name"] as? String
         imageUrl = dictionary["image_url"] as? String
     }
+    
+    class func getCategories(dictionaries: [NSDictionary]) -> [Category]{
+        var categories = [Category]()
+        for dictionary in dictionaries {
+            let category = Category(dictionary: dictionary)
+            categories.append(category)
+        }
+        return categories
+    }
 }

@@ -31,6 +31,15 @@ class TourEvent: NSObject {
         endTime = dictionary["end_time"] as? Int
     }
     
+    class func getTourEvents(dictionaries: [NSDictionary]) -> [TourEvent]{
+        var tourEvents = [TourEvent]()
+        for dictionary in dictionaries {
+            let tourEvent = TourEvent(dictionary: dictionary)
+            tourEvents.append(tourEvent)
+        }
+        return tourEvents
+    }
+    
 }
 
 
