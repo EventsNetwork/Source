@@ -11,9 +11,30 @@ import UIKit
 class Province: NSObject {
     var provinceId: Int?
     var provinceName: NSString?
-    var imageUrl: NSString?
+    var imageUrls: [NSString]?
     var longitude: Double?
     var latitude: Double?
+    
+    override init() {
+        
+    }
+    
+    init(dictionary: NSDictionary) {
+        provinceId = dictionary["province_id"] as? Int
+        provinceName = dictionary["province_name"] as? String
+        imageUrls = dictionary["image_urls"] as? [String]
+        longitude = dictionary["longitude"] as? Double
+        latitude = dictionary["latitude"] as? Double
+    }
+    
+    class func getProvinces(dictionaries: [NSDictionary]) -> [Province]{
+        var provinces = [Province]()
+        for dictionary in dictionaries {
+            let province = Province(dictionary: dictionary)
+            provinces.append(province)
+        }
+        return provinces
+    }
     
 }
 
