@@ -10,20 +10,32 @@ import UIKit
 
 class Place: NSObject {
     var placeId: Int?
-    var name: NSString?
+    var name: String?
     var categoryId: Int?
     var minPrice: Double?
     var maxPrice: Double?
-    var address: NSString?
-    var desc: NSString?
+    var address: String?
+    var desc: String?
     var longitude: Double?
     var latitude: Double?
     var provinceId: Int?
-    var imageUrls: [NSString]?
+    var imageUrls: [String]?
     var rating: Float?
     
     override init() {
         
+    }
+    
+    init(name: String?, categoryId: Int?, minPrice: Double?, maxPrice: Double?, address: String?, desc: String?, latitude: Double?, longitude: Double, provinceId: Int?) {
+        self.name = name
+        self.categoryId = categoryId
+        self.minPrice = minPrice
+        self.maxPrice = maxPrice
+        self.address = address
+        self.desc = desc
+        self.latitude = latitude
+        self.longitude = longitude
+        self.provinceId = provinceId
     }
     
     init(dictionary: NSDictionary) {
