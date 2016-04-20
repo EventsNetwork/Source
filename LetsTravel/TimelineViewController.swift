@@ -77,11 +77,13 @@ extension TimelineViewController: CreatePlaceCellDelegate {
         let place = Place(name: "", categoryId: 0, minPrice: 0, maxPrice: 0, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0)
         if placesToGo.count == 0 {
             placesToGo.append([place])
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
         } else {
             placesToGo[indexPath.section].append(place)
+            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
         }
         
-        tableView.reloadData()
+        
     }
 }
 
@@ -96,6 +98,7 @@ extension TimelineViewController: PlaceCellDelegate {
     func placeRemove(cell: UITableViewCell) {
         let indexPath = tableView.indexPathForCell(cell)!
         placesToGo[indexPath.section].removeAtIndex(indexPath.row)
-        tableView.reloadData()
+        let sections = NSIndexSet(index: indexPath.section)
+        tableView.reloadSections(sections, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
 }
