@@ -8,15 +8,15 @@
 
 import UIKit
 
-@objc protocol PlaceSectionDelegate {
+@objc protocol PlaceTimelineSectionDelegate {
     func removeClicK(section: Int)
 }
 
-class PlaceSection: UIView {
+class PlaceTimelineSection: UIView {
     
     var section: Int!
     
-    weak var delegate: PlaceSectionDelegate?
+    weak var delegate: PlaceTimelineSectionDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

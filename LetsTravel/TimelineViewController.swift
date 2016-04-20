@@ -48,7 +48,7 @@ extension TimelineViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if placesToGo.count > indexPath.section && placesToGo[indexPath.section].count > indexPath.row {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PlaceCell") as! PlaceCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTimelineCell") as! PlaceTimelineCell
             cell.delegate = self
             return cell
         } else {
@@ -65,7 +65,7 @@ extension TimelineViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = PlaceSection(section: section, frame: CGRectMake(0, 0, tableView.frame.size.width, 30))
+        let view = PlaceTimelineSection(section: section, frame: CGRectMake(0, 0, tableView.frame.size.width, 30))
         view.delegate = self
         return view;
     }
@@ -73,21 +73,21 @@ extension TimelineViewController: UITableViewDelegate {
 
 extension TimelineViewController: CreatePlaceCellDelegate {
     func choosePlaceOption(cell: UITableViewCell) {
-        let indexPath = tableView.indexPathForCell(cell)!
-        let place = Place(name: "", categoryId: 0, minPrice: 0, maxPrice: 0, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0)
-        if placesToGo.count == 0 {
-            placesToGo.append([place])
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-        } else {
-            placesToGo[indexPath.section].append(place)
-            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
-        }
-        
+//        let indexPath = tableView.indexPathForCell(cell)!
+//        let place = Place(name: "", categoryId: 0, minPrice: 0, maxPrice: 0, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0)
+//        if placesToGo.count == 0 {
+//            placesToGo.append([place])
+//            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+//        } else {
+//            placesToGo[indexPath.section].append(place)
+//            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+//        }
+        performSegueWithIdentifier("timelineFilterModalSegue", sender: nil)
         
     }
 }
 
-extension TimelineViewController: PlaceSectionDelegate {
+extension TimelineViewController: PlaceTimelineSectionDelegate {
     func removeClicK(section: Int) {
         placesToGo.removeAtIndex(section)
         tableView.reloadData()
