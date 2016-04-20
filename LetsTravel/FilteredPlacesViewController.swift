@@ -48,6 +48,12 @@ class FilteredPlacesViewController: UIViewController, UISearchBarDelegate, UITab
         }) { (error: NSError) in
             
         }
+        
+        TravelClient.sharedInstance.searchPlaceViaCategoryAndProvince("1", categoryId: "1", placeName: "", success: { (places: [Place]) in
+            print(places)
+        }) { (error: NSError) in
+            
+        }
     }
     
     // MARK: UITableViewDelegate, UITableViewDataSource

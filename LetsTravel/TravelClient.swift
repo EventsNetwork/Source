@@ -82,16 +82,16 @@ class TravelClient: NSObject {
     }
     
     // Search places with category and province
-    func searchPlaceViaCategoryAndProvince(provinceId: String, categoryId: String, placeName: String, success: (Tour) -> (), failure: (NSError) -> ()) {
+    func searchPlaceViaCategoryAndProvince(provinceId: String, categoryId: String, placeName: String, success: ([Place]) -> (), failure: (NSError) -> ()) {
         
         let postData = ["province_id":provinceId, "category_id":categoryId, "place_name":placeName]
         let params = ["command": "U_PLACE_SEARCH_CATEGORY", "data" : postData]
         
         self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
-            let tourDictionary = self.fetchData(response as! NSDictionary)
-            if (tourDictionary != nil) {
-                let tour = Tour(dictionary: tourDictionary!)
-                success(tour)
+            let placesDictionary = self.fetchDataWithArray(response as! NSDictionary)
+            if (placesDictionary != nil) {
+                let places = Place.getPlaces(placesDictionary!)
+                success(places)
             } else {
                 failure(self.generateError(response!))
             }

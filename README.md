@@ -60,6 +60,10 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+<img src='http://i.imgur.com/3U7aqVu.gif' title='Tutorials' width='' />
+
+Here's a wireframe:
+
 <img src='http://i.imgur.com/70kpFzz.png' title='Tutorials' width='240' />  <img src='http://i.imgur.com/qyESTOt.png' title='Tours' width='240' />  <img src='http://i.imgur.com/lbeKvTO.png' title='Timeline A' width='240' />
 <img src='http://i.imgur.com/va8MUQH.png' title='Timeline B' width='240' /> <img src='http://i.imgur.com/iS8NXR2.png' title='Home' width='240' />
 
@@ -99,6 +103,28 @@ Wireframe created with [NinjaMock](https://www.ninjamock.com).
 
 ###6. Would you like to have an app that help you plan trips easier?
 <img src='http://i.imgur.com/XegRdFy.png' title='Timeline B' width='' />
+
+
+##Break down task for each team members
+1. Back office (Phuong Le)
+2. Tours: Show suggest tours. User can swipe to view another recommend tour. (Tri Ngo)
+3. Tours: User can search tours in Timeline screen. (Hoang Nguyen)
+4. Tours: Show the create tour button. (Tri Ngo)
+5. Timeline: User can view detail existing tour. (Hoang Nguyen)
+6. Timeline: User can create new timeline for new tour or clone and edit existing tour. (Hoang Nguyen)
+7. Timeline: When edit tour, user can pick start day. (Hoang Nguyen)
+8. Timeline: When edit tour, user can add or delete places. (Hoang Nguyen)
+9. Timeline: When edit tour, user can add or delete days. (Hoang Nguyen)
+10. Timeline: When edit tour, user can see estimated total money cost for trips. (Hoang Nguyen)
+11. Timeline: When scrolling, user can see total money and start day pin on sub header. (Hoang Nguyen)
+12. Timeline: After edit tour finish, user can click save button to save plan. (Hoang Nguyen)
+13. Timeline: User can click place item in timeline to view place detail when view/edit tour. (Hoang Nguyen)
+14. Place Detail: User can view place detail such as: name, poster, map, ratting, description, price. (Tri Ngo)
+15. Setting screen. (Tri Ngo)
+16. Filter screen. (Phuong Le)
+17. Login Facebook (Tri Ngo)
+18. Tutorial screen (Tri Ngo)
+
 
 ## Notes
 
