@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class TutorialsViewController: UIViewController, FBSDKLoginButtonDelegate {
 
@@ -16,6 +17,7 @@ class TutorialsViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.btnLoginFacebook.hidden = false
         configureFacebook()
     }
 
@@ -30,7 +32,7 @@ class TutorialsViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        
+        self.btnLoginFacebook.hidden = true
         let params = ["fields":"first_name, last_name, picture.type(large)"]
         
         let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
@@ -38,15 +40,16 @@ class TutorialsViewController: UIViewController, FBSDKLoginButtonDelegate {
             let firstName = (result.objectForKey("first_name") as? String)!
             let lastName = (result.objectForKey("last_name") as? String)!
             let fullName = firstName + " " + lastName
+            
             let pictureUrl = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
             let fbId = (result.objectForKey("id") as? String)!
             
-            print("\(fbId)")
-            
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             TravelClient.sharedInstance.login(fbId, fullName: fullName, avatarUrl: pictureUrl, success: { (user: User) -> () in
-                print("\(user)")
-                print("\(user.userId) \(user.fullName) \(user.facebookId) \(user.token)")
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                self.performSegueWithIdentifier("loginSegue", sender: nil)
             }, failure: { (error:NSError) -> () in
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 print(error)
             })
         }

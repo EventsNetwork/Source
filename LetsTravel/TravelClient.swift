@@ -65,6 +65,7 @@ class TravelClient: NSObject {
             let userDictionary = self.fetchData(response as! NSDictionary)
             if (userDictionary != nil) {
                 let user = User(dictionary: userDictionary!)
+                User.currentUser = user
                 success(user)
             }else{
                 failure(self.generateError(response!))
@@ -72,6 +73,12 @@ class TravelClient: NSObject {
         }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
             failure(error)
         })
+    }
+    
+    // Logout
+    func logout() {
+        User.currentUser = nil
+        NSNotificationCenter.defaultCenter().postNotificationName(User.userDidLogoutNotification, object: nil)
     }
     
     // Search places with category and province
