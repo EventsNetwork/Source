@@ -41,18 +41,18 @@ class CreatePlaceCell: UITableViewCell {
     }
 
     @IBAction func newPlaceClick(sender: UIButton) {
-//        let subviews = placeOptionsView.subviews
-//        for view in subviews {
-//            view.hidden = true
-//        }
-//        self.placeOptionsParentView.hidden = true
-//        self.placeOptionsParentView.alpha = 0.5
-//        UIView.animateWithDuration(1, animations: {
-//            self.placeOptionsParentView.hidden = false
-//            self.placeOptionsParentView.alpha = 1
-//        }) { (done: Bool) in
-//            self.animateSubViews(0)
-//        }
+        let subviews = placeOptionsView.subviews
+        for view in subviews {
+            view.hidden = true
+        }
+        self.placeOptionsParentView.hidden = true
+        self.placeOptionsParentView.alpha = 0.5
+        UIView.animateWithDuration(1, animations: {
+            self.placeOptionsParentView.hidden = false
+            self.placeOptionsParentView.alpha = 1
+        }) { (done: Bool) in
+            self.animateSubViews(0)
+        }
         delegate?.choosePlaceOption(self)
     }
     

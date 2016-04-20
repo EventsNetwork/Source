@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BDBOAuth1Manager
+import AFNetworking
 
 let TravelClientSharedInstance = TravelClient()
 

@@ -140,16 +140,16 @@ extension TimelineViewController: UITableViewDelegate {
 extension TimelineViewController: CreatePlaceCellDelegate {
     func choosePlaceOption(cell: UITableViewCell) {
         let indexPath = tableView.indexPathForCell(cell)!
-//        let place = Place(name: "", categoryId: 0, minPrice: 0, maxPrice: 0, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0)
-//        if placesToGo.count == 0 {
-//            placesToGo.append([place])
-//            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-//        } else {
-//            placesToGo[indexPath.section].append(place)
-//            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
-//        }
-        currentSection = indexPath.section
-        performSegueWithIdentifier("timelineFilterModalSegue", sender: nil)
+        let place = Place(name: "", categoryId: 0, minPrice: 0, maxPrice: 0, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0)
+        if placesToGo.count == 0 {
+            placesToGo.append([place])
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+        } else {
+            placesToGo[indexPath.section].append(place)
+            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+        }
+       // currentSection = indexPath.section
+       // performSegueWithIdentifier("timelineFilterModalSegue", sender: nil)
         
     }
 }
