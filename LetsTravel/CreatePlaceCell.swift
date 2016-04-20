@@ -53,7 +53,6 @@ class CreatePlaceCell: UITableViewCell {
         }) { (done: Bool) in
             self.animateSubViews(0)
         }
-        delegate?.choosePlaceOption(self)
     }
     
     @IBAction func choosePlaceOption(sender: AnyObject) {
