@@ -16,7 +16,7 @@ class PlaceTimelineCell: UITableViewCell {
     
     var place: Place!
     
-    weak var delegate: PlaceCellDelegate?
+    weak var delegate: PlaceTimelineCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

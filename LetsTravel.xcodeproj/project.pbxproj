@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		34B6C5E51CC725A1003D58FA /* PlaceTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */; };
+		34B6C5E91CC72796003D58FA /* FilteredPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */; };
 		34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386ED1CC5CF56008B0975 /* PlaceCell.swift */; };
 		34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */; };
 		34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */; };
-		55B9E492369B81B586F11543 /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */; };
+		4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
 		EB2F91481CC23D5E0014B3BE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */; };
 		EB2F91491CC23D5E0014B3BE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */; };
@@ -37,12 +38,12 @@
 
 /* Begin PBXFileReference section */
 		34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineCell.swift; sourceTree = "<group>"; };
+		34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredPlacesViewController.swift; sourceTree = "<group>"; };
 		34C386ED1CC5CF56008B0975 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineSection.swift; sourceTree = "<group>"; };
 		34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlaceCell.swift; sourceTree = "<group>"; };
-		4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
-		E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
 		EB15F3081CC3F11100084060 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		EB2F91431CC23B4B0014B3BE /* LetsTravel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LetsTravel-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20160412/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		EB4FA55D1CBDFFC700F6BD55 /* TravelClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelClient.swift; sourceTree = "<group>"; };
+		EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,22 +76,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55B9E492369B81B586F11543 /* Pods_LetsTravel.framework in Frameworks */,
 				EB2F91481CC23D5E0014B3BE /* FBSDKCoreKit.framework in Frameworks */,
 				EB2F91491CC23D5E0014B3BE /* FBSDKLoginKit.framework in Frameworks */,
+				4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F5B0B766558BD19FC19A35C /* Pods */ = {
+		15BF148DC7B2B3AF5D12FA43 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */,
-				67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */,
+				BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */,
+				EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		34B6C5E61CC72738003D58FA /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */,
+				34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */,
+				34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */,
+			);
+			name = Timeline;
+			sourceTree = "<group>";
+		};
+		34B6C5E71CC7274A003D58FA /* FilteredPlaces */ = {
+			isa = PBXGroup;
+			children = (
+				34C386ED1CC5CF56008B0975 /* PlaceCell.swift */,
+			);
+			name = FilteredPlaces;
 			sourceTree = "<group>";
 		};
 		9D84991D7E151DBC058B52A9 /* Frameworks */ = {
@@ -97,7 +117,7 @@
 			children = (
 				EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */,
 				EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */,
-				4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */,
+				65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,8 +135,8 @@
 			children = (
 				EB3DE4BF1CBAC6B800B84394 /* LetsTravel */,
 				EB3DE4BE1CBAC6B800B84394 /* Products */,
-				5F5B0B766558BD19FC19A35C /* Pods */,
 				9D84991D7E151DBC058B52A9 /* Frameworks */,
+				15BF148DC7B2B3AF5D12FA43 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +172,7 @@
 				EB4FA5551CBDFE1B00F6BD55 /* ToursViewController.swift */,
 				EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */,
 				EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */,
+				34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -183,11 +204,9 @@
 		EB4FA5401CBDF16000F6BD55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				34B6C5E71CC7274A003D58FA /* FilteredPlaces */,
+				34B6C5E61CC72738003D58FA /* Timeline */,
 				EB15F3081CC3F11100084060 /* PageItemController.swift */,
-				34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */,
-				34C386ED1CC5CF56008B0975 /* PlaceCell.swift */,
-				34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */,
-				34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -199,12 +218,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB3DE4CF1CBAC6B800B84394 /* Build configuration list for PBXNativeTarget "LetsTravel" */;
 			buildPhases = (
-				37F8D5E9832CABD415F4C1D0 /* Check Pods Manifest.lock */,
+				1D85D7D4A07A8FBBEA521950 /* 📦 Check Pods Manifest.lock */,
 				EB3DE4B91CBAC6B800B84394 /* Sources */,
 				EB3DE4BA1CBAC6B800B84394 /* Frameworks */,
 				EB3DE4BB1CBAC6B800B84394 /* Resources */,
-				C6F3C985B96D31AFE3883269 /* Embed Pods Frameworks */,
-				39CA17FB39347B103873D85F /* Copy Pods Resources */,
+				CC2F6325556B0F433790D48E /* 📦 Embed Pods Frameworks */,
+				8C86C78338A4140FC39661C7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,14 +282,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37F8D5E9832CABD415F4C1D0 /* Check Pods Manifest.lock */ = {
+		1D85D7D4A07A8FBBEA521950 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,14 +297,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		39CA17FB39347B103873D85F /* Copy Pods Resources */ = {
+		8C86C78338A4140FC39661C7 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,14 +312,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6F3C985B96D31AFE3883269 /* Embed Pods Frameworks */ = {
+		CC2F6325556B0F433790D48E /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +349,7 @@
 				34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */,
 				EB4FA55A1CBDFE3D00F6BD55 /* PlaceDetailViewController.swift in Sources */,
 				EB4FA55E1CBDFFC700F6BD55 /* TravelClient.swift in Sources */,
+				34B6C5E91CC72796003D58FA /* FilteredPlacesViewController.swift in Sources */,
 				EB4FA5581CBDFE2900F6BD55 /* TimelineViewController.swift in Sources */,
 				EB4FA54C1CBDFCCD00F6BD55 /* Category.swift in Sources */,
 				EB4FA5501CBDFD3F00F6BD55 /* Province.swift in Sources */,
@@ -443,7 +463,7 @@
 		};
 		EB3DE4D01CBAC6B800B84394 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */;
+			baseConfigurationReference = BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -462,7 +482,7 @@
 		};
 		EB3DE4D11CBAC6B800B84394 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */;
+			baseConfigurationReference = EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

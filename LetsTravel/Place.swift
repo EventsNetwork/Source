@@ -52,6 +52,15 @@ class Place: NSObject {
         imageUrls = dictionary["image_urls"] as? [String]
         rating = dictionary["rating"] as? Float
     }
+    
+    class func getPlaces(dictionaries: [NSDictionary]) -> [Place]{
+        var places = [Place]()
+        for dictionary in dictionaries {
+            let place = Place(dictionary: dictionary)
+            places.append(place)
+        }
+        return places
+    }
 }
 
 

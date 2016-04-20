@@ -395,9 +395,6 @@
                                                 <constraint firstItem="M5U-0h-AaR" firstAttribute="leading" secondItem="y18-Ex-ZUl" secondAttribute="leading" constant="8" id="bP3-Qw-LEh"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="placeLabel" destination="M5U-0h-AaR" id="Pbj-w5-Old"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -433,7 +430,7 @@
         <!--Places-->
         <scene sceneID="uka-aM-ZlJ">
             <objects>
-                <viewController id="YM5-wq-jDb" sceneMemberID="viewController">
+                <viewController id="YM5-wq-jDb" customClass="FilteredPlacesViewController" customModule="LetsTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1iW-Ez-k0b"/>
                         <viewControllerLayoutGuide type="bottom" id="sLU-IU-d9E"/>
@@ -453,6 +450,9 @@
                                         <rect key="frame" x="5" y="7" width="57" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <action selector="settingsClick:" destination="YM5-wq-jDb" eventType="touchUpInside" id="gPt-Mj-5HW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -462,9 +462,31 @@
                                     <constraint firstItem="X2g-AB-cPM" firstAttribute="leading" secondItem="BCm-K0-pId" secondAttribute="leading" constant="5" id="bel-Lk-XRB"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XSV-YQ-wnZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XSV-YQ-wnZ">
                                 <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceCell" rowHeight="60" id="ffa-G7-42Z" customClass="PlaceCell" customModule="LetsTravel" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ffa-G7-42Z" id="pjp-2d-DTc">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VW6-Bh-Jks">
+                                                    <rect key="frame" x="8" y="19" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhC-aA-Ojx">
+                                                    <rect key="frame" x="267" y="14" width="30" height="30"/>
+                                                    <state key="normal" title="Info"/>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -474,8 +496,24 @@
                             <constraint firstItem="BCm-K0-pId" firstAttribute="top" secondItem="1iW-Ez-k0b" secondAttribute="bottom" id="XmQ-RM-xgQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Places" id="aY1-pB-XYg"/>
+                    <navigationItem key="navigationItem" title="Places" id="aY1-pB-XYg">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Gvz-GN-pdg">
+                            <connections>
+                                <action selector="cancelClick:" destination="YM5-wq-jDb" id="e91-M7-q8k"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="5ZS-P2-YuW">
+                            <connections>
+                                <action selector="doneClick:" destination="YM5-wq-jDb" id="dv2-0R-CAZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="searchBar" destination="u12-PT-OeM" id="v6C-je-9ty"/>
+                        <outlet property="settingsButton" destination="X2g-AB-cPM" id="RZx-Qa-rgN"/>
+                        <outlet property="tableView" destination="XSV-YQ-wnZ" id="j3a-NI-jE0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LvM-pM-gIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
