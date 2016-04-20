@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import ActionSheetPicker_3_0
 
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dateStartTextField: UITextField!
     
     var placesToGo = [[Place]]()
     
@@ -17,6 +19,8 @@ class TimelineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateStartTextField.delegate = self
         
         placesToGo.append([])
         
@@ -28,10 +32,28 @@ class TimelineViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @IBAction func dateStartClick(sender: UITextField) {
+        ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
+            let selectedDate = selectedDate as! NSDate
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.locale = NSLocale.currentLocale()
+            dateFormatter.dateFormat = "EE dd/MM/yyyy"
+            self.dateStartTextField.text = dateFormatter.stringFromDate(selectedDate)
+        }, cancelBlock: { (picker: ActionSheetDatePicker!) in
+                
+        }, origin: sender)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let navigationController = segue.destinationViewController as! UINavigationController
         let vc = navigationController.viewControllers[0] as! FilteredPlacesViewController
         vc.delegate = self
+    }
+}
+
+extension TimelineViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return false
     }
 }
 

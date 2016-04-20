@@ -265,6 +265,9 @@
                                         <rect key="frame" x="86" y="15" width="168" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="dateStartClick:" destination="4iW-M0-fm5" eventType="touchDown" id="fYv-4U-RME"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbc-dC-ggH">
                                         <rect key="frame" x="264" y="16" width="48" height="27"/>
@@ -419,6 +422,7 @@
                     <navigationItem key="navigationItem" title="Timeline" id="1ha-0w-M3s"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="dateStartTextField" destination="DDo-3R-HAi" id="UBi-cf-TcI"/>
                         <outlet property="tableView" destination="FcK-wl-gBJ" id="YcF-4c-hua"/>
                         <segue destination="6N7-53-Pda" kind="presentation" identifier="timelineFilterModalSegue" id="uNl-S0-d2P"/>
                     </connections>
