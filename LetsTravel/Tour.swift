@@ -25,16 +25,20 @@ class Tour: NSObject {
     }
     
     init(dictionary: NSDictionary) {
-        tourId = dictionary["tour_id"] as? Int
-        userId = dictionary["user_id"] as? Int
-        startTime = dictionary["start_time"] as? Int
+        tourId = Int((dictionary["tour_id"] as? String)!)
+        userId = Int((dictionary["user_id"] as? String)!)
+        startTime = Int((dictionary["start_time"] as? String)!)
         desc = dictionary["description"] as? String
-        minCost = dictionary["min_cost"] as? Double
-        maxCost = dictionary["max_cost"] as? Double
-        provinceId = dictionary["province_id"] as? Int
-        totalDay = dictionary["total_date"] as? Int
-        favouriteCount = dictionary["favourite_count"] as? Int
-        tourEvents = TourEvent.getTourEvents(dictionary["event_day"] as! [NSDictionary])
+        minCost = Double((dictionary["min_cost"] as? String)!)
+        maxCost = Double((dictionary["max_cost"] as? String)!)
+        provinceId = Int((dictionary["province_id"] as? String)!)
+        totalDay = Int((dictionary["total_date"] as? String)!)
+        favouriteCount = Int((dictionary["favourite_count"] as? String)!)
+        
+        if dictionary["event_day"] != nil {
+            let eventDayDictionary = dictionary["event_day"] as! [NSDictionary]
+            tourEvents = TourEvent.getTourEvents(eventDayDictionary)
+        }
     }
     
     class func getTours(dictionaries: [NSDictionary]) -> [Tour]{

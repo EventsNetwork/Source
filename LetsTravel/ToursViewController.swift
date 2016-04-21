@@ -17,12 +17,16 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         "nature_pic_3.png",
         "nature_pic_4.png"];
     
-    private let hotTours: [Tour]?
+    private var hotTours: [Tour]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hotTours = [Tour]()
+        
         createPageViewController()
         setupPageControl()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,12 +36,8 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         let pageController = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! UIPageViewController
         pageController.dataSource = self
         pageController.view.frame = CGRectMake(0, statusBarHeight + navigationBarHeight!, self.view.frame.width, 300)
-
-        if contentImages.count > 0 {
-            let firstController = getItemController(0)!
-            let startingViewControllers: NSArray = [firstController]
-            pageController.setViewControllers(startingViewControllers as? [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-        }
+        
+        loadData(pageController)
         
         pageViewController = pageController
         addChildViewController(pageViewController!)
@@ -53,12 +53,17 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         appearance.backgroundColor = UIColor.whiteColor()
     }
     
-    private func loadData() {
+    private func loadData(pageController: UIPageViewController) {
         TravelClient.sharedInstance.getHotTours({ (response:[Tour]) -> () in
-            <#code#>
-            }) { (<#NSError#>) -> () in
-                <#code#>
-        }
+            self.hotTours = response
+            if self.hotTours!.count > 0 {
+                let firstController = self.getItemController(0)!
+                let startingViewControllers: NSArray = [firstController]
+                pageController.setViewControllers(startingViewControllers as? [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            }
+        }, failure: { (error: NSError) -> () in
+            print(error.localizedDescription)
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -107,10 +112,17 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
     
     private func getItemController(itemIndex: Int) -> PageItemController? {
         
-        if itemIndex < contentImages.count {
+        if itemIndex < hotTours!.count {
             let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
             pageItemController.itemIndex = itemIndex
-            pageItemController.imageName = contentImages[itemIndex]
+            pageItemController.imageName = contentImages[0]
+            
+            let hotTour = hotTours![itemIndex]
+            
+            pageItemController.desc = hotTour.desc as! String
+            pageItemController.totalDay = String(hotTour.totalDay! as Int)
+            pageItemController.cost = String(hotTour.maxCost! as Double)
+            
             return pageItemController
         }
         
@@ -119,7 +131,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
     
     // MARK: - Page Indicator
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return contentImages.count
+        return hotTours?.count ?? 0
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {

@@ -11,6 +11,8 @@
 		34C386F01CC613ED008B0975 /* PlaceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceSection.swift */; };
 		34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */; };
 		55B9E492369B81B586F11543 /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */; };
+		EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */; };
+		EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
 		EB2F91481CC23D5E0014B3BE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */; };
 		EB2F91491CC23D5E0014B3BE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */; };
@@ -41,6 +43,8 @@
 		4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
 		E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceCell.swift; sourceTree = "<group>"; };
+		EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesViewController.swift; sourceTree = "<group>"; };
 		EB15F3081CC3F11100084060 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		EB2F91431CC23B4B0014B3BE /* LetsTravel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LetsTravel-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20160412/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				EB4FA5551CBDFE1B00F6BD55 /* ToursViewController.swift */,
 				EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */,
 				EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */,
+				EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */,
 				34C386ED1CC5CF56008B0975 /* PlaceCell.swift */,
 				34C386EF1CC613ED008B0975 /* PlaceSection.swift */,
+				EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -319,7 +325,9 @@
 				EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */,
 				EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */,
 				EB4FA5421CBDFA0F00F6BD55 /* User.swift in Sources */,
+				EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */,
 				EB4FA5461CBDFB5700F6BD55 /* PlaceRating.swift in Sources */,
+				EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */,
 				EB4FA5441CBDFA8100F6BD55 /* Place.swift in Sources */,
 				EB4FA5541CBDFDF100F6BD55 /* TutorialsViewController.swift in Sources */,
 				EB4FA54E1CBDFCFF00F6BD55 /* TourFavourite.swift in Sources */,

@@ -20,11 +20,14 @@ class Province: NSObject {
     }
     
     init(dictionary: NSDictionary) {
-        provinceId = dictionary["province_id"] as? Int
+        provinceId = Int((dictionary["province_id"] as? String)!)
         provinceName = dictionary["province_name"] as? String
-        imageUrls = dictionary["image_urls"] as? [String]
-        longitude = dictionary["longitude"] as? Double
-        latitude = dictionary["latitude"] as? Double
+
+        let imageUrlString = dictionary["image_urls"] as? String
+        imageUrls = imageUrlString != nil ? imageUrlString!.characters.split(",").map(String.init) : [""]
+        
+        longitude = Double((dictionary["longitude"] as? String) != nil ? (dictionary["longitude"] as? String)! : "0")
+        latitude = Double((dictionary["latitude"] as? String) != nil ? (dictionary["latitude"] as? String)! : "0")
     }
     
     class func getProvinces(dictionaries: [NSDictionary]) -> [Province]{

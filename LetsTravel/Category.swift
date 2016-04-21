@@ -18,7 +18,7 @@ class Category: NSObject {
     }
     
     init(dictionary: NSDictionary) {
-        categoryId = dictionary["category_id"] as? Int
+        categoryId = Int((dictionary["category_id"] as? String)!)
         categoryName = dictionary["category_name"] as? String
         imageUrl = dictionary["image_url"] as? String
     }

@@ -39,18 +39,21 @@ class Place: NSObject {
     }
     
     init(dictionary: NSDictionary) {
-        placeId = dictionary["place_id"] as? Int
+        placeId = Int((dictionary["place_id"] as? String)!)
         name = dictionary["name"] as? String
-        categoryId = dictionary["category_id"] as? Int
-        minPrice = dictionary["min_price"] as? Double
-        maxPrice = dictionary["max_price"] as? Double
+        categoryId = Int((dictionary["category_id"] as? String)!)
+        minPrice = Double((dictionary["min_price"] as? String)!)
+        maxPrice = Double((dictionary["max_price"] as? String)!)
         address = dictionary["address"] as? String
         desc = dictionary["description"] as? String
-        latitude = dictionary["latitude"] as? Double
-        longitude = dictionary["longitude"] as? Double
-        provinceId = dictionary["province_id"] as? Int
-        imageUrls = dictionary["image_urls"] as? [String]
-        rating = dictionary["rating"] as? Float
+        latitude = Double((dictionary["latitude"] as? String)!)
+        longitude = Double((dictionary["longitude"] as? String)!)
+        provinceId = Int((dictionary["province_id"] as? String)!)
+        
+        let imageUrlString = dictionary["image_urls"] as? String
+        imageUrls = imageUrlString?.characters.split(",").map(String.init)
+        
+        rating = Float((dictionary["rating"] as? String)!)
     }
 }
 

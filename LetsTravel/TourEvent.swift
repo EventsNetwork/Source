@@ -22,13 +22,13 @@ class TourEvent: NSObject {
     }
     
     init(dictionary: NSDictionary) {
-        id = dictionary["id"] as? Int
-        tourId = dictionary["tour_id"] as? Int
-        dayOrder = dictionary["day_order"] as? Int
-        placeId = dictionary["place_id"] as? Int
+        id = Int((dictionary["id"] as? String)!)
+        tourId = Int((dictionary["tour_id"] as? String)!)
+        dayOrder = Int((dictionary["day_order"] as? String)!)
+        placeId = Int((dictionary["place_id"] as? String)!)
         placeName = dictionary["place_name"] as? String
-        startTime = dictionary["start_time"] as? Int
-        endTime = dictionary["end_time"] as? Int
+        startTime = Int((dictionary["start_time"] as? String)!)
+        endTime = Int((dictionary["end_time"] as? String)!)
     }
     
     class func getTourEvents(dictionaries: [NSDictionary]) -> [TourEvent]{

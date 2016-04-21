@@ -10,15 +10,36 @@ import UIKit
 
 class PlaceDetailViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var costView: UIView!
+    @IBOutlet weak var descriptionView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        initView()
         // Do any additional setup after loading the view.
+    }
+    
+    private func initView() {
+        let scrollViewHeight = posterImage.frame.size.height + costView.frame.size.height + descriptionView.frame.size.height
+        
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: scrollViewHeight)
+        
+//        scrollView.frame = CGRect(origin: scrollView.frame.origin, size: CGSize(width: scrollView.frame.size.width, height: scrollViewHeight))
+//        
+//        view.setNeedsLayout()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        initView()
     }
     
 
