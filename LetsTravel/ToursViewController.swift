@@ -55,6 +55,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
     
     private func loadData(pageController: UIPageViewController) {
         TravelClient.sharedInstance.getHotTours({ (response:[Tour]) -> () in
+
             self.hotTours = response
             if self.hotTours!.count > 0 {
                 let firstController = self.getItemController(0)!

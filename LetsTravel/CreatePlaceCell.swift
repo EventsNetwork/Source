@@ -13,6 +13,8 @@ enum PlaceOption: Int {
     case Eat
     case Go
     case Rest
+    
+    static let allValues = [Play, Eat, Go, Rest]
 }
 
 @objc protocol CreatePlaceCellDelegate {

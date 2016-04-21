@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BDBOAuth1Manager
+import AFNetworking
 
 let TravelClientSharedInstance = TravelClient()
 
@@ -82,16 +82,16 @@ class TravelClient: NSObject {
     }
     
     // Search places with category and province
-    func searchPlaceViaCategoryAndProvince(provinceId: String, categoryId: String, placeName: String, success: (Tour) -> (), failure: (NSError) -> ()) {
+    func searchPlaceViaCategoryAndProvince(provinceId: String, categoryId: String, placeName: String, success: ([Place]) -> (), failure: (NSError) -> ()) {
         
         let postData = ["province_id":provinceId, "category_id":categoryId, "place_name":placeName]
         let params = ["command": "U_PLACE_SEARCH_CATEGORY", "data" : postData]
         
         self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
-            let tourDictionary = self.fetchData(response as! NSDictionary)
-            if (tourDictionary != nil) {
-                let tour = Tour(dictionary: tourDictionary!)
-                success(tour)
+            let placesDictionary = self.fetchDataWithArray(response as! NSDictionary)
+            if (placesDictionary != nil) {
+                let places = Place.getPlaces(placesDictionary!)
+                success(places)
             } else {
                 failure(self.generateError(response!))
             }
@@ -169,6 +169,27 @@ class TravelClient: NSObject {
         })
     }
     
+    func getPlaces(success: ([Place]) -> (), failure: (NSError) -> ()) {
+        let postData = ["tour_id": ""]
+        let params = ["command": "Some Api", "data" : postData]
+        
+        var places = [Place]()
+        places.append(Place(name: "a", categoryId: 0, minPrice: 1, maxPrice: 1, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0))
+        success(places)
+        
+        
+//        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
+//            let placeDictionaries = self.fetchDataWithArray(response as! NSDictionary)
+//            if (placeDictionaries != nil) {
+//                let places = Place.getPlaces(placeDictionaries!)
+//                success(places)
+//            } else {
+//                failure(self.generateError(response!))
+//            }
+//            }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
+//                failure(error)
+//        })
+    }
     
 }
 
