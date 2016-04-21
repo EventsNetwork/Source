@@ -14,7 +14,13 @@ import UIKit
 
 class PlaceCell: UITableViewCell {
     
-    var place: Place!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var place: Place! {
+        didSet {
+            nameLabel.text = place.name
+        }
+    }
     
     //weak var delegate: PlaceCellDelegate?
     

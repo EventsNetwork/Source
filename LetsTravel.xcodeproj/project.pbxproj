@@ -11,6 +11,9 @@
 		34B6C5E91CC72796003D58FA /* FilteredPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */; };
 		34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386ED1CC5CF56008B0975 /* PlaceCell.swift */; };
 		34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */; };
+		34E8FBC61CC90E100002DEE9 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */; };
+		34E8FBC71CC90E100002DEE9 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */; };
+		34E8FBC91CC91E0C0002DEE9 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */; };
 		34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */; };
 		4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
@@ -41,6 +44,9 @@
 		34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredPlacesViewController.swift; sourceTree = "<group>"; };
 		34C386ED1CC5CF56008B0975 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineSection.swift; sourceTree = "<group>"; };
+		34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
+		34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlaceCell.swift; sourceTree = "<group>"; };
 		65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +100,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		344F56A61CC7B9CF001DBCF4 /* PlacesPopup */ = {
+			isa = PBXGroup;
+			children = (
+				34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */,
+				34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */,
+			);
+			name = PlacesPopup;
+			sourceTree = "<group>";
+		};
 		34B6C5E61CC72738003D58FA /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				34C386ED1CC5CF56008B0975 /* PlaceCell.swift */,
+				34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */,
 			);
 			name = FilteredPlaces;
 			sourceTree = "<group>";
@@ -204,6 +220,7 @@
 		EB4FA5401CBDF16000F6BD55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				344F56A61CC7B9CF001DBCF4 /* PlacesPopup */,
 				34B6C5E71CC7274A003D58FA /* FilteredPlaces */,
 				34B6C5E61CC72738003D58FA /* Timeline */,
 				EB15F3081CC3F11100084060 /* PageItemController.swift */,
@@ -276,6 +293,8 @@
 				EB3DE4CB1CBAC6B800B84394 /* LaunchScreen.storyboard in Resources */,
 				EB3DE4C81CBAC6B800B84394 /* Assets.xcassets in Resources */,
 				EB3DE4C61CBAC6B800B84394 /* Main.storyboard in Resources */,
+				34E8FBC91CC91E0C0002DEE9 /* PlaceCell.xib in Resources */,
+				34E8FBC71CC90E100002DEE9 /* PopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +364,7 @@
 				EB4FA5441CBDFA8100F6BD55 /* Place.swift in Sources */,
 				EB4FA5541CBDFDF100F6BD55 /* TutorialsViewController.swift in Sources */,
 				EB4FA54E1CBDFCFF00F6BD55 /* TourFavourite.swift in Sources */,
+				34E8FBC61CC90E100002DEE9 /* PopupViewController.swift in Sources */,
 				34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */,
 				34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */,
 				EB4FA55A1CBDFE3D00F6BD55 /* PlaceDetailViewController.swift in Sources */,

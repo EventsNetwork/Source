@@ -137,20 +137,41 @@ extension TimelineViewController: UITableViewDelegate {
     }
 }
 
-extension TimelineViewController: CreatePlaceCellDelegate {
+extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentationControllerDelegate, PopupViewControllerDelegate {
     func choosePlaceOption(cell: UITableViewCell) {
+        
+        let vc = PopupViewController(nibName: "PopupViewController", bundle: nil)
+        vc.modalPresentationStyle = .Popover
+        vc.preferredContentSize = CGSizeMake(250, 300)
+        
         let indexPath = tableView.indexPathForCell(cell)!
-        let place = Place(name: "", categoryId: 0, minPrice: 0, maxPrice: 0, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0)
+        
+        let popoverVC = vc.popoverPresentationController
+        popoverVC?.permittedArrowDirections = .Any
+        popoverVC?.delegate = self
+        popoverVC?.sourceView = cell
+        popoverVC?.sourceRect = CGRect(x: 0, y: 100, width: 1, height: 1)
+        
+        vc.section = indexPath.section
+        vc.delegate = self
+        
+        presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
+    func didSelectPlace(place: Place, section: Int) {
         if placesToGo.count == 0 {
             placesToGo.append([place])
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
         } else {
-            placesToGo[indexPath.section].append(place)
-            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+            placesToGo[section].append(place)
+            tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
         }
-       // currentSection = indexPath.section
-       // performSegueWithIdentifier("timelineFilterModalSegue", sender: nil)
         
+        self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
