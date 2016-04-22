@@ -72,11 +72,12 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onLogoutClick(sender: UIButton) {
+    @IBAction func onLogoutClick(sender: UIBarButtonItem) {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
         TravelClient.sharedInstance.logout()
     }
+    
 
     /*
     // MARK: - Navigation
