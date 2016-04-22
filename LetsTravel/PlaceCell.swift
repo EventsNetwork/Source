@@ -14,11 +14,17 @@ import UIKit
 
 class PlaceCell: UITableViewCell {
     
+    @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     var place: Place! {
         didSet {
             nameLabel.text = place.name
+            if let imgUrls = place.imageUrls where imgUrls.count > 0 {
+                placeImageView.setImageWithURL(NSURL(string: imgUrls[0])!, placeholderImage: UIImage(named: "placeholder"))
+            } else {
+                placeImageView.image = UIImage(named: "placeholder")
+            }
         }
     }
     
@@ -27,6 +33,7 @@ class PlaceCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

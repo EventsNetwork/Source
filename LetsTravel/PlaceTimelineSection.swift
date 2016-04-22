@@ -40,8 +40,10 @@ class PlaceTimelineSection: UIView {
         let button = UIButton(frame: CGRectMake(frame.size.width - 100, 5, 100, 30))
         label.text = text
         button.titleLabel?.font.fontWithSize(14)
-        button.titleLabel?.textColor = UIColor.blackColor()
-        button.setTitle("Remove", forState: UIControlState.Normal)
+        //button.titleLabel?.textColor = UIColor.blackColor()
+        //button.setTitle("Remove", forState: UIControlState.Normal)
+        button.setImage(UIImage(named: "cross"), forState: .Normal)
+        
         button.addTarget(self, action: #selector(self.buttonHeaderClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         insertSubview(label, atIndex: 0)

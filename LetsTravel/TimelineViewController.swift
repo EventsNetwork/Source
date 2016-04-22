@@ -9,6 +9,10 @@
 import UIKit
 import ActionSheetPicker_3_0
 
+class TimeLineTableView: UITableView {
+    
+}
+
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateStartTextField: UITextField!
@@ -45,9 +49,7 @@ class TimelineViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let navigationController = segue.destinationViewController as! UINavigationController
-        let vc = navigationController.viewControllers[0] as! FilteredPlacesViewController
-        vc.delegate = self
+        
     }
 }
 
@@ -62,7 +64,7 @@ extension TimelineViewController: UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.separatorColor = UIColor.whiteColor()
+        //tableView.separatorColor = UIColor.whiteColor()
         
         tableView.tableFooterView = UIView()
         
@@ -87,6 +89,7 @@ extension TimelineViewController: UITableViewDataSource {
         if placesToGo.count > indexPath.section && placesToGo[indexPath.section].count > indexPath.row {
             let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTimelineCell") as! PlaceTimelineCell
             cell.delegate = self
+            cell.place = placesToGo[indexPath.section][indexPath.row]
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("CreatePlaceCell") as! CreatePlaceCell
@@ -95,30 +98,31 @@ extension TimelineViewController: UITableViewDataSource {
         }
     }
     
+    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        cell.contentView.backgroundColor = UIColor.clearColor()
-        
-        var whiteRoundedCornerView:UIView!
-        whiteRoundedCornerView = UIView(frame: CGRectMake(5, 10, self.view.bounds.width-10, 120))
-        whiteRoundedCornerView.backgroundColor = UIColor.lightGrayColor()
-        //whiteRoundedCornerView.backgroundColor = UIColor(red: 174/255.0, green: 174/255.0, blue: 174/255.0, alpha: 1.0)
-        whiteRoundedCornerView.layer.masksToBounds = false
-        
-        whiteRoundedCornerView.layer.shadowOpacity = 1.55;
-        
-        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(1, 0);
-        
-        whiteRoundedCornerView.layer.shadowColor = UIColor.lightGrayColor().CGColor
-        
-        //whiteRoundedCornerView.layer.shadowColor = UIColor(red: 53/255.0, green: 143/255.0, blue: 185/255.0, alpha: 1.0).CGColor
-        
-        whiteRoundedCornerView.layer.cornerRadius = 3.0
-        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(-1, -1)
-        whiteRoundedCornerView.layer.shadowOpacity = 0.5
-        
-        cell.contentView.addSubview(whiteRoundedCornerView)
-        cell.contentView.sendSubviewToBack(whiteRoundedCornerView)
+//        cell.contentView.backgroundColor = UIColor.clearColor()
+//        
+//        var whiteRoundedCornerView:UIView!
+//        whiteRoundedCornerView = UIView(frame: CGRectMake(5, 10, self.view.bounds.width-10, 120))
+//        whiteRoundedCornerView.backgroundColor = UIColor.lightGrayColor()
+//        //whiteRoundedCornerView.backgroundColor = UIColor(red: 174/255.0, green: 174/255.0, blue: 174/255.0, alpha: 1.0)
+//        whiteRoundedCornerView.layer.masksToBounds = false
+//        
+//        whiteRoundedCornerView.layer.shadowOpacity = 1.55;
+//        
+//        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(1, 0);
+//        
+//        whiteRoundedCornerView.layer.shadowColor = UIColor.lightGrayColor().CGColor
+//        
+//        //whiteRoundedCornerView.layer.shadowColor = UIColor(red: 53/255.0, green: 143/255.0, blue: 185/255.0, alpha: 1.0).CGColor
+//        
+//        whiteRoundedCornerView.layer.cornerRadius = 3.0
+//        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(-1, -1)
+//        whiteRoundedCornerView.layer.shadowOpacity = 0.5
+//        
+//        cell.contentView.addSubview(whiteRoundedCornerView)
+//        cell.contentView.sendSubviewToBack(whiteRoundedCornerView)
         
     }
 
@@ -142,7 +146,7 @@ extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentation
         
         let vc = PopupViewController(nibName: "PopupViewController", bundle: nil)
         vc.modalPresentationStyle = .Popover
-        vc.preferredContentSize = CGSizeMake(250, 300)
+        vc.preferredContentSize = CGSizeMake(300, 300)
         
         let indexPath = tableView.indexPathForCell(cell)!
         
@@ -188,13 +192,5 @@ extension TimelineViewController: PlaceTimelineCellDelegate {
         placesToGo[indexPath.section].removeAtIndex(indexPath.row)
         let sections = NSIndexSet(index: indexPath.section)
         tableView.reloadSections(sections, withRowAnimation: UITableViewRowAnimation.Automatic)
-    }
-}
-
-extension TimelineViewController: FilteredPlacesViewControllerDelegate {
-    func selectPlacesDone(places: [Place]) {
-        placesToGo[currentSection].appendContentsOf(places)
-        //tableView.reloadData()
-        tableView.reloadSections(NSIndexSet(index: currentSection), withRowAnimation: .Automatic)
     }
 }
