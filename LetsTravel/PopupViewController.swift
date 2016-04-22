@@ -27,6 +27,8 @@ class PopupViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.registerNib(UINib(nibName: "PlaceCell", bundle: nil), forCellReuseIdentifier: "PlaceCell")
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         fetchPlaces()
     }
