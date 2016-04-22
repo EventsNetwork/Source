@@ -15,10 +15,9 @@
 		34E8FBC71CC90E100002DEE9 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */; };
 		34E8FBC91CC91E0C0002DEE9 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */; };
 		34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */; };
-		55B9E492369B81B586F11543 /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */; };
+		4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */; };
 		EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */; };
 		EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */; };
-		4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
 		EB2F91481CC23D5E0014B3BE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */; };
 		EB2F91491CC23D5E0014B3BE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */; };
@@ -51,13 +50,10 @@
 		34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlaceCell.swift; sourceTree = "<group>"; };
-		4DEAA45D8E300702AF4D9E14 /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67359C265FA80C1DA1C8D97E /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
-		E51C73DB49878EB53855FED0 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
-		EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceCell.swift; sourceTree = "<group>"; };
-		EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesViewController.swift; sourceTree = "<group>"; };
 		65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceCell.swift; sourceTree = "<group>"; };
+		EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesViewController.swift; sourceTree = "<group>"; };
 		EB15F3081CC3F11100084060 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		EB2F91431CC23B4B0014B3BE /* LetsTravel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LetsTravel-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20160412/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
@@ -121,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */,
-				34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */,
 				34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */,
+				34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -233,9 +229,6 @@
 				34B6C5E71CC7274A003D58FA /* FilteredPlaces */,
 				34B6C5E61CC72738003D58FA /* Timeline */,
 				EB15F3081CC3F11100084060 /* PageItemController.swift */,
-				34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */,
-				34C386ED1CC5CF56008B0975 /* PlaceCell.swift */,
-				34C386EF1CC613ED008B0975 /* PlaceSection.swift */,
 				EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */,
 			);
 			name = Views;
