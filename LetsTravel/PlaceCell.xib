@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="409" height="92"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99u-Dr-C9D">
+                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99u-Dr-C9D">
                     <rect key="frame" x="369" y="30" width="32" height="32"/>
                     <state key="normal" image="info"/>
                 </button>
@@ -22,7 +22,7 @@
                         <constraint firstAttribute="width" constant="40" id="JLb-Ke-G2I"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG3-6q-cXg">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG3-6q-cXg">
                     <rect key="frame" x="53" y="35" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,6 +37,7 @@
                 <constraint firstItem="hG3-6q-cXg" firstAttribute="leading" secondItem="bdT-95-Qvm" secondAttribute="trailing" constant="5" id="jLZ-5z-Fuo"/>
                 <constraint firstItem="bdT-95-Qvm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mfz-Ap-eGd"/>
                 <constraint firstItem="99u-Dr-C9D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="x8q-Hp-Jqy"/>
+                <constraint firstItem="99u-Dr-C9D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hG3-6q-cXg" secondAttribute="trailing" constant="8" id="zei-0l-G5l"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
