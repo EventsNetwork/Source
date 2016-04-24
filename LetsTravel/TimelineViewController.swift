@@ -64,6 +64,8 @@ extension TimelineViewController: UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
         tableView.separatorColor = UIColor.whiteColor()
         
         tableView.tableFooterView = UIView()
@@ -87,12 +89,13 @@ extension TimelineViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if placesToGo.count > indexPath.section && placesToGo[indexPath.section].count > indexPath.row {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTimelineCell") as! PlaceTimelineCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTimelineCell", forIndexPath: indexPath) as! PlaceTimelineCell
             cell.delegate = self
             cell.place = placesToGo[indexPath.section][indexPath.row]
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CreatePlaceCell") as! CreatePlaceCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("CreatePlaceCell", forIndexPath: indexPath) as! CreatePlaceCell
+            cell.hideOptions()
             cell.delegate = self
             return cell
         }

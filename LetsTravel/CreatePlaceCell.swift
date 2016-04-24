@@ -43,6 +43,14 @@ class CreatePlaceCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func hideOptions() {
+        self.placeOptionsParentView.hidden = true
+        let subviews = placeOptionsView.subviews
+        for view in subviews {
+            view.hidden = true
+        }
+    }
 
     @IBAction func newPlaceClick(sender: UIButton) {
         let subviews = placeOptionsView.subviews
