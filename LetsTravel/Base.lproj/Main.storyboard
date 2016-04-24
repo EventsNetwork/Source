@@ -499,14 +499,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGz-3M-ufi">
-                                                    <rect key="frame" x="287" y="21" width="25" height="25"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGz-3M-ufi">
+                                                    <rect key="frame" x="287" y="22.5" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="X8A-ol-iqZ"/>
                                                         <constraint firstAttribute="height" constant="25" id="oHv-lB-JKK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <state key="normal" image="cross"/>
+                                                    <color key="tintColor" red="0.86965144230000002" green="0.21517355469999999" blue="0.17823028599999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" image="minus"/>
                                                     <connections>
                                                         <action selector="removeClick:" destination="IgF-Zb-ODZ" eventType="touchUpInside" id="hIh-mD-gMR"/>
                                                     </connections>
@@ -853,11 +854,11 @@
         <image name="add" width="48" height="48"/>
         <image name="arrows" width="256" height="256"/>
         <image name="circle16" width="16" height="16"/>
-        <image name="cross" width="32" height="32"/>
         <image name="food" width="128" height="128"/>
         <image name="hotel" width="48" height="48"/>
         <image name="local_restaurant" width="48" height="48"/>
         <image name="login_background" width="349" height="621"/>
+        <image name="minus" width="48" height="48"/>
         <image name="temple" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
