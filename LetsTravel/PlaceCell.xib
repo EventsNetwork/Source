@@ -16,14 +16,14 @@
                     <state key="normal" image="info"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bdT-95-Qvm">
-                    <rect key="frame" x="8" y="21" width="50" height="50"/>
+                    <rect key="frame" x="8" y="26" width="40" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="6c8-9U-LDc"/>
-                        <constraint firstAttribute="width" constant="50" id="JLb-Ke-G2I"/>
+                        <constraint firstAttribute="height" constant="40" id="6c8-9U-LDc"/>
+                        <constraint firstAttribute="width" constant="40" id="JLb-Ke-G2I"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG3-6q-cXg">
-                    <rect key="frame" x="63" y="35" width="42" height="21"/>
+                    <rect key="frame" x="53" y="35" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>

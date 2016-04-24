@@ -142,7 +142,7 @@ extension TimelineViewController: UITableViewDelegate {
 }
 
 extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentationControllerDelegate, PopupViewControllerDelegate {
-    func choosePlaceOption(cell: UITableViewCell) {
+    func choosePlaceOption(cell: UITableViewCell, sender: UIButton) {
         
         let vc = PopupViewController(nibName: "PopupViewController", bundle: nil)
         vc.modalPresentationStyle = .Popover
@@ -151,10 +151,11 @@ extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentation
         let indexPath = tableView.indexPathForCell(cell)!
         
         let popoverVC = vc.popoverPresentationController
-        popoverVC?.permittedArrowDirections = .Any
+        
+        popoverVC?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         popoverVC?.delegate = self
         popoverVC?.sourceView = cell
-        popoverVC?.sourceRect = CGRect(x: 0, y: 100, width: 1, height: 1)
+        //popoverVC?.sourceRect = CGRect(x: 0, y: cell.frame.origin.y, width: 1, height: 1)
         
         vc.section = indexPath.section
         vc.delegate = self

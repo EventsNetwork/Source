@@ -33,6 +33,8 @@ class PlaceCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        placeImageView.layer.cornerRadius = 5
+        //placeImageView.layer.borderWidth = 1
         
     }
 

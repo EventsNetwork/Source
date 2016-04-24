@@ -431,28 +431,29 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="OWZ-1w-d4w">
                                                             <rect key="frame" x="8" y="5" width="184" height="30"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTb-Z3-Prt">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTb-Z3-Prt">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                                     <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <state key="normal" title="Go"/>
+                                                                    <state key="normal" title="Food"/>
                                                                     <connections>
                                                                         <action selector="choosePlaceOption:" destination="LZC-zK-9QB" eventType="touchUpInside" id="fhU-zN-tzh"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ4-pN-Rod">
-                                                                    <rect key="frame" x="47" y="0.0" width="43.5" height="30"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ4-pN-Rod">
+                                                                    <rect key="frame" x="63" y="0.0" width="59" height="30"/>
                                                                     <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <state key="normal" title="Eat"/>
+                                                                    <state key="normal" title="Hotel"/>
+                                                                    <connections>
+                                                                        <action selector="choosePlaceOption:" destination="LZC-zK-9QB" eventType="touchUpInside" id="JUn-TA-Jgg"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-DY-OQV">
-                                                                    <rect key="frame" x="93" y="0.0" width="44" height="30"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E6-DY-OQV">
+                                                                    <rect key="frame" x="125" y="0.0" width="60" height="30"/>
                                                                     <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <state key="normal" title="Play"/>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS5-nQ-jVL">
-                                                                    <rect key="frame" x="140" y="0.0" width="43.5" height="30"/>
-                                                                    <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <state key="normal" title="Rest"/>
+                                                                    <connections>
+                                                                        <action selector="choosePlaceOption:" destination="LZC-zK-9QB" eventType="touchUpInside" id="86f-qN-tdj"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86965144230000002" green="0.21517355469999999" blue="0.17823028599999999" alpha="1" colorSpace="calibratedRGB"/>
