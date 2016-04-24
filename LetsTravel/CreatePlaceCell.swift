@@ -35,8 +35,7 @@ class CreatePlaceCell: UITableViewCell {
         
         placeOptionsParentView.layer.cornerRadius = 10
         placeOptionsParentView.clipsToBounds = true
-        
-    
+        layoutMargins = UIEdgeInsetsZero
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

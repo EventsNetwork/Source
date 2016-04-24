@@ -64,7 +64,7 @@ extension TimelineViewController: UITableViewDataSource {
         tableView.dataSource = self
         tableView.delegate = self
         
-        //tableView.separatorColor = UIColor.whiteColor()
+        tableView.separatorColor = UIColor.whiteColor()
         
         tableView.tableFooterView = UIView()
         
@@ -131,11 +131,11 @@ extension TimelineViewController: UITableViewDataSource {
 
 extension TimelineViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 30
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = PlaceTimelineSection(section: section, frame: CGRectMake(0, 0, tableView.frame.size.width, 30))
+        let view = PlaceTimelineSection(section: section, frame: CGRectMake(0, 0, tableView.frame.size.width, 25))
         view.delegate = self
         return view;
     }
