@@ -16,9 +16,12 @@ class PlaceTimelineCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     
+    @IBOutlet weak var descLabel: UILabel!
+    
     var place: Place! {
         didSet {
             nameLabel.text = place.name
+            descLabel.text = place.desc
             if let imgUrls = place.imageUrls where imgUrls.count > 0 {
                 placeImageView.setImageWithURL(NSURL(string: imgUrls[0])!, placeholderImage: UIImage(named: "placeholder"))
             } else {

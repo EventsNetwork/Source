@@ -518,12 +518,6 @@
                                                         <constraint firstAttribute="width" constant="60" id="wV0-TF-Rsb"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5U-0h-AaR">
-                                                    <rect key="frame" x="93" y="24" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.32156862745098036" green="0.74901960784313726" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNx-Zi-x6v" userLabel="Path View">
                                                     <rect key="frame" x="12" y="0.0" width="1" height="69.5"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -542,8 +536,22 @@
                                                         <color key="titleColor" red="0.32156862749999998" green="0.74901960779999999" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQL-uD-Eq2" userLabel="Desc Label">
+                                                    <rect key="frame" x="93" y="36" width="189" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5U-0h-AaR">
+                                                    <rect key="frame" x="93" y="10" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.32156862745098036" green="0.74901960784313726" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="rGz-3M-ufi" firstAttribute="leading" secondItem="AQL-uD-Eq2" secondAttribute="trailing" constant="5" id="Cle-KX-pOI"/>
+                                                <constraint firstItem="AQL-uD-Eq2" firstAttribute="leading" secondItem="23C-tw-a0A" secondAttribute="trailing" constant="5" id="ITG-C9-We0"/>
                                                 <constraint firstItem="M5U-0h-AaR" firstAttribute="centerY" secondItem="y18-Ex-ZUl" secondAttribute="centerY" id="OFP-YC-9tt"/>
                                                 <constraint firstItem="iNx-Zi-x6v" firstAttribute="height" secondItem="y18-Ex-ZUl" secondAttribute="height" id="OIV-hi-CIk"/>
                                                 <constraint firstAttribute="trailing" secondItem="rGz-3M-ufi" secondAttribute="trailing" constant="8" id="SKp-7W-the"/>
@@ -553,20 +561,24 @@
                                                 <constraint firstItem="iNx-Zi-x6v" firstAttribute="top" secondItem="y18-Ex-ZUl" secondAttribute="top" id="ZEb-p3-4B8"/>
                                                 <constraint firstAttribute="bottom" secondItem="iNx-Zi-x6v" secondAttribute="bottom" id="b3O-fK-x4G"/>
                                                 <constraint firstItem="M5U-0h-AaR" firstAttribute="leading" secondItem="y18-Ex-ZUl" secondAttribute="leading" constant="8" id="bP3-Qw-LEh"/>
+                                                <constraint firstItem="AQL-uD-Eq2" firstAttribute="top" secondItem="M5U-0h-AaR" secondAttribute="bottom" constant="5" id="e2q-k2-B84"/>
                                                 <constraint firstItem="hzZ-Rh-Ghb" firstAttribute="leading" secondItem="y18-Ex-ZUl" secondAttribute="leading" constant="8" id="fvR-o8-Ocz"/>
                                                 <constraint firstItem="iNx-Zi-x6v" firstAttribute="leading" secondItem="y18-Ex-ZUl" secondAttribute="leading" constant="12" id="kZU-Xb-Ep9"/>
                                                 <constraint firstItem="23C-tw-a0A" firstAttribute="centerY" secondItem="y18-Ex-ZUl" secondAttribute="centerY" id="sso-t8-zOp"/>
                                                 <constraint firstItem="hzZ-Rh-Ghb" firstAttribute="centerY" secondItem="y18-Ex-ZUl" secondAttribute="centerY" id="uzk-I4-qxB"/>
+                                                <constraint firstItem="M5U-0h-AaR" firstAttribute="top" secondItem="y18-Ex-ZUl" secondAttribute="top" constant="10" id="vQS-EK-BqT"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="OIV-hi-CIk"/>
+                                                    <exclude reference="OFP-YC-9tt"/>
                                                     <exclude reference="bP3-Qw-LEh"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92026493369999995" green="0.92026493369999995" blue="0.92026493369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="descLabel" destination="AQL-uD-Eq2" id="WZG-Mo-aL6"/>
                                             <outlet property="nameLabel" destination="M5U-0h-AaR" id="FHP-BD-sxf"/>
                                             <outlet property="placeImageView" destination="23C-tw-a0A" id="cTe-IA-I79"/>
                                         </connections>
