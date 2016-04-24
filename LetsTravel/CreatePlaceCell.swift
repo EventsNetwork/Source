@@ -32,6 +32,9 @@ class CreatePlaceCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        placeOptionsParentView.layer.cornerRadius = 10
+        placeOptionsParentView.clipsToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

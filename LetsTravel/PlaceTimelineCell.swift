@@ -32,6 +32,8 @@ class PlaceTimelineCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        placeImageView.layer.cornerRadius = 10
  //       self.backgroundColor = UIColor.lightGrayColor()
         
 //        let transparent = UIColor.init(white: 0, alpha: 0).CGColor
