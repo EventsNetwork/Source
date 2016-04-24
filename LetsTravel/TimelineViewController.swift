@@ -67,7 +67,7 @@ extension TimelineViewController: UITableViewDataSource {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        tableView.separatorColor = UIColor.whiteColor()
+        tableView.separatorColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0)
         
         tableView.tableFooterView = UIView()
         

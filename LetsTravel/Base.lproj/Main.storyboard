@@ -479,7 +479,7 @@
                                                 <constraint firstItem="pkY-45-yWT" firstAttribute="leading" secondItem="2gD-el-g7w" secondAttribute="trailing" constant="8" id="iCZ-ze-Gcb"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="newPlaceButton" destination="2gD-el-g7w" id="gsE-Eb-dOg"/>
                                             <outlet property="placeOptionsParentView" destination="pkY-45-yWT" id="HAT-L3-RIL"/>
@@ -575,7 +575,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.92026493369999995" green="0.92026493369999995" blue="0.92026493369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="descLabel" destination="AQL-uD-Eq2" id="WZG-Mo-aL6"/>
                                             <outlet property="nameLabel" destination="M5U-0h-AaR" id="FHP-BD-sxf"/>
