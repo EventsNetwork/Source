@@ -17,6 +17,8 @@ class ProvincesViewController: UIViewController {
     var provinces: [Province]!
     var filterProvinces: [Province]!
     
+    var selectedProvince: Province?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,15 +66,18 @@ class ProvincesViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let vc = segue.destinationViewController as! TimelineViewController
+        vc.province = selectedProvince
     }
-    */
+    
 
 }
 
@@ -135,6 +140,13 @@ extension ProvincesViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let province = provinces[indexPath.row]
+        selectedProvince = province
+        performSegueWithIdentifier("toTimelineSegue", sender: nil)
+    }
+    
 }
 
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		34B6C5E51CC725A1003D58FA /* PlaceTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */; };
-		34B6C5E91CC72796003D58FA /* FilteredPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */; };
 		34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386ED1CC5CF56008B0975 /* PlaceCell.swift */; };
 		34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */; };
 		34E8FBC61CC90E100002DEE9 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */; };
@@ -43,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineCell.swift; sourceTree = "<group>"; };
-		34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredPlacesViewController.swift; sourceTree = "<group>"; };
 		34C386ED1CC5CF56008B0975 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineSection.swift; sourceTree = "<group>"; };
 		34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */,
 				EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */,
 				EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */,
-				34B6C5E81CC72796003D58FA /* FilteredPlacesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -377,7 +374,6 @@
 				34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */,
 				EB4FA55A1CBDFE3D00F6BD55 /* PlaceDetailViewController.swift in Sources */,
 				EB4FA55E1CBDFFC700F6BD55 /* TravelClient.swift in Sources */,
-				34B6C5E91CC72796003D58FA /* FilteredPlacesViewController.swift in Sources */,
 				EB4FA5581CBDFE2900F6BD55 /* TimelineViewController.swift in Sources */,
 				EB4FA54C1CBDFCCD00F6BD55 /* Category.swift in Sources */,
 				EB4FA5501CBDFD3F00F6BD55 /* Province.swift in Sources */,

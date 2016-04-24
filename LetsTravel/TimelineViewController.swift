@@ -20,6 +20,7 @@ class TimelineViewController: UIViewController {
     var placesToGo = [[Place]]()
     
     var currentSection = 0
+    var province: Province?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,35 +102,6 @@ extension TimelineViewController: UITableViewDataSource {
         }
     }
     
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-//        cell.contentView.backgroundColor = UIColor.clearColor()
-//        
-//        var whiteRoundedCornerView:UIView!
-//        whiteRoundedCornerView = UIView(frame: CGRectMake(5, 10, self.view.bounds.width-10, 120))
-//        whiteRoundedCornerView.backgroundColor = UIColor.lightGrayColor()
-//        //whiteRoundedCornerView.backgroundColor = UIColor(red: 174/255.0, green: 174/255.0, blue: 174/255.0, alpha: 1.0)
-//        whiteRoundedCornerView.layer.masksToBounds = false
-//        
-//        whiteRoundedCornerView.layer.shadowOpacity = 1.55;
-//        
-//        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(1, 0);
-//        
-//        whiteRoundedCornerView.layer.shadowColor = UIColor.lightGrayColor().CGColor
-//        
-//        //whiteRoundedCornerView.layer.shadowColor = UIColor(red: 53/255.0, green: 143/255.0, blue: 185/255.0, alpha: 1.0).CGColor
-//        
-//        whiteRoundedCornerView.layer.cornerRadius = 3.0
-//        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(-1, -1)
-//        whiteRoundedCornerView.layer.shadowOpacity = 0.5
-//        
-//        cell.contentView.addSubview(whiteRoundedCornerView)
-//        cell.contentView.sendSubviewToBack(whiteRoundedCornerView)
-        
-    }
-
-    
 }
 
 extension TimelineViewController: UITableViewDelegate {
@@ -158,9 +130,9 @@ extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentation
         popoverVC?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         popoverVC?.delegate = self
         popoverVC?.sourceView = cell
-        //popoverVC?.sourceRect = CGRect(x: 0, y: cell.frame.origin.y, width: 1, height: 1)
         
         vc.section = indexPath.section
+        vc.province = province
         vc.delegate = self
         
         presentViewController(vc, animated: true, completion: nil)

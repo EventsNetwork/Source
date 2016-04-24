@@ -27,13 +27,6 @@
                                 </constraints>
                                 <state key="normal" title="Continue with Facebook"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imM-c0-LQw">
-                                <rect key="frame" x="135" y="308" width="30" height="30"/>
-                                <state key="normal" title="Skip"/>
-                                <connections>
-                                    <segue destination="Iii-ma-jWv" kind="show" id="htW-X8-Hv0"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -197,7 +190,6 @@
                                         <connections>
                                             <outlet property="posterView" destination="i1E-jc-BP3" id="28b-RU-v1n"/>
                                             <outlet property="provinceName" destination="dfE-PP-fpk" id="P2W-l4-H9k"/>
-                                            <segue destination="4iW-M0-fm5" kind="show" id="M6e-W5-PBP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -223,6 +215,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="UGl-uh-RIk" id="7u9-k9-0Dk"/>
+                        <segue destination="4iW-M0-fm5" kind="show" identifier="toTimelineSegue" id="1ce-2C-U9y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtW-Zi-W92" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -866,7 +859,4 @@
         <image name="minus" width="48" height="48"/>
         <image name="temple" width="48" height="48"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ek7-MS-Kpk"/>
-    </inferredMetricsTieBreakers>
 </document>

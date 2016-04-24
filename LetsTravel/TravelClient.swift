@@ -82,7 +82,7 @@ class TravelClient: NSObject {
     }
     
     // Search places with category and province
-    func searchPlaceViaCategoryAndProvince(provinceId: String, categoryId: String, placeName: String, success: ([Place]) -> (), failure: (NSError) -> ()) {
+    func searchPlaceViaCategoryAndProvince(provinceId: Int, categoryId: String, placeName: String, success: ([Place]) -> (), failure: (NSError) -> ()) {
         
         let postData = ["province_id":provinceId, "category_id":categoryId, "place_name":placeName]
         let params = ["command": "U_PLACE_SEARCH_CATEGORY", "data" : postData]
