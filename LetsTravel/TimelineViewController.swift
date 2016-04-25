@@ -115,10 +115,12 @@ class TimelineViewController: UIViewController {
     }
     
     func handleLocalPushNotification(tour: Tour) {
+        let fireDate = selectedDate?.dateByAddingTimeInterval(-(60 * 60 * 24))
+        
         let notification = UILocalNotification()
         notification.alertBody = "Time to go, prepare now!"
-        notification.alertAction = "Click to open"
-        notification.fireDate = selectedDate
+        notification.alertAction = "Open"
+        notification.fireDate = fireDate
         
         let tourId: String
         
