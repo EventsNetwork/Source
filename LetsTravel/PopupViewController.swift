@@ -20,6 +20,7 @@ class PopupViewController: UIViewController, UITableViewDataSource, UITableViewD
     var section: Int?
     
     var province: Province!
+    var categoryId:Int = 1
     
     weak var delegate: PopupViewControllerDelegate?
 
@@ -36,7 +37,7 @@ class PopupViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func fetchPlaces() {
-        TravelClient.sharedInstance.searchPlaceViaCategoryAndProvince(province.provinceId!, categoryId: "1", placeName: "", success: { (places: [Place]) in
+        TravelClient.sharedInstance.searchPlaceViaCategoryAndProvince(province.provinceId!, categoryId:  "\(categoryId)", placeName: "", success: { (places: [Place]) in
             self.places = places
             dispatch_async(dispatch_get_main_queue(), { 
                 self.tableView.reloadData()

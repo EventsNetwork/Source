@@ -46,7 +46,7 @@ class PlaceTimelineSection: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         button.setImage(UIImage(named: "cross"), forState: .Normal)
-        button.addTarget(self, action: #selector(self.buttonHeaderClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action:"buttonHeaderClick:", forControlEvents: UIControlEvents.TouchUpInside)
         button.tintColor = UIColor.whiteColor()
         
         insertSubview(label, atIndex: 0)
