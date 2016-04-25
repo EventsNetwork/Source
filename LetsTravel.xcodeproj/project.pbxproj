@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		342369241CCE198F0010A086 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342369231CCE198F0010A086 /* Alert.swift */; };
 		34B6C5E51CC725A1003D58FA /* PlaceTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */; };
 		34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386ED1CC5CF56008B0975 /* PlaceCell.swift */; };
 		34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */; };
@@ -18,8 +19,6 @@
 		EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */; };
 		EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
-		EB2F91481CC23D5E0014B3BE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */; };
-		EB2F91491CC23D5E0014B3BE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */; };
 		EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DE4C01CBAC6B800B84394 /* AppDelegate.swift */; };
 		EB3DE4C61CBAC6B800B84394 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB3DE4C41CBAC6B800B84394 /* Main.storyboard */; };
 		EB3DE4C81CBAC6B800B84394 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3DE4C71CBAC6B800B84394 /* Assets.xcassets */; };
@@ -41,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		342369231CCE198F0010A086 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineCell.swift; sourceTree = "<group>"; };
 		34C386ED1CC5CF56008B0975 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineSection.swift; sourceTree = "<group>"; };
@@ -84,8 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB2F91481CC23D5E0014B3BE /* FBSDKCoreKit.framework in Frameworks */,
-				EB2F91491CC23D5E0014B3BE /* FBSDKLoginKit.framework in Frameworks */,
 				4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +98,14 @@
 				EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		342369221CCE19380010A086 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				342369231CCE198F0010A086 /* Alert.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		344F56A61CC7B9CF001DBCF4 /* PlacesPopup */ = {
@@ -169,6 +175,7 @@
 		EB3DE4BF1CBAC6B800B84394 /* LetsTravel */ = {
 			isa = PBXGroup;
 			children = (
+				342369221CCE19380010A086 /* Utils */,
 				EB2F91421CC23B0D0014B3BE /* SupportingFiles */,
 				EB4FA5401CBDF16000F6BD55 /* Views */,
 				EB4FA53F1CBDF15800F6BD55 /* Models */,
@@ -266,7 +273,7 @@
 				TargetAttributes = {
 					EB3DE4BC1CBAC6B800B84394 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = QWZQFWGZMG;
+						DevelopmentTeam = YX7D2E29Q4;
 					};
 				};
 			};
@@ -362,6 +369,7 @@
 				EB4FA5481CBDFBB900F6BD55 /* TourEvent.swift in Sources */,
 				EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */,
 				EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */,
+				342369241CCE198F0010A086 /* Alert.swift in Sources */,
 				EB4FA5421CBDFA0F00F6BD55 /* User.swift in Sources */,
 				EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */,
 				EB4FA5461CBDFB5700F6BD55 /* PlaceRating.swift in Sources */,
@@ -491,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160412",
@@ -510,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160412",

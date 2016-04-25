@@ -7,5 +7,9 @@ target 'LetsTravel' do
     pod 'AFNetworking', '3.0.0'
     pod 'ActionSheetPicker-3.0'
     pod 'MBProgressHUD'
+    
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKLoginKit'
 end
 

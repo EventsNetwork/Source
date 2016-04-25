@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        let parsedUrl = BFURL.init(inboundURL: url, sourceApplication: sourceApplication)
+        print(parsedUrl)
+        if parsedUrl.appLinkData != nil {
+            let targetUrl = parsedUrl.targetURL
+            let absosulteUrl = targetUrl.absoluteString
+            Alert.alert("Open Url", message: absosulteUrl, controller: window!.rootViewController!)
+        }
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 

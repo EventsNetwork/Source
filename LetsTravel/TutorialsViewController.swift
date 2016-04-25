@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import FBSDKLoginKit
 
 class TutorialsViewController: UIViewController, FBSDKLoginButtonDelegate {
 

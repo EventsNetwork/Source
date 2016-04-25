@@ -59,7 +59,7 @@ class CreatePlaceCell: UITableViewCell {
         }
         self.placeOptionsParentView.hidden = true
         self.placeOptionsParentView.alpha = 0.5
-        UIView.animateWithDuration(1, animations: {
+        UIView.animateWithDuration(0.2, animations: {
             self.placeOptionsParentView.hidden = false
             self.placeOptionsParentView.alpha = 1
         }) { (done: Bool) in
@@ -88,7 +88,7 @@ class CreatePlaceCell: UITableViewCell {
             return
         }
         
-        UIView.animateWithDuration(0.1, animations: {
+        UIView.animateWithDuration(0.05, animations: {
             subviews[index].hidden = false
         }) { (done: Bool) in
             self.animateSubViews(index + 1)
