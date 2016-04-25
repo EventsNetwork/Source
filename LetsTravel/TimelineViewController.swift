@@ -9,7 +9,6 @@
 import UIKit
 import ActionSheetPicker_3_0
 import FBSDKShareKit
-import MBProgressHUD
 
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -18,20 +17,22 @@ class TimelineViewController: UIViewController {
     
     var placesToGo = [[Place]]() {
         didSet {
-            var total: Double = 0
-            for places in placesToGo {
-                for place in places {
-                    let minPrice: Double = place.minPrice ?? 0
-                    let maxPrice: Double = place.maxPrice ?? 0
-                    total += (minPrice + maxPrice)/2
-                }
-            }
-            let numberFormatter = NSNumberFormatter()
-            numberFormatter.numberStyle = .DecimalStyle
-            //numberFormatter.locale = NSLocale(localeIdentifier: "vn")
-            numberFormatter.maximumFractionDigits  = 0
-            totalLabel.text = numberFormatter.stringFromNumber(total)! + " VND"
+            let price = totalPrice
+            let priceStr = fromPriceToString(price)
+            totalLabel.text = priceStr + " VND"
         }
+    }
+    
+    var totalPrice: Double! {
+        var total: Double = 0
+        for places in placesToGo {
+            for place in places {
+                let minPrice: Double = place.minPrice ?? 0
+                let maxPrice: Double = place.maxPrice ?? 0
+                total += (minPrice + maxPrice)/2
+            }
+        }
+        return total
     }
     
     var currentSection = 0
@@ -63,22 +64,11 @@ class TimelineViewController: UIViewController {
     }
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
-        let tour = Tour()
-        tour.startTime = startTime
-        tour.provinceId = province?.provinceId
-        var events = [TourEvent]()
-        for (index, places) in placesToGo.enumerate() {
-            for place in places {
-                let event = TourEvent()
-                event.dayOrder = index + 1
-                event.placeId = place.placeId
-                events.append(event)
-            }
-        }
-        tour.tourEvents = events
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        let tour = generateTour()
+        
+        showLoading()
         TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.hideLoading()
             
             self.handleLocalPushNotification(tour)
             
@@ -103,6 +93,24 @@ class TimelineViewController: UIViewController {
         }, cancelBlock: { (picker: ActionSheetDatePicker!) in
                 
         }, origin: sender)
+    }
+    
+    func generateTour() -> Tour {
+        let tour = Tour()
+        tour.startTime = startTime
+        tour.provinceId = province?.provinceId
+        var events = [TourEvent]()
+        for (index, places) in placesToGo.enumerate() {
+            for place in places {
+                let event = TourEvent()
+                event.dayOrder = index + 1
+                event.placeId = place.placeId
+                events.append(event)
+            }
+        }
+        tour.tourEvents = events
+        
+        return tour
     }
     
     func generateFBShare() {
@@ -136,6 +144,14 @@ class TimelineViewController: UIViewController {
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
+    
+    func fromPriceToString(price: Double) -> String {
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        numberFormatter.maximumFractionDigits  = 0
+        return numberFormatter.stringFromNumber(price) ?? "0"
+    }
+    
 }
 
 extension TimelineViewController: UITextFieldDelegate {
