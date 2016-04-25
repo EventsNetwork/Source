@@ -20,7 +20,11 @@ class TimelineViewController: UIViewController {
     var placesToGo = [[Place]]()
     
     var currentSection = 0
-    var province: Province?
+    var province: Province? {
+        didSet{
+            self.navigationItem.title = province!.provinceName! as String
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +121,7 @@ extension TimelineViewController: UITableViewDelegate {
 }
 
 extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentationControllerDelegate, PopupViewControllerDelegate {
-    func choosePlaceOption(cell: UITableViewCell, sender: UIButton) {
+    func choosePlaceOption(cell: UITableViewCell, sender: UIButton, categoryId:Int) {
         
         let vc = PopupViewController(nibName: "PopupViewController", bundle: nil)
         vc.modalPresentationStyle = .Popover
@@ -134,6 +138,7 @@ extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentation
         vc.section = indexPath.section
         vc.province = province
         vc.delegate = self
+        vc.categoryId = categoryId
         
         presentViewController(vc, animated: true, completion: nil)
     }

@@ -18,7 +18,7 @@ enum PlaceOption: Int {
 }
 
 @objc protocol CreatePlaceCellDelegate {
-    func choosePlaceOption(cell: UITableViewCell, sender: UIButton)
+    func choosePlaceOption(cell: UITableViewCell, sender: UIButton, categoryId:Int)
 }
 
 class CreatePlaceCell: UITableViewCell {
@@ -68,8 +68,18 @@ class CreatePlaceCell: UITableViewCell {
     }
     
     @IBAction func choosePlaceOption(sender: UIButton) {
-        delegate?.choosePlaceOption(self, sender: sender)
+        delegate?.choosePlaceOption(self, sender: sender, categoryId: 1)
     }
+    
+    @IBAction func choosePlaceOption2(sender: UIButton) {
+        delegate?.choosePlaceOption(self, sender: sender, categoryId: 2)
+    }
+    
+    @IBAction func choosePlaceOption3(sender: UIButton) {
+        delegate?.choosePlaceOption(self, sender: sender, categoryId: 3)
+    }
+    
+    
     
     func animateSubViews(index: Int) {
         let subviews = placeOptionsView.subviews
