@@ -131,8 +131,6 @@ extension TimelineViewController: UITableViewDataSource {
         
         tableView.tableFooterView = UIView()
         
-        let inset = UIEdgeInsetsMake(0, 20, 0, 20);
-        tableView.contentInset = inset;
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

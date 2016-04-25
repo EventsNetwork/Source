@@ -613,7 +613,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FcK-wl-gBJ" firstAttribute="top" secondItem="YFB-c9-VID" secondAttribute="bottom" id="0x9-se-bdD"/>
                             <constraint firstItem="8Vg-BG-jmk" firstAttribute="top" secondItem="FcK-wl-gBJ" secondAttribute="bottom" id="8Ly-V5-hTT"/>
                             <constraint firstItem="Vbx-7g-hhG" firstAttribute="leading" secondItem="AFj-cn-Vcm" secondAttribute="leading" id="BPf-mn-JiU"/>
                             <constraint firstAttribute="trailing" secondItem="FcK-wl-gBJ" secondAttribute="trailing" id="Jbg-W2-WJb"/>
@@ -626,11 +625,6 @@
                             <constraint firstItem="Vbx-7g-hhG" firstAttribute="top" secondItem="YFB-c9-VID" secondAttribute="bottom" id="sYg-ZS-7fm"/>
                             <constraint firstItem="XX0-Au-f7c" firstAttribute="width" secondItem="AFj-cn-Vcm" secondAttribute="width" id="zC5-nz-iXQ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="0x9-se-bdD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Timeline" id="1ha-0w-M3s">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="m1I-Uk-pV4">
