@@ -169,26 +169,30 @@ class TravelClient: NSObject {
         })
     }
     
-    func getPlaces(success: ([Place]) -> (), failure: (NSError) -> ()) {
-        let postData = ["tour_id": ""]
-        _ = ["command": "Some Api", "data" : postData]
+    func createTour(tour: Tour, success: (Tour) -> (), failure: (NSError) -> ()) {
+        var postData = [String: AnyObject]()
+        postData["tour"] = ["start_time": tour.startTime ?? 0, "description": tour.desc ?? "", "province_id": tour.provinceId ?? 0]
+        var events = [[String: AnyObject]]()
+        for event in tour.tourEvents! {
+            events.append(["day" : event.dayOrder ?? 1, "place_id": event.placeId ?? 0])
+        }
+        postData["tour_events"] = events
         
-        var places = [Place]()
-        places.append(Place(name: "a", categoryId: 0, minPrice: 1, maxPrice: 1, address: "", desc: "", latitude: 0, longitude: 0, provinceId: 0))
-        success(places)
+        let params = ["command": "U_TOUR_ADD", "data" : postData, "token": User.currentUser?.token ?? ""]
         
-        
-//        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
-//            let placeDictionaries = self.fetchDataWithArray(response as! NSDictionary)
-//            if (placeDictionaries != nil) {
-//                let places = Place.getPlaces(placeDictionaries!)
-//                success(places)
-//            } else {
-//                failure(self.generateError(response!))
-//            }
-//            }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
-//                failure(error)
-//        })
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
+            let responseDictionary = self.fetchData(response as! NSDictionary)
+            if let responseDictionary = responseDictionary {
+                if let tourId = responseDictionary["tour_id"] as? String {
+                    tour.tourId = Int(tourId)
+                }
+                success(tour)
+            } else {
+                failure(self.generateError(response!))
+            }
+        }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
+                failure(error)
+        })
     }
     
 }

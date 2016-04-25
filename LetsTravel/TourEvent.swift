@@ -13,7 +13,7 @@ class TourEvent: NSObject {
     var tourId: Int?
     var dayOrder: Int?
     var placeId: Int?
-    var placeName: NSString?
+    var placeName: String?
     var startTime: Int?
     var endTime: Int?
     

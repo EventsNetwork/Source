@@ -12,7 +12,7 @@ class Tour: NSObject {
     var tourId: Int?
     var userId: Int?
     var startTime: Int?
-    var desc: NSString?
+    var desc: String?
     var minCost: Double?
     var maxCost: Double?
     var provinceId: Int?

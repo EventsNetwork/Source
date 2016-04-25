@@ -121,7 +121,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
             
             let hotTour = hotTours![itemIndex]
             
-            pageItemController.desc = hotTour.desc as! String
+            pageItemController.desc = hotTour.desc!
             pageItemController.totalDay = String(hotTour.totalDay! as Int)
             pageItemController.cost = String(hotTour.maxCost! as Double)
             

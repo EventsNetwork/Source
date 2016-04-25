@@ -9,10 +9,6 @@
 import UIKit
 import ActionSheetPicker_3_0
 
-class TimeLineTableView: UITableView {
-    
-}
-
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateStartTextField: UITextField!
@@ -21,6 +17,8 @@ class TimelineViewController: UIViewController {
     
     var currentSection = 0
     var province: Province?
+    
+    var startTime: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +35,26 @@ class TimelineViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @IBAction func doneClick(sender: UIBarButtonItem) {
+        let tour = Tour()
+        tour.startTime = startTime
+        tour.provinceId = province?.provinceId
+        var events = [TourEvent]()
+        for (index, places) in placesToGo.enumerate() {
+            for place in places {
+                let event = TourEvent()
+                event.dayOrder = index + 1
+                event.placeId = place.placeId
+                events.append(event)
+            }
+        }
+        tour.tourEvents = events
+        TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
+            print("success")
+        }) { (error: NSError) in
+            
+        }
+    }
     @IBAction func dateStartClick(sender: UITextField) {
         ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
             let selectedDate = selectedDate as! NSDate
@@ -44,6 +62,8 @@ class TimelineViewController: UIViewController {
             dateFormatter.locale = NSLocale.currentLocale()
             dateFormatter.dateFormat = "EE dd/MM/yyyy"
             self.dateStartTextField.text = dateFormatter.stringFromDate(selectedDate)
+            
+            self.startTime = Int(selectedDate.timeIntervalSince1970)
         }, cancelBlock: { (picker: ActionSheetDatePicker!) in
                 
         }, origin: sender)

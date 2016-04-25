@@ -604,7 +604,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Timeline" id="1ha-0w-M3s">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="m1I-Uk-pV4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="m1I-Uk-pV4">
+                            <connections>
+                                <action selector="doneClick:" destination="4iW-M0-fm5" id="Yl3-sF-SBM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
