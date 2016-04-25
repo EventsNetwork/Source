@@ -8,6 +8,8 @@
 
 import UIKit
 import ActionSheetPicker_3_0
+import FBSDKShareKit
+import MBProgressHUD
 
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -54,12 +56,17 @@ class TimelineViewController: UIViewController {
             }
         }
         tour.tourEvents = events
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
-            print("success")
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: { 
+                self.generateFBShare()
+            })
         }) { (error: NSError) in
             
         }
     }
+    
     @IBAction func dateStartClick(sender: UITextField) {
         ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
             let selectedDate = selectedDate as! NSDate
@@ -76,6 +83,15 @@ class TimelineViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+    }
+    
+    func generateFBShare() {
+        let content = FBSDKShareLinkContent()
+        content.contentTitle = "Travel"
+        content.contentDescription = "Travel"
+        content.contentURL = NSURL(string: "https://developers.facebook.com")
+        
+        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
     }
 }
 
