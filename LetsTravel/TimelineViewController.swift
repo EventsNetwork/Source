@@ -14,8 +14,25 @@ import MBProgressHUD
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateStartTextField: UITextField!
+    @IBOutlet weak var totalLabel: UILabel!
     
-    var placesToGo = [[Place]]()
+    var placesToGo = [[Place]]() {
+        didSet {
+            var total: Double = 0
+            for places in placesToGo {
+                for place in places {
+                    let minPrice: Double = place.minPrice ?? 0
+                    let maxPrice: Double = place.maxPrice ?? 0
+                    total += (minPrice + maxPrice)/2
+                }
+            }
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.numberStyle = .DecimalStyle
+            //numberFormatter.locale = NSLocale(localeIdentifier: "vn")
+            numberFormatter.maximumFractionDigits  = 0
+            totalLabel.text = numberFormatter.stringFromNumber(total)! + " VND"
+        }
+    }
     
     var currentSection = 0
     
@@ -40,6 +57,8 @@ class TimelineViewController: UIViewController {
     @IBAction func addDayClick(sender: UIButton) {
         placesToGo.append([])
         tableView.reloadData()
+        let indexPath = NSIndexPath(forRow: 0, inSection: placesToGo.count - 1)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
@@ -194,6 +213,11 @@ extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentation
         }
         
         self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+        
+        let rowIndex = placesToGo[section].count
+        
+        let indexPath = NSIndexPath(forRow: rowIndex, inSection: section)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
 }
 
