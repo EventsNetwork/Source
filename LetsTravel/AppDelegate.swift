@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupNavigationBar()
         
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert, categories: nil))
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
@@ -70,6 +72,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        print("receive")
+        print(notification.userInfo!["tourId"] as? String)
     }
     
     func setupNavigationBar() {

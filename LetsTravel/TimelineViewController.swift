@@ -37,6 +37,7 @@ class TimelineViewController: UIViewController {
     var currentSection = 0
     
     var startTime: Int?
+    var selectedDate: NSDate?
 
     var province: Province? {
         didSet{
@@ -78,6 +79,9 @@ class TimelineViewController: UIViewController {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
             MBProgressHUD.hideHUDForView(self.view, animated: true)
+            
+            self.handleLocalPushNotification(tour)
+            
             Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: { 
                 self.generateFBShare()
             })
@@ -87,21 +91,18 @@ class TimelineViewController: UIViewController {
     }
     
     @IBAction func dateStartClick(sender: UITextField) {
-        ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
-            let selectedDate = selectedDate as! NSDate
+        
+        ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
+            self.selectedDate = selectedDate as? NSDate
             let dateFormatter = NSDateFormatter()
             dateFormatter.locale = NSLocale.currentLocale()
-            dateFormatter.dateFormat = "EE dd/MM/yyyy"
-            self.dateStartTextField.text = dateFormatter.stringFromDate(selectedDate)
+            dateFormatter.dateFormat = "EE dd/MM/yyyy hh:mm"
+            self.dateStartTextField.text = dateFormatter.stringFromDate(self.selectedDate!)
             
             self.startTime = Int(selectedDate.timeIntervalSince1970)
         }, cancelBlock: { (picker: ActionSheetDatePicker!) in
                 
         }, origin: sender)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
     }
     
     func generateFBShare() {
@@ -111,6 +112,27 @@ class TimelineViewController: UIViewController {
         content.contentURL = NSURL(string: "https://developers.facebook.com")
         
         FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+    }
+    
+    func handleLocalPushNotification(tour: Tour) {
+        let notification = UILocalNotification()
+        notification.alertBody = "Time to go, prepare now!"
+        notification.alertAction = "Click to open"
+        notification.fireDate = selectedDate
+        
+        let tourId: String
+        
+        if let id = tour.tourId {
+           tourId = String(id)
+        } else {
+            tourId = NSUUID().UUIDString
+        }
+        
+        notification.userInfo = ["tourId": tourId]
+        notification.category = "Tour"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
 }
 
