@@ -15,11 +15,25 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var costView: UIView!
     @IBOutlet weak var descriptionView: UIView!
     
+    @IBOutlet weak var placeNameLabel: UILabel!
+    
+    @IBOutlet weak var costLabel: UILabel!
+    var place: Place?
+    
+    @IBOutlet weak var descLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        initView()
         // Do any additional setup after loading the view.
+        
+        if let place = place {
+            posterImage.setImageWithURL(NSURL(string: place.imageUrls![0])!)
+            placeNameLabel.text = place.name
+            descLabel.text = place.desc
+            costLabel.text = "From " + Utils.fromPriceToString(place.minPrice!)
+        }
+        
     }
     
     private func initView() {
@@ -52,5 +66,9 @@ class PlaceDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func onClose(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }

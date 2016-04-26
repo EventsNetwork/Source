@@ -1,6 +1,0 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/AFNetworking" "$CONFIGURATION_BUILD_DIR/ActionSheetPicker-3.0" "$CONFIGURATION_BUILD_DIR/Bolts" "$CONFIGURATION_BUILD_DIR/FBSDKCoreKit" "$CONFIGURATION_BUILD_DIR/FBSDKLoginKit" "$CONFIGURATION_BUILD_DIR/FBSDKShareKit" "$CONFIGURATION_BUILD_DIR/MBProgressHUD"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Bolts/Bolts.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/FBSDKCoreKit/FBSDKCoreKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/FBSDKLoginKit/FBSDKLoginKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/FBSDKShareKit/FBSDKShareKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "ActionSheetPicker_3_0" -framework "Bolts" -framework "FBSDKCoreKit" -framework "FBSDKLoginKit" -framework "FBSDKShareKit" -framework "MBProgressHUD"
-PODS_ROOT = ${SRCROOT}/Pods

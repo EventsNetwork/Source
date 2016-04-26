@@ -222,6 +222,17 @@ extension TimelineViewController: UITableViewDataSource {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let nav = segue.destinationViewController as! UINavigationController
+        let vc = nav.topViewController as! PlaceDetailViewController
+        
+        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+        
+        vc.place = placesToGo[indexPath!.section][indexPath!.row]
+        
+    }
+    
 }
 
 extension TimelineViewController: UITableViewDelegate {
