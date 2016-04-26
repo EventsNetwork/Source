@@ -41,8 +41,6 @@ class Tour: NSObject {
         totalDay = Int(json["total_date"].string!)
         favouriteCount = Int(json["favourite_count"].string!)
         
-        print(json["event_day"][0])
-        
         let imageUrlString = dictionary["image_urls"] as? String
         imageUrls = imageUrlString?.characters.split(",").map(String.init)
         
