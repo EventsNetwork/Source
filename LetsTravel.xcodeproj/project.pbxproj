@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		342369241CCE198F0010A086 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342369231CCE198F0010A086 /* Alert.swift */; };
+		342D2E0F1CCEE02900B99860 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */; };
 		34B6C5E51CC725A1003D58FA /* PlaceTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */; };
 		34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386ED1CC5CF56008B0975 /* PlaceCell.swift */; };
 		34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		342369231CCE198F0010A086 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineCell.swift; sourceTree = "<group>"; };
 		34C386ED1CC5CF56008B0975 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineSection.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 				342369231CCE198F0010A086 /* Alert.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		342D2E0D1CCEE01100B99860 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		344F56A61CC7B9CF001DBCF4 /* PlacesPopup */ = {
@@ -175,6 +185,7 @@
 		EB3DE4BF1CBAC6B800B84394 /* LetsTravel */ = {
 			isa = PBXGroup;
 			children = (
+				342D2E0D1CCEE01100B99860 /* Extensions */,
 				342369221CCE19380010A086 /* Utils */,
 				EB2F91421CC23B0D0014B3BE /* SupportingFiles */,
 				EB4FA5401CBDF16000F6BD55 /* Views */,
@@ -384,6 +395,7 @@
 				EB4FA55E1CBDFFC700F6BD55 /* TravelClient.swift in Sources */,
 				EB4FA5581CBDFE2900F6BD55 /* TimelineViewController.swift in Sources */,
 				EB4FA54C1CBDFCCD00F6BD55 /* Category.swift in Sources */,
+				342D2E0F1CCEE02900B99860 /* UIViewControllerExtension.swift in Sources */,
 				EB4FA5501CBDFD3F00F6BD55 /* Province.swift in Sources */,
 				34B6C5E51CC725A1003D58FA /* PlaceTimelineCell.swift in Sources */,
 				EB4FA5521CBDFD7C00F6BD55 /* UserToken.swift in Sources */,
@@ -500,10 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160412",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LetsTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.letstravel;
@@ -520,10 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FacebookSDKs-iOS-20160412",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LetsTravel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.letstravel;

@@ -9,17 +9,36 @@
 import UIKit
 import ActionSheetPicker_3_0
 import FBSDKShareKit
-import MBProgressHUD
 
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateStartTextField: UITextField!
+    @IBOutlet weak var totalLabel: UILabel!
     
-    var placesToGo = [[Place]]()
+    var placesToGo = [[Place]]() {
+        didSet {
+            let price = totalPrice
+            let priceStr = fromPriceToString(price)
+            totalLabel.text = priceStr + " VND"
+        }
+    }
+    
+    var totalPrice: Double! {
+        var total: Double = 0
+        for places in placesToGo {
+            for place in places {
+                let minPrice: Double = place.minPrice ?? 0
+                let maxPrice: Double = place.maxPrice ?? 0
+                total += (minPrice + maxPrice)/2
+            }
+        }
+        return total
+    }
     
     var currentSection = 0
     
     var startTime: Int?
+    var selectedDate: NSDate?
 
     var province: Province? {
         didSet{
@@ -40,9 +59,43 @@ class TimelineViewController: UIViewController {
     @IBAction func addDayClick(sender: UIButton) {
         placesToGo.append([])
         tableView.reloadData()
+        let indexPath = NSIndexPath(forRow: 0, inSection: placesToGo.count - 1)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
+        let tour = generateTour()
+        
+        showLoading()
+        TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
+            self.hideLoading()
+            
+            self.handleLocalPushNotification(tour)
+            
+            Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: { 
+                self.generateFBShare()
+            })
+        }) { (error: NSError) in
+            
+        }
+    }
+    
+    @IBAction func dateStartClick(sender: UITextField) {
+        
+        ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
+            self.selectedDate = selectedDate as? NSDate
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.locale = NSLocale.currentLocale()
+            dateFormatter.dateFormat = "EE dd/MM/yyyy hh:mm"
+            self.dateStartTextField.text = dateFormatter.stringFromDate(self.selectedDate!)
+            
+            self.startTime = Int(selectedDate.timeIntervalSince1970)
+        }, cancelBlock: { (picker: ActionSheetDatePicker!) in
+                
+        }, origin: sender)
+    }
+    
+    func generateTour() -> Tour {
         let tour = Tour()
         tour.startTime = startTime
         tour.provinceId = province?.provinceId
@@ -56,33 +109,8 @@ class TimelineViewController: UIViewController {
             }
         }
         tour.tourEvents = events
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
-            Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: { 
-                self.generateFBShare()
-            })
-        }) { (error: NSError) in
-            
-        }
-    }
-    
-    @IBAction func dateStartClick(sender: UITextField) {
-        ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.Date, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
-            let selectedDate = selectedDate as! NSDate
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.locale = NSLocale.currentLocale()
-            dateFormatter.dateFormat = "EE dd/MM/yyyy"
-            self.dateStartTextField.text = dateFormatter.stringFromDate(selectedDate)
-            
-            self.startTime = Int(selectedDate.timeIntervalSince1970)
-        }, cancelBlock: { (picker: ActionSheetDatePicker!) in
-                
-        }, origin: sender)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        return tour
     }
     
     func generateFBShare() {
@@ -93,6 +121,37 @@ class TimelineViewController: UIViewController {
         
         FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
     }
+    
+    func handleLocalPushNotification(tour: Tour) {
+        let fireDate = selectedDate?.dateByAddingTimeInterval(-(60 * 60 * 24))
+        
+        let notification = UILocalNotification()
+        notification.alertBody = "Time to go, prepare now!"
+        notification.alertAction = "Open"
+        notification.fireDate = fireDate
+        
+        let tourId: String
+        
+        if let id = tour.tourId {
+           tourId = String(id)
+        } else {
+            tourId = NSUUID().UUIDString
+        }
+        
+        notification.userInfo = ["tourId": tourId]
+        notification.category = "Tour"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
+    func fromPriceToString(price: Double) -> String {
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .DecimalStyle
+        numberFormatter.maximumFractionDigits  = 0
+        return numberFormatter.stringFromNumber(price) ?? "0"
+    }
+    
 }
 
 extension TimelineViewController: UITextFieldDelegate {
@@ -112,8 +171,6 @@ extension TimelineViewController: UITableViewDataSource {
         
         tableView.tableFooterView = UIView()
         
-        let inset = UIEdgeInsetsMake(0, 20, 0, 20);
-        tableView.contentInset = inset;
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -194,6 +251,11 @@ extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentation
         }
         
         self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+        
+        let rowIndex = placesToGo[section].count
+        
+        let indexPath = NSIndexPath(forRow: rowIndex, inSection: section)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
 }
 
