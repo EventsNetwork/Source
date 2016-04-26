@@ -16,6 +16,7 @@ class PlaceTimelineCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     
+    @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var descLabel: UILabel!
     
     var place: Place! {
