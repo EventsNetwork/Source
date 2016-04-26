@@ -12,5 +12,7 @@ target 'LetsTravel' do
     pod 'FBSDKShareKit'
     pod 'FBSDKLoginKit'
     pod 'StarRatingView'
+    
+    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 
