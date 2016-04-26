@@ -153,7 +153,8 @@ class TravelClient: NSObject {
     
     // Get tour detail
     func getTourDetail(tourId: Int, success: (Tour) -> (), failure: (NSError) -> ()) {
-        let postData = ["tour_id":tourId]
+        
+        let postData = ["tour_id": tourId]
         let params = ["command": "U_TOUR_DETAIL", "data" : postData]
         
         self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
@@ -165,7 +166,7 @@ class TravelClient: NSObject {
                 failure(self.generateError(response!))
             }
         }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
-                failure(error)
+            failure(error)
         })
     }
     

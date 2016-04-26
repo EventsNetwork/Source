@@ -19,6 +19,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         "nature_pic_4.png"];
     
     private var hotTours: [Tour]?
+    private var tourSelected: Tour?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,11 +69,6 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         })
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func onLogoutClick(sender: UIBarButtonItem) {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
@@ -89,10 +85,9 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         // Pass the selected object to the new view controller.
         
         if let vc = segue.destinationViewController as? TimelineViewController {
-           // vc.tourId =
+            vc.tourId = tourSelected?.tourId
         }
     }
- 
 
     // MARK: - UIPageViewControllerDataSource
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
@@ -126,9 +121,12 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
             
             let hotTour = hotTours![itemIndex]
             
-            pageItemController.desc = hotTour.desc!
-            pageItemController.totalDay = String(hotTour.totalDay! as Int)
-            pageItemController.cost = String(hotTour.maxCost! as Double)
+            //pageItemController.desc = hotTour.desc!
+            //pageItemController.totalDay = String(hotTour.totalDay! as Int)
+            //pageItemController.cost = String(hotTour.maxCost! as Double)
+            
+            pageItemController.tour = hotTour
+            pageItemController.delegate = self
             
             return pageItemController
         }
@@ -146,7 +144,10 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
     }
 }
 
-
-
-
+extension ToursViewController: PageItemControllerDelegate {
+    func pageItemClick(tour: Tour) {
+        tourSelected = tour
+        performSegueWithIdentifier("ToTimeLineSegue", sender: nil)
+    }
+}
 

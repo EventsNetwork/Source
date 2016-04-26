@@ -56,13 +56,13 @@ class TimelineViewController: UIViewController {
         
         if tourId != nil {
             TravelClient.sharedInstance.getTourDetail(tourId!, success: { (tour: Tour) in
-                
+                print(tour)
                 for tourEvent in tour.tourEvents! {
                     print(tourEvent.id)
                 }
                 
             }, failure: { (error: NSError) in
-                
+                print(error)
             })
         } else {
             placesToGo.append([])

@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol PageItemControllerDelegate {
+    func pageItemClick(tour: Tour)
+}
+
 class PageItemController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -15,10 +19,9 @@ class PageItemController: UIViewController {
     @IBOutlet weak var totalDayLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     
+    weak var delegate: PageItemControllerDelegate?
+    
     // MARK: - Variables
-    var desc: String = ""
-    var totalDay: String = ""
-    var cost: String = ""
     var itemIndex: Int = 0
     var imageName: String = "" {
         didSet {
@@ -27,33 +30,23 @@ class PageItemController: UIViewController {
             }
         }
     }
-    
-//    var desc: String = "" {
-//        didSet {
-//            if let descriptionLabel = descriptionLabel {
-//                descriptionLabel.text = desc
-//            }
-//        }
-//    }
+    var tour: Tour!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView!.image = UIImage(named: imageName)
-        descriptionLabel.text = desc
-        totalDayLabel.text = totalDay
-        costLabel.text = cost
+        
+        descriptionLabel.text = tour.desc
+        totalDayLabel.text = String(tour.totalDay! as Int)
+        costLabel.text = String(tour.maxCost! as Double)
+        
+        let gestureReg = UITapGestureRecognizer()
+        gestureReg.addTarget(self, action: "onViewClick:")
+        view.addGestureRecognizer(gestureReg)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func onViewClick(sender: UIPanGestureRecognizer) {
+        delegate?.pageItemClick(tour)
     }
-    */
-
 }
