@@ -195,6 +195,24 @@ class TravelClient: NSObject {
         })
     }
     
+    func generateShareUrl(tour: Tour, success: (FBHostLink) -> (), failure: (NSError) -> ()) {
+        let postData = ["tour_id": tour.tourId ?? 0]
+        
+        let params = ["command": "U_TOUR_GET_HOST_LINK", "data" : postData]
+        
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
+            let responseDictionary = self.fetchData(response as! NSDictionary)
+            if let responseDictionary = responseDictionary {
+                let hostLink = FBHostLink(dictionary: responseDictionary)
+                success(hostLink)
+            } else {
+                failure(self.generateError(response!))
+            }
+            }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
+                failure(error)
+        })
+    }
+    
 }
 
 
