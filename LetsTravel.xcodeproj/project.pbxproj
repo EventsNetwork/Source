@@ -17,6 +17,8 @@
 		34E8FBC71CC90E100002DEE9 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */; };
 		34E8FBC91CC91E0C0002DEE9 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */; };
 		34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */; };
+		3EE16E831CCFB36500969D4C /* PlaceDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE16E821CCFB36500969D4C /* PlaceDetails.storyboard */; };
+		3EE16E851CCFB84500969D4C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE16E841CCFB84500969D4C /* Utils.swift */; };
 		4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */; };
 		EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */; };
 		EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */; };
@@ -52,6 +54,8 @@
 		34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlaceCell.swift; sourceTree = "<group>"; };
+		3EE16E821CCFB36500969D4C /* PlaceDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceDetails.storyboard; sourceTree = "<group>"; };
+		3EE16E841CCFB84500969D4C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
 		EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceCell.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				342369231CCE198F0010A086 /* Alert.swift */,
+				3EE16E841CCFB84500969D4C /* Utils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				EB3DE4C71CBAC6B800B84394 /* Assets.xcassets */,
 				EB3DE4C91CBAC6B800B84394 /* LaunchScreen.storyboard */,
 				EB3DE4CC1CBAC6B800B84394 /* Info.plist */,
+				3EE16E821CCFB36500969D4C /* PlaceDetails.storyboard */,
 			);
 			path = LetsTravel;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				EB3DE4BB1CBAC6B800B84394 /* Resources */,
 				CC2F6325556B0F433790D48E /* 📦 Embed Pods Frameworks */,
 				8C86C78338A4140FC39661C7 /* 📦 Copy Pods Resources */,
+				DB1443275AFCDCD68C46140E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,6 +326,7 @@
 				EB3DE4C61CBAC6B800B84394 /* Main.storyboard in Resources */,
 				34E8FBC91CC91E0C0002DEE9 /* PlaceCell.xib in Resources */,
 				34E8FBC71CC90E100002DEE9 /* PopupViewController.xib in Resources */,
+				3EE16E831CCFB36500969D4C /* PlaceDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +378,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB1443275AFCDCD68C46140E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -379,6 +402,7 @@
 			files = (
 				EB4FA5561CBDFE1B00F6BD55 /* ToursViewController.swift in Sources */,
 				EB4FA54A1CBDFC0E00F6BD55 /* Tour.swift in Sources */,
+				3EE16E851CCFB84500969D4C /* Utils.swift in Sources */,
 				34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */,
 				EB4FA5481CBDFBB900F6BD55 /* TourEvent.swift in Sources */,
 				EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */,
