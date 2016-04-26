@@ -19,13 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if User.currentUser != nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("TravelNavigationController")
             window?.rootViewController = vc
             navigationController = vc as? UINavigationController
         } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("TutorialsViewController")
             window?.rootViewController = vc
         }
@@ -35,12 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        // navigationController = window?.rootViewController?.navigationController
         
         NSNotificationCenter.defaultCenter().addObserverForName(User.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateInitialViewController()
             self.window?.rootViewController = vc
         }
         
         setupNavigationBar()
+        setupTabBar()
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert, categories: nil))
         
@@ -107,6 +106,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 82.0/255.0, green: 191.0/255.0, blue: 144.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+    }
+    
+    func setupTabBar() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // 1st tab
+        let hotNavigationController = storyboard.instantiateViewControllerWithIdentifier("HotNavigationController")
+            as! UINavigationController
+        hotNavigationController.tabBarItem.image = UIImage(named: "hottour")
+        
+        // 2nd tab
+        let createNavigationController = storyboard.instantiateViewControllerWithIdentifier("CreateNavigationController")
+            as! UINavigationController
+        createNavigationController.tabBarItem.image = UIImage(named: "create")
+        
+        // 3rd tab
+        let mineNavigationController = storyboard.instantiateViewControllerWithIdentifier("MineNavigationController")
+            as! UINavigationController
+        mineNavigationController.tabBarItem.image = UIImage(named: "minetour")
+        
+        // Add tab into tab bar controller
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.tintColor = UIColor(red: 82.0/255.0, green: 191.0/255.0, blue: 144.0/255.0, alpha: 1.0)
+        tabBarController.viewControllers = [hotNavigationController, createNavigationController, mineNavigationController]
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
 }

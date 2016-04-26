@@ -39,6 +39,8 @@
 		EB4FA5581CBDFE2900F6BD55 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */; };
 		EB4FA55A1CBDFE3D00F6BD55 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */; };
 		EB4FA55E1CBDFFC700F6BD55 /* TravelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA55D1CBDFFC700F6BD55 /* TravelClient.swift */; };
+		EBEA893A1CCFB58800B2085B /* MyTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA89391CCFB58800B2085B /* MyTourViewController.swift */; };
+		EBEA893C1CCFC40D00B2085B /* MyTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA893B1CCFC40D00B2085B /* MyTourCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		EB4FA55D1CBDFFC700F6BD55 /* TravelClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelClient.swift; sourceTree = "<group>"; };
+		EBEA89391CCFB58800B2085B /* MyTourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTourViewController.swift; sourceTree = "<group>"; };
+		EBEA893B1CCFC40D00B2085B /* MyTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTourCell.swift; sourceTree = "<group>"; };
 		EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +215,7 @@
 				EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */,
 				EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */,
 				EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */,
+				EBEA89391CCFB58800B2085B /* MyTourViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				34B6C5E61CC72738003D58FA /* Timeline */,
 				EB15F3081CC3F11100084060 /* PageItemController.swift */,
 				EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */,
+				EBEA893B1CCFC40D00B2085B /* MyTourCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -384,12 +390,14 @@
 				EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */,
 				EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */,
 				342369241CCE198F0010A086 /* Alert.swift in Sources */,
+				EBEA893C1CCFC40D00B2085B /* MyTourCell.swift in Sources */,
 				342D2E111CCF403B00B99860 /* FBHostLink.swift in Sources */,
 				EB4FA5421CBDFA0F00F6BD55 /* User.swift in Sources */,
 				EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */,
 				EB4FA5461CBDFB5700F6BD55 /* PlaceRating.swift in Sources */,
 				EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */,
 				EB4FA5441CBDFA8100F6BD55 /* Place.swift in Sources */,
+				EBEA893A1CCFB58800B2085B /* MyTourViewController.swift in Sources */,
 				EB4FA5541CBDFDF100F6BD55 /* TutorialsViewController.swift in Sources */,
 				EB4FA54E1CBDFCFF00F6BD55 /* TourFavourite.swift in Sources */,
 				34E8FBC61CC90E100002DEE9 /* PopupViewController.swift in Sources */,

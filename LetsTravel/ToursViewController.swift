@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 
 class ToursViewController: UIViewController, UIPageViewControllerDataSource {
-    
+
     private var pageViewController: UIPageViewController?
     
     private let contentImages = ["nature_pic_1.png",
@@ -27,6 +27,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         
         createPageViewController()
         setupPageControl()
+        
         
         // Do any additional setup after loading the view.
     }
