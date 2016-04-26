@@ -55,11 +55,21 @@ class TimelineViewController: UIViewController {
         dateStartTextField.delegate = self
         
         if tourId != nil {
+            addDateButton.hidden = true
             TravelClient.sharedInstance.getTourDetail(tourId!, success: { (tour: Tour) in
-                print(tour)
+                
                 for tourEvent in tour.tourEvents! {
-                    print(tourEvent.id)
+                    let place = Place(name: tourEvent.placeName, placeId: tourEvent.placeId)
+                    if tourEvent.dayOrder! > self.placesToGo.count {
+                        self.placesToGo.append([place])
+                    } else {
+                        self.placesToGo[tourEvent.dayOrder! - 1].append(place)
+                    }
                 }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                })
                 
             }, failure: { (error: NSError) in
                 print(error)
@@ -201,10 +211,18 @@ extension TimelineViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if placesToGo.count > 0 && placesToGo[section].count > 0 {
-            return placesToGo[section].count + 1
+        if tourId != nil {
+            if placesToGo.count > 0 && placesToGo[section].count > 0 {
+                return placesToGo[section].count
+            } else {
+                return 0
+            }
         } else {
-            return 1
+            if placesToGo.count > 0 && placesToGo[section].count > 0 {
+                return placesToGo[section].count + 1
+            } else {
+                return 1
+            }
         }
     }
     
@@ -213,6 +231,11 @@ extension TimelineViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTimelineCell", forIndexPath: indexPath) as! PlaceTimelineCell
             cell.delegate = self
             cell.place = placesToGo[indexPath.section][indexPath.row]
+            
+            if tourId != nil {
+                cell.removeButton.hidden = true
+            }
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("CreatePlaceCell", forIndexPath: indexPath) as! CreatePlaceCell
@@ -220,6 +243,17 @@ extension TimelineViewController: UITableViewDataSource {
             cell.delegate = self
             return cell
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let nav = segue.destinationViewController as! UINavigationController
+        let vc = nav.topViewController as! PlaceDetailViewController
+        
+        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+        
+        vc.place = placesToGo[indexPath!.section][indexPath!.row]
+        
     }
     
 }
@@ -230,8 +264,15 @@ extension TimelineViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = PlaceTimelineSection(section: section, frame: CGRectMake(0, 0, tableView.frame.size.width, 25))
+        let hideCloseButton: Bool
+        if tourId != nil {
+            hideCloseButton = true
+        } else {
+            hideCloseButton = false
+        }
+        let view = PlaceTimelineSection(section: section, frame: CGRectMake(0, 0, tableView.frame.size.width, 25), hideCloseButton: hideCloseButton)
         view.delegate = self
+        
         return view;
     }
 }

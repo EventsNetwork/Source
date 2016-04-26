@@ -26,6 +26,11 @@ class Place: NSObject {
         
     }
     
+    init(name: String?, placeId: Int?) {
+        self.name = name
+        self.placeId = placeId
+    }
+    
     init(name: String?, categoryId: Int?, minPrice: Double?, maxPrice: Double?, address: String?, desc: String?, latitude: Double?, longitude: Double, provinceId: Int?) {
         self.name = name
         self.categoryId = categoryId

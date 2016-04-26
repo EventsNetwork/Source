@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class Tour: NSObject {
     var tourId: Int?
@@ -25,20 +26,27 @@ class Tour: NSObject {
     }
     
     init(dictionary: NSDictionary) {
-        tourId = Int((dictionary["tour_id"] as? String)!)
-        userId = Int((dictionary["user_id"] as? String)!)
-        startTime = Int((dictionary["start_time"] as? String)!)
-        desc = dictionary["description"] as? String
-        minCost = Double((dictionary["min_cost"] as? String)!)
-        maxCost = Double((dictionary["max_cost"] as? String)!)
-        provinceId = Int((dictionary["province_id"] as? String)!)
-        totalDay = Int((dictionary["total_date"] as? String)!)
-        favouriteCount = Int((dictionary["favourite_count"] as? String)!)
+        
+        let json = JSON(dictionary)
+        
+        
+        tourId = Int(json["tour_id"].string!)
+        userId = Int(json["user_id"].string!)
+        startTime = Int(json["start_time"].string!)
+        desc = json["description"].string
+        minCost = Double(json["min_cost"].string!)
+        maxCost = Double(json["max_cost"].string!)
+        provinceId = Int(json["province_id"].string!)
+        totalDay = Int(json["total_date"].string!)
+        favouriteCount = Int(json["favourite_count"].string!)
+        
+        print(json["event_day"][0])
         
         if dictionary["event_day"] != nil {
-            let eventDayDictionary = dictionary["event_day"] as! [NSDictionary]
+            let eventDayDictionary = dictionary["event_day"] as! [[NSDictionary]]
             tourEvents = TourEvent.getTourEvents(eventDayDictionary)
         }
+        
     }
     
     class func getTours(dictionaries: [NSDictionary]) -> [Tour]{
