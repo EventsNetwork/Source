@@ -56,7 +56,10 @@ class TimelineViewController: UIViewController {
         
         if tourId != nil {
             addDateButton.hidden = true
+            dateStartTextField.enabled = false
             TravelClient.sharedInstance.getTourDetail(tourId!, success: { (tour: Tour) in
+                
+                
                 
                 for tourEvent in tour.tourEvents! {
                     let place = Place(name: tourEvent.placeName, placeId: tourEvent.placeId)
@@ -66,6 +69,8 @@ class TimelineViewController: UIViewController {
                         self.placesToGo[tourEvent.dayOrder! - 1].append(place)
                     }
                 }
+                
+                
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()

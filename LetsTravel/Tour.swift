@@ -15,10 +15,11 @@ class Tour: NSObject {
     var startTime: Int?
     var desc: String?
     var minCost: Double?
-    var maxCost: Double?
+    var maxCost:    Double?
     var provinceId: Int?
     var totalDay: Int?
     var favouriteCount: Int?
+    var imageUrls: [String]?
     var tourEvents: [TourEvent]?
     
     override init() {
@@ -41,6 +42,9 @@ class Tour: NSObject {
         favouriteCount = Int(json["favourite_count"].string!)
         
         print(json["event_day"][0])
+        
+        let imageUrlString = dictionary["image_urls"] as? String
+        imageUrls = imageUrlString?.characters.split(",").map(String.init)
         
         if dictionary["event_day"] != nil {
             let eventDayDictionary = dictionary["event_day"] as! [[NSDictionary]]

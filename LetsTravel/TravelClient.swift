@@ -170,6 +170,23 @@ class TravelClient: NSObject {
         })
     }
     
+    // Get list my tour
+    func getMyTours(success: ([Tour]) -> (), failure: (NSError) -> ()) {
+        let token = User.currentUser?.token as! String
+        let params = ["command": "U_TOUR_MYSELF", "token" : token, "data" : ""]
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let tourDictionaries = self.fetchDataWithArray(response as! NSDictionary)
+            if (tourDictionaries != nil) {
+                let tours = Tour.getTours(tourDictionaries!)
+                success(tours)
+            } else {
+                failure(self.generateError(response!))
+            }
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                failure(error)
+        })
+    }
+    
     func createTour(tour: Tour, success: (Tour) -> (), failure: (NSError) -> ()) {
         var postData = [String: AnyObject]()
         postData["tour"] = ["start_time": tour.startTime ?? 0, "description": tour.desc ?? "", "province_id": tour.provinceId ?? 0]
