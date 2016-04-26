@@ -8,7 +8,7 @@
         <!--Tutorials View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TutorialsViewController" customModule="LetsTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TutorialsViewController" id="BYZ-38-t0r" customClass="TutorialsViewController" customModule="LetsTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -149,9 +149,13 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AtR-U3-qEn">
                                 <rect key="frame" x="0.0" y="64" width="320" height="300"/>
                                 <color key="backgroundColor" red="0.94280849359999996" green="0.94280849359999996" blue="0.94280849359999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="gVf-n1-s60"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yGf-eb-VaZ" appends="YES" id="JrU-5j-rbO"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1n5-b2-oSH">
                                 <rect key="frame" x="112" y="436" width="96" height="96"/>
@@ -193,6 +197,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1K0-yF-HnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yGf-eb-VaZ">
+                    <connections>
+                        <segue destination="4iW-M0-fm5" kind="show" id="5D5-6P-M2N"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1483" y="364"/>
         </scene>
@@ -446,7 +455,7 @@
         <!--Timeline-->
         <scene sceneID="AKJ-G8-Coz">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4iW-M0-fm5" customClass="TimelineViewController" customModule="LetsTravel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimelineViewController" automaticallyAdjustsScrollViewInsets="NO" id="4iW-M0-fm5" customClass="TimelineViewController" customModule="LetsTravel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YFB-c9-VID"/>
                         <viewControllerLayoutGuide type="bottom" id="8Vg-BG-jmk"/>
@@ -699,6 +708,7 @@
                                             <outlet property="descLabel" destination="AQL-uD-Eq2" id="WZG-Mo-aL6"/>
                                             <outlet property="nameLabel" destination="M5U-0h-AaR" id="FHP-BD-sxf"/>
                                             <outlet property="placeImageView" destination="23C-tw-a0A" id="cTe-IA-I79"/>
+                                            <outlet property="removeButton" destination="rGz-3M-ufi" id="5tl-ah-mQv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -731,6 +741,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="addDateButton" destination="Qbc-dC-ggH" id="nuj-tb-XYj"/>
                         <outlet property="dateStartTextField" destination="DDo-3R-HAi" id="UBi-cf-TcI"/>
                         <outlet property="tableView" destination="FcK-wl-gBJ" id="YcF-4c-hua"/>
                         <outlet property="totalLabel" destination="ZYt-TH-tZb" id="Ess-PW-Tlp"/>
@@ -1013,6 +1024,6 @@
         <image name="temple" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cvW-oc-sGd"/>
+        <segue reference="5D5-6P-M2N"/>
     </inferredMetricsTieBreakers>
 </document>

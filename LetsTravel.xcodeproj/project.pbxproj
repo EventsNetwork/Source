@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		342369241CCE198F0010A086 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342369231CCE198F0010A086 /* Alert.swift */; };
 		342D2E0F1CCEE02900B99860 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */; };
+		342D2E111CCF403B00B99860 /* FBHostLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D2E101CCF403B00B99860 /* FBHostLink.swift */; };
 		34B6C5E51CC725A1003D58FA /* PlaceTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */; };
 		34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386ED1CC5CF56008B0975 /* PlaceCell.swift */; };
 		34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		342369231CCE198F0010A086 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		342D2E101CCF403B00B99860 /* FBHostLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBHostLink.swift; sourceTree = "<group>"; };
 		34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineCell.swift; sourceTree = "<group>"; };
 		34C386ED1CC5CF56008B0975 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineSection.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				EB4FA54D1CBDFCFF00F6BD55 /* TourFavourite.swift */,
 				EB4FA54F1CBDFD3F00F6BD55 /* Province.swift */,
 				EB4FA5511CBDFD7C00F6BD55 /* UserToken.swift */,
+				342D2E101CCF403B00B99860 /* FBHostLink.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */,
 				EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */,
 				342369241CCE198F0010A086 /* Alert.swift in Sources */,
+				342D2E111CCF403B00B99860 /* FBHostLink.swift in Sources */,
 				EB4FA5421CBDFA0F00F6BD55 /* User.swift in Sources */,
 				EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */,
 				EB4FA5461CBDFB5700F6BD55 /* PlaceRating.swift in Sources */,

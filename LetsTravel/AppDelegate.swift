@@ -14,7 +14,7 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,7 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("TravelNavigationController")
             window?.rootViewController = vc
+            navigationController = vc as? UINavigationController
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("TutorialsViewController")
+            window?.rootViewController = vc
         }
+        
+        
+        
+       // navigationController = window?.rootViewController?.navigationController
         
         NSNotificationCenter.defaultCenter().addObserverForName(User.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -39,12 +48,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
         let parsedUrl = BFURL.init(inboundURL: url, sourceApplication: sourceApplication)
         if parsedUrl.appLinkData != nil {
-            let targetUrl = parsedUrl.targetURL
-            parsedUrl.appLinkData
-            let absosulteUrl = targetUrl.absoluteString
-            Alert.alert("Open Url", message: absosulteUrl, controller: window!.rootViewController!)
+            if let targetUrl = parsedUrl.targetURL where User.currentUser != nil {
+                if (FBSDKAccessToken.currentAccessToken() != nil) {
+                    FBSDKGraphRequest.init(graphPath: "", parameters: ["ids" : targetUrl.absoluteString, "fields": "app_links"], HTTPMethod: "GET").startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) in
+                        guard error == nil else {
+                            return
+                        }
+                        let scheme = result[targetUrl.absoluteString]!!["app_links"]!!["iphone"]!![0]["url"] as! String
+                        let schemeUrl = NSURL(string: scheme)
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        
+                        let vc = storyboard.instantiateViewControllerWithIdentifier("TimelineViewController") as! TimelineViewController
+                        vc.tourId = Int(schemeUrl?.lastPathComponent ?? "0")
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    
+                    })
+                }
+
+            }
         }
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
