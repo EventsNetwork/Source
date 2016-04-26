@@ -12,6 +12,7 @@ import FBSDKLoginKit
 class ToursViewController: UIViewController, UIPageViewControllerDataSource {
 
     private var pageViewController: UIPageViewController?
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private let contentImages = ["nature_pic_1.png",
         "nature_pic_2.png",
@@ -19,12 +20,19 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         "nature_pic_4.png"];
     
     private var hotTours: [Tour]?
+    private var pageHotTours: [Tour]?
+    private var collectionHotTours: [Tour]?
     private var tourSelected: Tour?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         hotTours = [Tour]()
+        pageHotTours = [Tour]()
+        collectionHotTours = [Tour]()
         
         createPageViewController()
         setupPageControl()
@@ -60,11 +68,24 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         TravelClient.sharedInstance.getHotTours({ (response:[Tour]) -> () in
 
             self.hotTours = response
-            if self.hotTours!.count > 0 {
+            
+            for i in 0 ..< 4 {
+                let tour = self.hotTours![i]
+                self.pageHotTours?.append(tour)
+            }
+            
+            for j in 4 ..< 10 {
+                let tour = self.hotTours![j]
+                self.collectionHotTours?.append(tour)
+            }
+            
+            if self.pageHotTours!.count > 0 {
                 let firstController = self.getItemController(0)!
                 let startingViewControllers: NSArray = [firstController]
                 pageController.setViewControllers(startingViewControllers as? [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
             }
+            
+            self.collectionView.reloadData()
         }, failure: { (error: NSError) -> () in
             print(error.localizedDescription)
         })
@@ -115,12 +136,12 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
     
     private func getItemController(itemIndex: Int) -> PageItemController? {
         
-        if itemIndex < hotTours!.count {
+        if itemIndex < pageHotTours!.count {
             let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
             pageItemController.itemIndex = itemIndex
-            pageItemController.imageName = contentImages[0]
+            pageItemController.imageName = pageHotTours![itemIndex].imageUrls![0]
             
-            let hotTour = hotTours![itemIndex]
+            let hotTour = pageHotTours![itemIndex]
             
             //pageItemController.desc = hotTour.desc!
             //pageItemController.totalDay = String(hotTour.totalDay! as Int)
@@ -137,7 +158,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
     
     // MARK: - Page Indicator
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return hotTours?.count ?? 0
+        return pageHotTours?.count ?? 0
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
@@ -149,6 +170,24 @@ extension ToursViewController: PageItemControllerDelegate {
     func pageItemClick(tour: Tour) {
         tourSelected = tour
         performSegueWithIdentifier("ToTimeLineSegue", sender: nil)
+    }
+}
+
+extension ToursViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        // Set the number of items in your collection view.
+        return collectionHotTours?.count ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HotTourCell", forIndexPath: indexPath) as! HotTourCell
+        let hotTour = collectionHotTours![indexPath.row]
+        
+        cell.posterView.setImageWithURL(NSURL(string: hotTour.imageUrls![0])!)
+        
+        return cell
     }
 }
 

@@ -23,6 +23,7 @@
 		EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */; };
 		EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
+		EB2EAD421CCFE93800C78314 /* HotTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2EAD411CCFE93800C78314 /* HotTourCell.swift */; };
 		EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DE4C01CBAC6B800B84394 /* AppDelegate.swift */; };
 		EB3DE4C61CBAC6B800B84394 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB3DE4C41CBAC6B800B84394 /* Main.storyboard */; };
 		EB3DE4C81CBAC6B800B84394 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3DE4C71CBAC6B800B84394 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceCell.swift; sourceTree = "<group>"; };
 		EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesViewController.swift; sourceTree = "<group>"; };
 		EB15F3081CC3F11100084060 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
+		EB2EAD411CCFE93800C78314 /* HotTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTourCell.swift; sourceTree = "<group>"; };
 		EB2F91431CC23B4B0014B3BE /* LetsTravel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LetsTravel-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-20160412/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-20160412/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				EB15F3081CC3F11100084060 /* PageItemController.swift */,
 				EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */,
 				EBEA893B1CCFC40D00B2085B /* MyTourCell.swift */,
+				EB2EAD411CCFE93800C78314 /* HotTourCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				34E8FBC61CC90E100002DEE9 /* PopupViewController.swift in Sources */,
 				34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */,
 				34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */,
+				EB2EAD421CCFE93800C78314 /* HotTourCell.swift in Sources */,
 				EB4FA55A1CBDFE3D00F6BD55 /* PlaceDetailViewController.swift in Sources */,
 				EB4FA55E1CBDFFC700F6BD55 /* TravelClient.swift in Sources */,
 				EB4FA5581CBDFE2900F6BD55 /* TimelineViewController.swift in Sources */,
