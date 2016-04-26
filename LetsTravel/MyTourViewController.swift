@@ -33,15 +33,18 @@ class MyTourViewController: UIViewController {
         tableView.hidden = false
         noDataView.hidden = true
         
-        dispatch_async(dispatch_get_main_queue()) {
-            self.loadDataFromNetwork(self.refreshControl)
-        }
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.loadDataFromNetwork(self.refreshControl)
+        }
     }
     
     func loadDataFromNetwork(refreshControl: UIRefreshControl? = nil) {
