@@ -23,7 +23,7 @@ class MyTourViewController: UIViewController {
         super.viewDidLoad()
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.addTarget(self, action:"loadDataFromNetwork:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action:#selector(MyTourViewController.loadDataFromNetwork(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
         
         tableView.delegate = self

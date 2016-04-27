@@ -67,7 +67,7 @@ class PlaceTimelineSection: UITableViewHeaderFooterView {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         
         closeButton.setImage(UIImage(named: "cross"), forState: .Normal)
-        closeButton.addTarget(self, action:"buttonHeaderClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        closeButton.addTarget(self, action:#selector(PlaceTimelineSection.buttonHeaderClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         closeButton.tintColor = UIColor.whiteColor()
         
         closeButton.hidden = hideCloseButton

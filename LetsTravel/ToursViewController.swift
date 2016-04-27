@@ -185,8 +185,8 @@ extension ToursViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HotTourCell", forIndexPath: indexPath) as! HotTourCell
         let hotTour = collectionHotTours![indexPath.row]
-        let count = hotTour.imageUrls?.count
-        let random = randomIndex(count!)
+        let count = (hotTour.imageUrls?.count)! - 1
+        let random = randomIndex(count)
         
         cell.posterView.setImageWithURL(NSURL(string: hotTour.imageUrls![random])!)
         
