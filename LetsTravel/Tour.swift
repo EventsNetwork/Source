@@ -21,6 +21,7 @@ class Tour: NSObject {
     var favouriteCount: Int?
     var imageUrls: [String]?
     var tourEvents: [TourEvent]?
+    var provinceName:String?
     
     override init() {
         
@@ -48,6 +49,8 @@ class Tour: NSObject {
             let eventDayDictionary = dictionary["event_day"] as! [[NSDictionary]]
             tourEvents = TourEvent.getTourEvents(eventDayDictionary)
         }
+        
+        provinceName = json["province_name"].string!
         
     }
     

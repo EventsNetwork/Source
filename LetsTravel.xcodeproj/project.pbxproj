@@ -43,6 +43,7 @@
 		EB4FA5581CBDFE2900F6BD55 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */; };
 		EB4FA55A1CBDFE3D00F6BD55 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */; };
 		EB4FA55E1CBDFFC700F6BD55 /* TravelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4FA55D1CBDFFC700F6BD55 /* TravelClient.swift */; };
+		EBB9676B1CD094AE00994192 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB9676A1CD094AE00994192 /* FloatRatingView.swift */; };
 		EBEA893A1CCFB58800B2085B /* MyTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA89391CCFB58800B2085B /* MyTourViewController.swift */; };
 		EBEA893C1CCFC40D00B2085B /* MyTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA893B1CCFC40D00B2085B /* MyTourCell.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		EB4FA5571CBDFE2900F6BD55 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		EB4FA5591CBDFE3D00F6BD55 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		EB4FA55D1CBDFFC700F6BD55 /* TravelClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelClient.swift; sourceTree = "<group>"; };
+		EBB9676A1CD094AE00994192 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		EBEA89391CCFB58800B2085B /* MyTourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTourViewController.swift; sourceTree = "<group>"; };
 		EBEA893B1CCFC40D00B2085B /* MyTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTourCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,6 +261,7 @@
 		EB4FA5401CBDF16000F6BD55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EBB967691CD0946F00994192 /* RatingView */,
 				344F56A61CC7B9CF001DBCF4 /* PlacesPopup */,
 				34B6C5E71CC7274A003D58FA /* FilteredPlaces */,
 				34B6C5E61CC72738003D58FA /* Timeline */,
@@ -268,6 +271,14 @@
 				EB2EAD411CCFE93800C78314 /* HotTourCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		EBB967691CD0946F00994192 /* RatingView */ = {
+			isa = PBXGroup;
+			children = (
+				EBB9676A1CD094AE00994192 /* FloatRatingView.swift */,
+			);
+			name = RatingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +413,7 @@
 				34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */,
 				EB4FA5481CBDFBB900F6BD55 /* TourEvent.swift in Sources */,
 				EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */,
+				EBB9676B1CD094AE00994192 /* FloatRatingView.swift in Sources */,
 				EB3DE4C11CBAC6B800B84394 /* AppDelegate.swift in Sources */,
 				342369241CCE198F0010A086 /* Alert.swift in Sources */,
 				EBEA893C1CCFC40D00B2085B /* MyTourCell.swift in Sources */,

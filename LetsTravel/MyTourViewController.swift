@@ -96,8 +96,8 @@ extension MyTourViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .None
         
         let myTour = myTours[indexPath.row]
+        cell.tour = myTour
         
-        cell.posterView.setImageWithURL(NSURL(string: myTour.imageUrls![0] as String)!, placeholderImage: UIImage(named: "placeholder"))
 //        cell.posterView.image = UIImage(named: "placeholder")
         cell.tourName.text = myTour.desc! as String
         

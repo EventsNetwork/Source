@@ -9,16 +9,17 @@
 import UIKit
 import FBSDKLoginKit
 
-class ToursViewController: UIViewController, UIPageViewControllerDataSource {
+class ToursViewController: UIViewController {
 
     private var pageViewController: UIPageViewController?
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let contentImages = ["nature_pic_1.png",
-        "nature_pic_2.png",
-        "nature_pic_3.png",
-        "nature_pic_4.png"];
-    
+//    private let contentImages = ["nature_pic_1.png",
+//        "nature_pic_2.png",
+//        "nature_pic_3.png",
+//        "nature_pic_4.png"];
+
+    private var timer: NSTimer = NSTimer()
     private var hotTours: [Tour]?
     private var pageHotTours: [Tour]?
     private var collectionHotTours: [Tour]?
@@ -37,6 +38,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         createPageViewController()
         setupPageControl()
         
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "advancePage", userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view.
     }
@@ -46,7 +48,7 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         let navigationBarHeight = self.navigationController?.navigationBar.frame.height
         let pageController = self.storyboard?.instantiateViewControllerWithIdentifier("PageController") as! UIPageViewController
         pageController.dataSource = self
-        pageController.view.frame = CGRectMake(0, statusBarHeight + navigationBarHeight!, self.view.frame.width, 300)
+        pageController.view.frame = CGRectMake(0, statusBarHeight + navigationBarHeight!, self.view.frame.width, 240)
         
         loadData(pageController)
         
@@ -91,48 +93,32 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         })
     }
     
+    func advancePage () {
+        let pvcs = pageViewController?.childViewControllers as! [PageItemController]
+        var itemIndex = pvcs[0].itemIndex
+        if itemIndex < (pageHotTours?.count)! - 1 {
+            itemIndex = itemIndex + 1
+        } else {
+            itemIndex = 0
+        }
+        let firstController = getItemController(itemIndex)!
+        let startingViewControllers = [firstController]
+        pageViewController!.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+    }
+    
     @IBAction func onLogoutClick(sender: UIBarButtonItem) {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
         TravelClient.sharedInstance.logout()
     }
     
-
-    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
         if let vc = segue.destinationViewController as? TimelineViewController {
             vc.tourId = tourSelected?.tourId
         }
     }
 
-    // MARK: - UIPageViewControllerDataSource
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        
-        let itemController = viewController as! PageItemController
-        
-        if itemController.itemIndex > 0 {
-            return getItemController(itemController.itemIndex - 1)
-        }
-        
-        return nil
-    }
-    
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        
-        let itemController = viewController as! PageItemController
-        
-        if itemController.itemIndex + 1 < contentImages.count {
-            return getItemController(itemController.itemIndex + 1)
-        }
-        
-        return nil
-    }
     
     private func getItemController(itemIndex: Int) -> PageItemController? {
         
@@ -156,21 +142,40 @@ class ToursViewController: UIViewController, UIPageViewControllerDataSource {
         return nil
     }
     
-    // MARK: - Page Indicator
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return pageHotTours?.count ?? 0
-    }
-    
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return 0
+    func randomIndex(count: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(count)))
     }
 }
 
-extension ToursViewController: PageItemControllerDelegate {
+extension ToursViewController: PageItemControllerDelegate, UIPageViewControllerDataSource {
     func pageItemClick(tour: Tour) {
         tourSelected = tour
         performSegueWithIdentifier("ToTimeLineSegue", sender: nil)
     }
+    
+    // MARK: - UIPageViewControllerDataSource
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        
+        let itemController = viewController as! PageItemController
+        
+        if itemController.itemIndex > 0 {
+            return getItemController(itemController.itemIndex - 1)
+        }
+        
+        return nil
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        let itemController = viewController as! PageItemController
+        
+        if itemController.itemIndex + 1 < pageHotTours!.count {
+            return getItemController(itemController.itemIndex + 1)
+        }
+        
+        return nil
+    }
+
 }
 
 extension ToursViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -184,10 +189,17 @@ extension ToursViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HotTourCell", forIndexPath: indexPath) as! HotTourCell
         let hotTour = collectionHotTours![indexPath.row]
+        let count = hotTour.imageUrls?.count
+        let random = randomIndex(count!)
         
-        cell.posterView.setImageWithURL(NSURL(string: hotTour.imageUrls![0])!)
+        cell.posterView.setImageWithURL(NSURL(string: hotTour.imageUrls![random])!)
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        tourSelected = collectionHotTours![indexPath.row]
+        performSegueWithIdentifier("ToTimeLineSegue", sender: nil)
     }
 }
 
