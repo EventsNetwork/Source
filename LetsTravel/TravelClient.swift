@@ -192,7 +192,7 @@ class TravelClient: NSObject {
         postData["tour"] = ["start_time": tour.startTime ?? 0, "description": tour.desc ?? "", "province_id": tour.provinceId ?? 0]
         var events = [[String: AnyObject]]()
         for event in tour.tourEvents! {
-            events.append(["day" : event.dayOrder ?? 1, "place_id": event.placeId ?? 0])
+            events.append(["day" : event.dayOrder ?? 1, "place_id": event.place.placeId ?? 0])
         }
         postData["tour_events"] = events
         
@@ -223,6 +223,24 @@ class TravelClient: NSObject {
             if let responseDictionary = responseDictionary {
                 let hostLink = FBHostLink(dictionary: responseDictionary)
                 success(hostLink)
+            } else {
+                failure(self.generateError(response!))
+            }
+            }, failure: { (task:NSURLSessionDataTask?, error:NSError) -> Void in
+                failure(error)
+        })
+    }
+    
+    func getPlaceDetail(placeId: Int, success: (Place) -> (), failure: (NSError) -> ()) {
+        
+        let postData = ["place_id": placeId]
+        let params = ["command": "U_PLACE_DETAIL", "data" : postData]
+        
+        self.functionSessionManager.POST(BASE_URL, parameters: params, progress: nil, success: { (task:NSURLSessionDataTask, response:AnyObject?) -> Void in
+            let placeDictionary = self.fetchData(response as! NSDictionary)
+            if (placeDictionary != nil) {
+                let place = Place(dictionary: placeDictionary!)
+                success(place)
             } else {
                 failure(self.generateError(response!))
             }

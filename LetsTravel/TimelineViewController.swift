@@ -227,7 +227,7 @@ extension TimelineViewController: UITableViewDataSource {
         
         let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
         
-        vc.place = placesToGo[indexPath!.section][indexPath!.row]
+        vc.placeId = placesToGo[indexPath!.section][indexPath!.row].placeId
         
     }
     

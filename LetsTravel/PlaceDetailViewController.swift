@@ -19,30 +19,39 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var placeNameLabel: UILabel!
     
     @IBOutlet weak var costLabel: UILabel!
-    var place: Place?
+    var placeId:Int! {
+        didSet{
+            
+        }
+    }
     
     @IBOutlet weak var descLabel: UILabel!
     
     @IBOutlet weak var starRating: CosmosView!
+    @IBOutlet weak var addressLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        initView()
-        // Do any additional setup after loading the view.
-        
-        if let place = place {
-            posterImage.setImageWithURL(NSURL(string: place.imageUrls![0])!)
-            placeNameLabel.text = place.name
-            descLabel.text = place.desc
-            costLabel.text = "From " + Utils.fromPriceToString(place.minPrice!)
-        
-            starRating.rating = Double(place.rating!)
-        }
-        
-        
-       
+        loadData()
     }
+    
+    func loadData() {
+        TravelClient.sharedInstance.getPlaceDetail(placeId, success: { (place:Place) -> () in
+            
+                self.posterImage.setImageWithURL(NSURL(string: place.imageUrls![0])!)
+                self.placeNameLabel.text = place.name
+                self.descLabel.text = place.desc
+                self.costLabel.text = "From " + Utils.fromPriceToString(place.minPrice!)
+            
+                self.starRating.rating = Double(place.rating!)
+                self.addressLabel.text = place.address!
+            
+            }) { (error: NSError) -> () in
+                print(error.localizedDescription)
+        }
+    }
+    
+    
     
     private func initView() {
         let scrollViewHeight = posterImage.frame.size.height + costView.frame.size.height + descriptionView.frame.size.height

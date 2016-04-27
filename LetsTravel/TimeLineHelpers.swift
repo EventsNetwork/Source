@@ -12,7 +12,7 @@ class TimeLineHelpers: NSObject {
     func getPlacesFromTour(tour: Tour) -> [[Place]] {
         var placesToGo = [[Place]]()
         for tourEvent in tour.tourEvents! {
-            let place = Place(name: tourEvent.placeName, placeId: tourEvent.placeId)
+            let place = tourEvent.place
             if tourEvent.dayOrder! > placesToGo.count {
                 placesToGo.append([place])
             } else {
@@ -31,7 +31,7 @@ class TimeLineHelpers: NSObject {
             for place in places {
                 let event = TourEvent()
                 event.dayOrder = index + 1
-                event.placeId = place.placeId
+                event.place.placeId = place.placeId
                 events.append(event)
             }
         }
