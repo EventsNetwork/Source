@@ -16,5 +16,12 @@ class Utils: NSObject {
         numberFormatter.maximumFractionDigits  = 0
         return numberFormatter.stringFromNumber(price) ?? "0"
     }
+    
+    static func dateTotring(date: NSDate, format: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.dateFormat = format
+        return dateFormatter.stringFromDate(date)
+    }
 
 }

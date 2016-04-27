@@ -8,9 +8,10 @@
 
 import UIKit
 
-//@objc protocol PlaceCellDelegate {
-//    func placeRemove(cell: UITableViewCell)
-//}
+@objc protocol PlaceCellDelegate {
+    //func placeRemove(cell: UITableViewCell)
+    func clickInfo(placeId:Int)
+}
 
 class PlaceCell: UITableViewCell {
     
@@ -28,7 +29,7 @@ class PlaceCell: UITableViewCell {
         }
     }
     
-    //weak var delegate: PlaceCellDelegate?
+    weak var delegate: PlaceCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +43,12 @@ class PlaceCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func onClickInfo(sender: UIButton) {
+        print("click info")
+        
+        delegate?.clickInfo(place.placeId!)
     }
     
 }

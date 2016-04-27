@@ -16,10 +16,12 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var addDateButton: UIButton!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     var placesToGo = [[Place]]() {
         didSet {
             let price = totalPrice
-            let priceStr = fromPriceToString(price)
+            let priceStr = Utils.fromPriceToString(price)
             totalLabel.text = priceStr + " VND"
         }
     }
@@ -48,6 +50,8 @@ class TimelineViewController: UIViewController {
             self.navigationItem.title = province!.provinceName! as String
         }
     }
+    
+    let timelineHelpers = TimeLineHelpers()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,20 +61,9 @@ class TimelineViewController: UIViewController {
         if tourId != nil {
             addDateButton.hidden = true
             dateStartTextField.enabled = false
+            doneButton.title = "Clone"
             TravelClient.sharedInstance.getTourDetail(tourId!, success: { (tour: Tour) in
-                
-                
-                
-                for tourEvent in tour.tourEvents! {
-                    let place = Place(name: tourEvent.placeName, placeId: tourEvent.placeId)
-                    if tourEvent.dayOrder! > self.placesToGo.count {
-                        self.placesToGo.append([place])
-                    } else {
-                        self.placesToGo[tourEvent.dayOrder! - 1].append(place)
-                    }
-                }
-                
-                
+                self.placesToGo =  self.timelineHelpers.getPlacesFromTour(tour)
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
@@ -94,19 +87,21 @@ class TimelineViewController: UIViewController {
     }
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
-        let tour = generateTour()
-        
-        showLoading()
-        TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
-            self.hideLoading()
+        if tourId == nil {
+            let tour = timelineHelpers.fromPlacesToTour(placesToGo, startTime: startTime ?? 0, province: province)
             
-            self.handleLocalPushNotification(tour)
-            
-            Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: { 
-                self.generateFBShare(tour)
-            })
-        }) { (error: NSError) in
-            
+            showLoading()
+            TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
+                self.hideLoading()
+                
+                self.handleLocalPushNotification(tour)
+                
+                Alert.confirm("Create tour success", message: "Your tour has been created. Do you want to share it on FB ?", controller: self, done: {
+                    self.generateFBShare(tour)
+                })
+            }) { (error: NSError) in
+                
+            }
         }
     }
     
@@ -114,10 +109,7 @@ class TimelineViewController: UIViewController {
         
         ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
             self.selectedDate = selectedDate as? NSDate
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.locale = NSLocale.currentLocale()
-            dateFormatter.dateFormat = "EE dd/MM/yyyy hh:mm"
-            self.dateStartTextField.text = dateFormatter.stringFromDate(self.selectedDate!)
+            self.dateStartTextField.text = Utils.dateTotring(self.selectedDate!, format: "EE dd/MM/yyyy hh:mm")
             
             self.startTime = Int(selectedDate.timeIntervalSince1970)
         }, cancelBlock: { (picker: ActionSheetDatePicker!) in
@@ -125,38 +117,24 @@ class TimelineViewController: UIViewController {
         }, origin: sender)
     }
     
-    func generateTour() -> Tour {
-        let tour = Tour()
-        tour.startTime = startTime
-        tour.provinceId = province?.provinceId
-        var events = [TourEvent]()
-        for (index, places) in placesToGo.enumerate() {
-            for place in places {
-                let event = TourEvent()
-                event.dayOrder = index + 1
-                event.placeId = place.placeId
-                events.append(event)
-            }
-        }
-        tour.tourEvents = events
-        
-        return tour
-    }
-    
     func generateFBShare(tour: Tour) {
         
         TravelClient.sharedInstance.generateShareUrl(tour, success: { (hostlink: FBHostLink) in
             dispatch_async(dispatch_get_main_queue(), { 
-                let content = FBSDKShareLinkContent()
-                content.contentTitle = "Travel"
-                content.contentDescription = "Travel"
-                content.contentURL = NSURL(string: hostlink.canonical_url ?? "")
-                
-                FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+                self.shareToFB(hostlink)
             })
         }) { (error: NSError) in
             
         }
+    }
+    
+    func shareToFB(hostlink: FBHostLink) {
+        let content = FBSDKShareLinkContent()
+        content.contentTitle = "Travel"
+        content.contentDescription = "Travel"
+        content.contentURL = NSURL(string: hostlink.canonical_url ?? "")
+        
+        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
     }
     
     func handleLocalPushNotification(tour: Tour) {
@@ -181,14 +159,6 @@ class TimelineViewController: UIViewController {
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
-    
-    func fromPriceToString(price: Double) -> String {
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        numberFormatter.maximumFractionDigits  = 0
-        return numberFormatter.stringFromNumber(price) ?? "0"
-    }
-    
 }
 
 extension TimelineViewController: UITextFieldDelegate {
@@ -257,7 +227,7 @@ extension TimelineViewController: UITableViewDataSource {
         
         let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
         
-        vc.place = placesToGo[indexPath!.section][indexPath!.row]
+        vc.placeId = placesToGo[indexPath!.section][indexPath!.row].placeId
         
     }
     
@@ -283,8 +253,12 @@ extension TimelineViewController: UITableViewDelegate {
 }
 
 extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentationControllerDelegate, PopupViewControllerDelegate {
+    
     func choosePlaceOption(cell: UITableViewCell, sender: UIButton, categoryId:Int) {
-        
+        showPopup(cell, categoryId: categoryId)
+    }
+    
+    func showPopup(cell: UITableViewCell, categoryId: Int) {
         let vc = PopupViewController(nibName: "PopupViewController", bundle: nil)
         vc.modalPresentationStyle = .Popover
         vc.preferredContentSize = CGSizeMake(300, 300)

@@ -98,8 +98,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        print("receive")
-        print(notification.userInfo!["tourId"] as? String)
+        
+        let tourId = notification.userInfo!["tourId"] as? String
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewControllerWithIdentifier("TimelineViewController") as! TimelineViewController
+        vc.tourId = Int(tourId ?? "0")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupNavigationBar() {

@@ -12,10 +12,7 @@ class TourEvent: NSObject {
     var id: Int?
     var tourId: Int?
     var dayOrder: Int?
-    var placeId: Int?
-    var placeName: String?
-    var startTime: Int?
-    var endTime: Int?
+    var place:Place = Place()
     
     override init() {
         
@@ -25,10 +22,7 @@ class TourEvent: NSObject {
         id = Int((dictionary["id"] as? String)!)
         tourId = Int((dictionary["tour_id"] as? String)!)
         dayOrder = Int((dictionary["day_order"] as? String)!)
-        placeId = Int((dictionary["place_id"] as? String)!)
-        placeName = dictionary["place_name"] as? String
-        //startTime = Int((dictionary["start_time"] as? String)!)
-        //endTime = Int((dictionary["end_time"] as? String)!)
+        place = Place(dictionary: dictionary)
     }
     
     class func getTourEvents(dictionaries: [[NSDictionary]]) -> [TourEvent]{
