@@ -224,7 +224,17 @@
                             <constraint firstItem="zF9-ZL-ENv" firstAttribute="top" secondItem="bUz-ba-L5q" secondAttribute="bottom" id="svQ-70-hHT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Mine tours" id="ISy-5T-jCc"/>
+                    <navigationItem key="navigationItem" title="Mine tours" id="ISy-5T-jCc">
+                        <barButtonItem key="leftBarButtonItem" image="profile" id="m7z-sL-Jws">
+                            <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="logout" id="RJi-Yt-Gll">
+                            <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                            <connections>
+                                <action selector="onLogoutClick:" destination="qhG-bS-2BE" id="69g-7i-iWA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="noDataView" destination="zF9-ZL-ENv" id="rV5-Hs-bug"/>
@@ -375,13 +385,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="4Pp-ti-OJZ"/>
-                    <navigationItem key="navigationItem" title="Hot tours" id="Cas-gM-zBv">
-                        <barButtonItem key="leftBarButtonItem" title="Log out" id="7pf-TG-UGP">
-                            <connections>
-                                <action selector="onLogoutClick:" destination="Iii-ma-jWv" id="JJu-76-obY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Hot tours" id="Cas-gM-zBv"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="Sy3-DP-1je" id="eAh-B7-ie9"/>
@@ -1124,7 +1128,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOt-GG-TfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="1663"/>
+            <point key="canvasLocation" x="942" y="1663"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="i78-sk-OJI">
@@ -1157,11 +1161,13 @@
         <image name="food" width="128" height="128"/>
         <image name="hottour" width="32" height="32"/>
         <image name="login_background" width="349" height="621"/>
+        <image name="logout" width="32" height="32"/>
         <image name="minetour" width="32" height="32"/>
         <image name="minus" width="48" height="48"/>
         <image name="no_info" width="128" height="128"/>
+        <image name="profile" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sCR-Gg-VjM"/>
+        <segue reference="iNT-DA-EW2"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class MyTourViewController: UIViewController {
 
@@ -73,6 +74,11 @@ class MyTourViewController: UIViewController {
         }
     }
 
+    @IBAction func onLogoutClick(sender: UIBarButtonItem) {
+        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        TravelClient.sharedInstance.logout()
+    }
     
     // MARK: - Navigation
 
@@ -82,7 +88,6 @@ class MyTourViewController: UIViewController {
             vc.tourId = selectedTour?.tourId
         }
     }
- 
 
 }
 

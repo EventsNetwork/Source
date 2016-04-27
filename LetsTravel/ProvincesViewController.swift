@@ -128,13 +128,7 @@ extension ProvincesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("ProvinceCell", forIndexPath: indexPath) as! ProvinceCell
         cell.selectionStyle = .None
         
-        let province: Province
-        if filterProvinces != nil {
-            province = filterProvinces[indexPath.row]
-        } else {
-            province = provinces[indexPath.row]
-        }
-        
+        let province = provinces[indexPath.row]
         
         cell.posterView.setImageWithURL(NSURL(string: province.imageUrls![0] as String)!, placeholderImage: UIImage(named: "placeholder"))
         cell.provinceName.text = province.provinceName as? String

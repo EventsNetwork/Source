@@ -41,7 +41,9 @@ class PageItemController: UIViewController {
         
         
         descriptionLabel.text = tour.desc
-        totalDayLabel.text = formatCurrency(tour.maxCost! as Double)
+        
+        let averageTour = ((tour.maxCost! as Double) + (tour.minCost! as Double))/2
+        totalDayLabel.text = formatCurrency(averageTour)
         costLabel.hidden = true
 //        totalDayLabel.text = String(tour.totalDay! as Int)
 //        costLabel.text = formatCurrency(tour.maxCost! as Double)
