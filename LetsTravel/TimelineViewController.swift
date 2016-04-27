@@ -82,8 +82,10 @@ class TimelineViewController: UIViewController {
     @IBAction func addDayClick(sender: UIButton) {
         placesToGo.append([])
         tableView.reloadData()
-        let indexPath = NSIndexPath(forRow: 0, inSection: placesToGo.count - 1)
-        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        if placesToGo.count > 0 && placesToGo[placesToGo.count - 1].count > 0 {
+            let indexPath = NSIndexPath(forRow: 0, inSection: placesToGo.count - 1)
+            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        }
     }
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
@@ -179,47 +181,39 @@ extension TimelineViewController: UITableViewDataSource {
         tableView.tableFooterView = UIView()
         
         tableView.registerClass(PlaceTimelineSection.self, forHeaderFooterViewReuseIdentifier: "PlaceTimeLineHeader")
-        
+        let nib = UINib(nibName: "CreatePlaceCell", bundle: nil)
+        tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CreatePlaceCell")
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let sections = placesToGo.count > 0 ? placesToGo.count : 0
+        let sections = placesToGo.count
         return sections
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tourId != nil {
-            if placesToGo.count > 0 && placesToGo[section].count > 0 {
-                return placesToGo[section].count
-            } else {
-                return 0
-            }
+        if placesToGo.count > 0 && placesToGo[section].count > 0 {
+            return placesToGo[section].count
         } else {
-            if placesToGo.count > 0 && placesToGo[section].count > 0 {
-                return placesToGo[section].count + 1
-            } else {
-                return 1
-            }
+            return 0
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if placesToGo.count > indexPath.section && placesToGo[indexPath.section].count > indexPath.row {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTimelineCell", forIndexPath: indexPath) as! PlaceTimelineCell
-            cell.delegate = self
-            cell.place = placesToGo[indexPath.section][indexPath.row]
-            
-            if tourId != nil {
-                cell.removeButton.hidden = true
-            }
-            
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CreatePlaceCell", forIndexPath: indexPath) as! CreatePlaceCell
-            cell.hideOptions()
-            cell.delegate = self
-            return cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTimelineCell", forIndexPath: indexPath) as! PlaceTimelineCell
+        cell.delegate = self
+        cell.place = placesToGo[indexPath.section][indexPath.row]
+        
+        if tourId != nil {
+            cell.removeButton.hidden = true
         }
+        
+        return cell
+//        else {
+//            let cell = tableView.dequeueReusableCellWithIdentifier("CreatePlaceCell", forIndexPath: indexPath) as! CreatePlaceCell
+//            cell.hideOptions()
+//            cell.delegate = self
+//            return cell
+//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -255,28 +249,38 @@ extension TimelineViewController: UITableViewDelegate {
         
         return view;
     }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("CreatePlaceCell") as! CreatePlaceCell
+        view.initView()
+        view.hideOptions()
+        view.delegate = self
+        return view
+    }
 }
 
 extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentationControllerDelegate, PopupViewControllerDelegate {
     
-    func choosePlaceOption(cell: UITableViewCell, sender: UIButton, categoryId:Int) {
-        showPopup(cell, categoryId: categoryId)
+    func choosePlaceOption(section: Int, sender: UIButton, categoryId:Int) {
+        showPopup(section, categoryId: categoryId, sender: sender)
     }
     
-    func showPopup(cell: UITableViewCell, categoryId: Int) {
+    func showPopup(section: Int, categoryId: Int, sender: UIButton) {
         let vc = PopupViewController(nibName: "PopupViewController", bundle: nil)
         vc.modalPresentationStyle = .Popover
         vc.preferredContentSize = CGSizeMake(300, 300)
-        
-        let indexPath = tableView.indexPathForCell(cell)!
         
         let popoverVC = vc.popoverPresentationController
         
         popoverVC?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         popoverVC?.delegate = self
-        popoverVC?.sourceView = cell
+        popoverVC?.sourceView = sender
         
-        vc.section = indexPath.section
+        vc.section = section
         vc.province = province
         vc.delegate = self
         vc.categoryId = categoryId

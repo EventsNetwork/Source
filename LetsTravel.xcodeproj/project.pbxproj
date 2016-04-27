@@ -11,6 +11,7 @@
 		342D2E0F1CCEE02900B99860 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */; };
 		342D2E111CCF403B00B99860 /* FBHostLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D2E101CCF403B00B99860 /* FBHostLink.swift */; };
 		34B6C5E51CC725A1003D58FA /* PlaceTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */; };
+		34BD19C11CD0A71B00D87F46 /* CreatePlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34BD19C01CD0A71B00D87F46 /* CreatePlaceCell.xib */; };
 		34C386EE1CC5CF56008B0975 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386ED1CC5CF56008B0975 /* PlaceCell.swift */; };
 		34C386F01CC613ED008B0975 /* PlaceTimelineSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */; };
 		34E8FBC61CC90E100002DEE9 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */; };
@@ -53,6 +54,7 @@
 		342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		342D2E101CCF403B00B99860 /* FBHostLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBHostLink.swift; sourceTree = "<group>"; };
 		34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineCell.swift; sourceTree = "<group>"; };
+		34BD19C01CD0A71B00D87F46 /* CreatePlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatePlaceCell.xib; sourceTree = "<group>"; };
 		34C386ED1CC5CF56008B0975 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTimelineSection.swift; sourceTree = "<group>"; };
 		34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */,
 				34C386EF1CC613ED008B0975 /* PlaceTimelineSection.swift */,
 				34B6C5E41CC725A1003D58FA /* PlaceTimelineCell.swift */,
+				34BD19C01CD0A71B00D87F46 /* CreatePlaceCell.xib */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB3DE4CB1CBAC6B800B84394 /* LaunchScreen.storyboard in Resources */,
+				34BD19C11CD0A71B00D87F46 /* CreatePlaceCell.xib in Resources */,
 				EB3DE4C81CBAC6B800B84394 /* Assets.xcassets in Resources */,
 				EB3DE4C61CBAC6B800B84394 /* Main.storyboard in Resources */,
 				34E8FBC91CC91E0C0002DEE9 /* PlaceCell.xib in Resources */,
