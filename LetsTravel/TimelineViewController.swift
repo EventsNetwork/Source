@@ -214,6 +214,8 @@ extension TimelineViewController: UITableViewDataSource {
         
         if tourId != nil {
             cell.removeButton.hidden = true
+        } else {
+            cell.removeButton.hidden = false
         }
         
         return cell
