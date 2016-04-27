@@ -30,9 +30,15 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var starRating: CosmosView!
     @IBOutlet weak var addressLabel: UILabel!
     
+    @IBOutlet weak var mapButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapButton.layer.cornerRadius = 5
         loadData()
+        
     }
     
     func loadData() {
