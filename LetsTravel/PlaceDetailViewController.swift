@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class PlaceDetailViewController: UIViewController {
 
@@ -21,6 +22,9 @@ class PlaceDetailViewController: UIViewController {
     var place: Place?
     
     @IBOutlet weak var descLabel: UILabel!
+    
+    @IBOutlet weak var starRating: CosmosView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,8 +36,12 @@ class PlaceDetailViewController: UIViewController {
             placeNameLabel.text = place.name
             descLabel.text = place.desc
             costLabel.text = "From " + Utils.fromPriceToString(place.minPrice!)
+        
+            starRating.rating = Double(place.rating!)
         }
         
+        
+       
     }
     
     private func initView() {

@@ -283,6 +283,7 @@
 				EB3DE4BB1CBAC6B800B84394 /* Resources */,
 				CC2F6325556B0F433790D48E /* 📦 Embed Pods Frameworks */,
 				8C86C78338A4140FC39661C7 /* 📦 Copy Pods Resources */,
+				1960D135EA1F8FB1ADA0EB94 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -344,6 +345,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1960D135EA1F8FB1ADA0EB94 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1D85D7D4A07A8FBBEA521950 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
