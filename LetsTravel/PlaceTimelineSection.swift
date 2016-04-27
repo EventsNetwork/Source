@@ -12,18 +12,33 @@ import UIKit
     func removeClicK(section: Int)
 }
 
-class PlaceTimelineSection: UIView {
+class PlaceTimelineSection: UITableViewHeaderFooterView {
     
-    var section: Int!
+    var section: Int! {
+        didSet {
+            if label != nil {
+                label.text = "Day \(section + 1)"
+            }
+        }
+    }
     
     weak var delegate: PlaceTimelineSectionDelegate?
     
     var closeButton: UIButton!
     var hideCloseButton: Bool = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-       // initView()
+    var label: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+       initView()
+        
+    }
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        initView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,16 +46,11 @@ class PlaceTimelineSection: UIView {
         initView()
     }
     
-    convenience init(section: Int, frame: CGRect, hideCloseButton: Bool) {
-        self.init(frame: frame)
-        self.section = section
-        self.hideCloseButton = hideCloseButton
-        initView()
-    }
-    
     func initView() {
-        let text = "Day \(section + 1)"
-        let label = UILabel(frame: CGRectMake(11, 2, frame.size.width/2 - 50, 25))
+        let day = section ?? 0
+        let text = "Day \(day + 1)"
+        
+        label = UILabel(frame: CGRectMake(11, 2, 100, 25))
         let closeButton = UIButton(frame: CGRectMake(frame.size.width - 100, 5, 15, 15))
         
         label.text = text
@@ -53,17 +63,16 @@ class PlaceTimelineSection: UIView {
         closeButton.addTarget(self, action:"buttonHeaderClick:", forControlEvents: UIControlEvents.TouchUpInside)
         closeButton.tintColor = UIColor.whiteColor()
         
-        insertSubview(label, atIndex: 0)
-        addSubview(closeButton)
+        contentView.addSubview(label)
+        contentView.addSubview(closeButton)
+        
         
         closeButton.rightAnchor.constraintEqualToAnchor(self.rightAnchor, constant: -8).active = true
         closeButton.centerYAnchor.constraintEqualToAnchor(self.centerYAnchor).active = true
         closeButton.heightAnchor.constraintEqualToConstant(20).active = true
         closeButton.widthAnchor.constraintEqualToConstant(20).active = true
         
-        backgroundColor = UIColor(red: 82.0/255.0, green: 191.0/255.0, blue: 144.0/255.0, alpha: 0.8)
-        
-        print(hideCloseButton)
+        contentView.backgroundColor = UIColor(red: 82.0/255.0, green: 191.0/255.0, blue: 144.0/255.0, alpha: 0.8)
         
         if hideCloseButton == true {
             closeButton.hidden = true

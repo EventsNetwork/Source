@@ -38,23 +38,7 @@ class PlaceTimelineCell: UITableViewCell {
         // Initialization code
         
         placeImageView.layer.cornerRadius = 10
- //       self.backgroundColor = UIColor.lightGrayColor()
-        
-//        let transparent = UIColor.init(white: 0, alpha: 0).CGColor
-//        let opaque = UIColor.init(white: 0, alpha: 1).CGColor
-//        
-//        let maskLayer = CALayer()
-//        maskLayer.frame = self.bounds
-//        
-//        let gradiantLayer = CAGradientLayer()
-//        gradiantLayer.frame = CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y, width: self.bounds.size.width, height: self.bounds.size.height)
-//        gradiantLayer.colors = [transparent, opaque,
-//                                opaque, transparent]
-//        
-//        gradiantLayer.locations = [0, 0.2, 1 - 0.2, 1]
-//        maskLayer.addSublayer(gradiantLayer)
-//        
-//        self.layer.mask = maskLayer
+
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
