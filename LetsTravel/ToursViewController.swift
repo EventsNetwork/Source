@@ -38,7 +38,7 @@ class ToursViewController: UIViewController {
         createPageViewController()
         setupPageControl()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "advancePage", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(ToursViewController.advancePage), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view.
     }

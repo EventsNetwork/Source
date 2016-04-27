@@ -73,15 +73,16 @@ class MyTourViewController: UIViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destinationViewController as? TimelineViewController {
+            vc.tourId = selectedTour?.tourId
+        }
     }
-    */
+ 
 
 }
 
@@ -98,16 +99,13 @@ extension MyTourViewController: UITableViewDelegate, UITableViewDataSource {
         let myTour = myTours[indexPath.row]
         cell.tour = myTour
         
-//        cell.posterView.image = UIImage(named: "placeholder")
-        cell.tourName.text = myTour.desc! as String
-        
         return cell
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let myTour = myTours[indexPath.row]
-//        selectedTour = myTour
-//        performSegueWithIdentifier("toTimelineSegue", sender: nil)
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let myTour = myTours[indexPath.row]
+        selectedTour = myTour
+        performSegueWithIdentifier("toTimelineSegue", sender: nil)
+    }
     
 }

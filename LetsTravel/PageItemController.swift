@@ -41,11 +41,13 @@ class PageItemController: UIViewController {
         
         
         descriptionLabel.text = tour.desc
-        totalDayLabel.text = String(tour.totalDay! as Int)
-        costLabel.text = formatCurrency(tour.maxCost! as Double)
+        totalDayLabel.text = formatCurrency(tour.maxCost! as Double)
+        costLabel.hidden = true
+//        totalDayLabel.text = String(tour.totalDay! as Int)
+//        costLabel.text = formatCurrency(tour.maxCost! as Double)
         
         let gestureReg = UITapGestureRecognizer()
-        gestureReg.addTarget(self, action: "onViewClick:")
+        gestureReg.addTarget(self, action: #selector(PageItemController.onViewClick(_:)))
         view.addGestureRecognizer(gestureReg)
     }
     
