@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="349" y="364"/>
         </scene>
-        <!--Mine tours-->
+        <!--My tours-->
         <scene sceneID="gYk-g2-FbE">
             <objects>
                 <viewController id="qhG-bS-2BE" customClass="MyTourViewController" customModule="LetsTravel" customModuleProvider="target" sceneMemberID="viewController">
@@ -224,7 +224,7 @@
                             <constraint firstItem="zF9-ZL-ENv" firstAttribute="top" secondItem="bUz-ba-L5q" secondAttribute="bottom" id="svQ-70-hHT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Mine tours" id="ISy-5T-jCc">
+                    <navigationItem key="navigationItem" title="My tours" id="ISy-5T-jCc">
                         <barButtonItem key="leftBarButtonItem" image="profile" id="m7z-sL-Jws">
                             <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                         </barButtonItem>
@@ -1168,6 +1168,6 @@
         <image name="profile" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iNT-DA-EW2"/>
+        <segue reference="sCR-Gg-VjM"/>
     </inferredMetricsTieBreakers>
 </document>
