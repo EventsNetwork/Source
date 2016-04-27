@@ -124,21 +124,58 @@
                                                     </variation>
                                                 </imageView>
                                                 <view alpha="0.55000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzQ-xc-iR0">
+                                                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzQ-xc-iR0">
                                                     <rect key="frame" x="8" y="122" width="304" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Da Lat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csg-vl-RjT">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Da Lat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csg-vl-RjT">
                                                             <rect key="frame" x="127" y="14" width="49.5" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-ES-PMY">
+                                                            <rect key="frame" x="8" y="30" width="40" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30/04/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChS-rm-Bvc">
+                                                            <rect key="frame" x="205" y="16" width="83.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                            <color key="textColor" red="0.36862745099999999" green="0.75294117650000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Date From-32" translatesAutoresizingMaskIntoConstraints="NO" id="vfJ-kW-SCT">
+                                                            <rect key="frame" x="177" y="13" width="24" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="24" id="AgR-TZ-tJU"/>
+                                                                <constraint firstAttribute="height" constant="24" id="wTL-Uf-0C9"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="Y4E-ES-PMY" firstAttribute="leading" secondItem="BzQ-xc-iR0" secondAttribute="leading" constant="8" id="071-VR-1cK"/>
+                                                        <constraint firstItem="csg-vl-RjT" firstAttribute="top" secondItem="BzQ-xc-iR0" secondAttribute="top" constant="6" id="09n-gU-x6z"/>
                                                         <constraint firstAttribute="height" constant="50" id="1cu-WD-d6s"/>
+                                                        <constraint firstItem="ChS-rm-Bvc" firstAttribute="leading" secondItem="vfJ-kW-SCT" secondAttribute="trailing" constant="4" id="BkX-ic-GtF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ChS-rm-Bvc" secondAttribute="trailing" constant="15" id="BpX-Lh-n98"/>
+                                                        <constraint firstItem="vfJ-kW-SCT" firstAttribute="leading" secondItem="csg-vl-RjT" secondAttribute="trailing" constant="15" id="FFC-CX-Oki"/>
                                                         <constraint firstItem="csg-vl-RjT" firstAttribute="centerY" secondItem="BzQ-xc-iR0" secondAttribute="centerY" id="V5J-4R-g3j"/>
+                                                        <constraint firstItem="vfJ-kW-SCT" firstAttribute="centerY" secondItem="BzQ-xc-iR0" secondAttribute="centerY" id="VLY-tN-fuN"/>
                                                         <constraint firstItem="csg-vl-RjT" firstAttribute="centerX" secondItem="BzQ-xc-iR0" secondAttribute="centerX" id="W0n-gW-nLh"/>
+                                                        <constraint firstItem="ChS-rm-Bvc" firstAttribute="centerY" secondItem="BzQ-xc-iR0" secondAttribute="centerY" id="btm-9D-odh"/>
+                                                        <constraint firstItem="Y4E-ES-PMY" firstAttribute="top" secondItem="csg-vl-RjT" secondAttribute="bottom" constant="4" id="yGo-AK-a6v"/>
+                                                        <constraint firstItem="csg-vl-RjT" firstAttribute="leading" secondItem="BzQ-xc-iR0" secondAttribute="leading" constant="8" id="zBv-HE-CnQ"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="V5J-4R-g3j"/>
+                                                            <exclude reference="W0n-gW-nLh"/>
+                                                            <exclude reference="FFC-CX-Oki"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -169,7 +206,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="posterView" destination="FTg-hr-dzz" id="6Rx-WA-Kme"/>
+                                            <outlet property="tourDay" destination="Y4E-ES-PMY" id="TYr-8w-xZo"/>
                                             <outlet property="tourName" destination="csg-vl-RjT" id="1EF-Ba-bxf"/>
+                                            <outlet property="tourStart" destination="ChS-rm-Bvc" id="lUo-ZI-oCB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1185,6 +1224,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Date From-32" width="32" height="32"/>
         <image name="add" width="48" height="48"/>
         <image name="circle16" width="16" height="16"/>
         <image name="create" width="32" height="32"/>
