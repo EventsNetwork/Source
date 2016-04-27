@@ -8,24 +8,17 @@
 
 import UIKit
 
-enum PlaceOption: Int {
-    case Play
-    case Eat
-    case Go
-    case Rest
-    
-    static let allValues = [Play, Eat, Go, Rest]
-}
-
 @objc protocol CreatePlaceCellDelegate {
-    func choosePlaceOption(cell: UITableViewCell, sender: UIButton, categoryId:Int)
+    func choosePlaceOption(section: Int, sender: UIButton, categoryId:Int)
 }
 
-class CreatePlaceCell: UITableViewCell {
+class CreatePlaceCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var placeOptionsParentView: UIView!
     @IBOutlet weak var newPlaceButton: UIButton!
     @IBOutlet weak var placeOptionsView: UIStackView!
+    
+    var section: Int = 0
    
     weak var delegate: CreatePlaceCellDelegate?
     
@@ -33,15 +26,23 @@ class CreatePlaceCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+    }
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        
+        //initView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+      //  initView()
+    }
+    
+    func initView() {
         placeOptionsParentView.layer.cornerRadius = 10
         placeOptionsParentView.clipsToBounds = true
         layoutMargins = UIEdgeInsetsZero
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func hideOptions() {
@@ -68,18 +69,16 @@ class CreatePlaceCell: UITableViewCell {
     }
     
     @IBAction func choosePlaceOption(sender: UIButton) {
-        delegate?.choosePlaceOption(self, sender: sender, categoryId: 1)
+        delegate?.choosePlaceOption(section, sender: sender, categoryId: 1)
     }
     
     @IBAction func choosePlaceOption2(sender: UIButton) {
-        delegate?.choosePlaceOption(self, sender: sender, categoryId: 2)
+        delegate?.choosePlaceOption(section, sender: sender, categoryId: 2)
     }
     
     @IBAction func choosePlaceOption3(sender: UIButton) {
-        delegate?.choosePlaceOption(self, sender: sender, categoryId: 3)
+        delegate?.choosePlaceOption(section, sender: sender, categoryId: 3)
     }
-    
-    
     
     func animateSubViews(index: Int) {
         let subviews = placeOptionsView.subviews
