@@ -35,7 +35,8 @@ class PageItemController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView!.image = UIImage(named: imageName)
+//        imageView!.image = UIImage(named: imageName)
+        imageView.setImageWithURL(NSURL(string: imageName)!)
         
         descriptionLabel.text = tour.desc
         totalDayLabel.text = String(tour.totalDay! as Int)

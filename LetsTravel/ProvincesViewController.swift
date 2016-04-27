@@ -34,6 +34,7 @@ class ProvincesViewController: UIViewController {
         searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.sizeToFit()
+        searchBar.placeholder = "Please pick a destination"
         navigationItem.titleView = searchBar
         
         dispatch_async(dispatch_get_main_queue()) {
