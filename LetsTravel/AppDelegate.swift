@@ -21,9 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if User.currentUser != nil {
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TravelNavigationController")
-            window?.rootViewController = vc
-            navigationController = vc as? UINavigationController
+//            let vc = storyboard.instantiateViewControllerWithIdentifier("TravelNavigationController")
+//            window?.rootViewController = vc
+//            navigationController = vc as? UINavigationController
+            setupTabBar()
         } else {
             let vc = storyboard.instantiateViewControllerWithIdentifier("TutorialsViewController")
             window?.rootViewController = vc
@@ -37,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         setupNavigationBar()
-        setupTabBar()
+        
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert, categories: nil))
         
