@@ -45,7 +45,7 @@ class PageItemController: UIViewController {
         costLabel.text = formatCurrency(tour.maxCost! as Double)
         
         let gestureReg = UITapGestureRecognizer()
-        gestureReg.addTarget(self, action: #selector(PageItemController.onViewClick(_:)))
+        gestureReg.addTarget(self, action: "onViewClick:")
         view.addGestureRecognizer(gestureReg)
     }
     
