@@ -69,15 +69,16 @@ class ToursViewController: UIViewController {
         TravelClient.sharedInstance.getHotTours({ (response:[Tour]) -> () in
 
             self.hotTours = response
+            if self.hotTours?.count > 9 {
+                for i in 0 ..< 4 {
+                    let tour = self.hotTours![i]
+                    self.pageHotTours?.append(tour)
+                }
             
-            for i in 0 ..< 4 {
-                let tour = self.hotTours![i]
-                self.pageHotTours?.append(tour)
-            }
-            
-            for j in 4 ..< 10 {
-                let tour = self.hotTours![j]
-                self.collectionHotTours?.append(tour)
+                for j in 4 ..< 10 {
+                    let tour = self.hotTours![j]
+                    self.collectionHotTours?.append(tour)
+                }
             }
             
             if self.pageHotTours!.count > 0 {
@@ -93,16 +94,18 @@ class ToursViewController: UIViewController {
     }
     
     func advancePage () {
-        let pvcs = pageViewController?.childViewControllers as! [PageItemController]
-        var itemIndex = pvcs[0].itemIndex
-        if itemIndex < (pageHotTours?.count)! - 1 {
-            itemIndex = itemIndex + 1
-        } else {
-            itemIndex = 0
+        if (pageHotTours?.count > 0) {
+            let pvcs = pageViewController?.childViewControllers as! [PageItemController]
+            var itemIndex = pvcs[0].itemIndex
+            if itemIndex < (pageHotTours?.count)! - 1 {
+                itemIndex = itemIndex + 1
+            } else {
+                itemIndex = 0
+            }
+            let firstController = getItemController(itemIndex)!
+            let startingViewControllers = [firstController]
+            pageViewController!.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
         }
-        let firstController = getItemController(itemIndex)!
-        let startingViewControllers = [firstController]
-        pageViewController!.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
