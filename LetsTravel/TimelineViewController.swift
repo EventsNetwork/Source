@@ -47,7 +47,7 @@ class TimelineViewController: UIViewController {
 
     var province: Province? {
         didSet{
-            self.navigationItem.title = province?.provinceName as? String
+            self.navigationItem.title = province?.provinceName as? String ?? "Timeline"
         }
     }
     
