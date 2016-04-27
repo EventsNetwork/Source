@@ -82,8 +82,8 @@ class TimelineViewController: UIViewController {
     @IBAction func addDayClick(sender: UIButton) {
         placesToGo.append([])
         tableView.reloadData()
-        if placesToGo.count > 0 && placesToGo[placesToGo.count - 1].count > 0 {
-            let indexPath = NSIndexPath(forRow: 0, inSection: placesToGo.count - 1)
+        if placesToGo.count > 0 && placesToGo[placesToGo.count - 2].count > 0 {
+            let indexPath = NSIndexPath(forRow: placesToGo[placesToGo.count - 2].count - 1, inSection: placesToGo.count - 2)
             tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
     }
@@ -208,12 +208,6 @@ extension TimelineViewController: UITableViewDataSource {
         }
         
         return cell
-//        else {
-//            let cell = tableView.dequeueReusableCellWithIdentifier("CreatePlaceCell", forIndexPath: indexPath) as! CreatePlaceCell
-//            cell.hideOptions()
-//            cell.delegate = self
-//            return cell
-//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -251,7 +245,7 @@ extension TimelineViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40
+        return 50
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -259,6 +253,7 @@ extension TimelineViewController: UITableViewDelegate {
         view.initView()
         view.hideOptions()
         view.delegate = self
+        view.section = section
         return view
     }
 }
@@ -303,7 +298,7 @@ extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentation
         
         self.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
         
-        let rowIndex = placesToGo[section].count
+        let rowIndex = placesToGo[section].count - 1
         
         let indexPath = NSIndexPath(forRow: rowIndex, inSection: section)
         tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
