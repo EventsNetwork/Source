@@ -16,10 +16,11 @@
 		34E8FBC61CC90E100002DEE9 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */; };
 		34E8FBC71CC90E100002DEE9 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */; };
 		34E8FBC91CC91E0C0002DEE9 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */; };
+		34EB24201CD04750001308BA /* TimeLineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB241F1CD04750001308BA /* TimeLineHelpers.swift */; };
 		34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */; };
 		3EE16E831CCFB36500969D4C /* PlaceDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE16E821CCFB36500969D4C /* PlaceDetails.storyboard */; };
 		3EE16E851CCFB84500969D4C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE16E841CCFB84500969D4C /* Utils.swift */; };
-		7BD274E591A5D134C86F75C6 /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70227C23292D050EC2B8AEDD /* Pods_LetsTravel.framework */; };
+		C316CE99F4634266C19EF820 /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5ABF8623693BACC5FE5C3C /* Pods_LetsTravel.framework */; };
 		EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */; };
 		EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FA3C88D77CBFF5CB61CA3DC /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
 		342369231CCE198F0010A086 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		342D2E0E1CCEE02900B99860 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		342D2E101CCF403B00B99860 /* FBHostLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBHostLink.swift; sourceTree = "<group>"; };
@@ -56,12 +58,12 @@
 		34E8FBC41CC90E100002DEE9 /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		34E8FBC51CC90E100002DEE9 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		34E8FBC81CC91E0C0002DEE9 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
+		34EB241F1CD04750001308BA /* TimeLineHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineHelpers.swift; sourceTree = "<group>"; };
 		34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlaceCell.swift; sourceTree = "<group>"; };
+		3C5ABF8623693BACC5FE5C3C /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE16E821CCFB36500969D4C /* PlaceDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceDetails.storyboard; sourceTree = "<group>"; };
 		3EE16E841CCFB84500969D4C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		672559D64AD258114387F09A /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
-		70227C23292D050EC2B8AEDD /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B00F4C12C019F002DEC87B03 /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
+		6FDD25A04DD0ED44052AE01A /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
 		EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceCell.swift; sourceTree = "<group>"; };
 		EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesViewController.swift; sourceTree = "<group>"; };
 		EB15F3081CC3F11100084060 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
@@ -98,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BD274E591A5D134C86F75C6 /* Pods_LetsTravel.framework in Frameworks */,
+				C316CE99F4634266C19EF820 /* Pods_LetsTravel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,11 +152,11 @@
 			name = FilteredPlaces;
 			sourceTree = "<group>";
 		};
-		3B6EA32B29954CC01B0A427A /* Pods */ = {
+		7F61FB8DF798848371AA18CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				672559D64AD258114387F09A /* Pods-LetsTravel.debug.xcconfig */,
-				B00F4C12C019F002DEC87B03 /* Pods-LetsTravel.release.xcconfig */,
+				2FA3C88D77CBFF5CB61CA3DC /* Pods-LetsTravel.debug.xcconfig */,
+				6FDD25A04DD0ED44052AE01A /* Pods-LetsTravel.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -164,7 +166,7 @@
 			children = (
 				EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */,
 				EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */,
-				70227C23292D050EC2B8AEDD /* Pods_LetsTravel.framework */,
+				3C5ABF8623693BACC5FE5C3C /* Pods_LetsTravel.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,7 +185,7 @@
 				EB3DE4BF1CBAC6B800B84394 /* LetsTravel */,
 				EB3DE4BE1CBAC6B800B84394 /* Products */,
 				9D84991D7E151DBC058B52A9 /* Frameworks */,
-				3B6EA32B29954CC01B0A427A /* Pods */,
+				7F61FB8DF798848371AA18CF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4FA55D1CBDFFC700F6BD55 /* TravelClient.swift */,
+				34EB241F1CD04750001308BA /* TimeLineHelpers.swift */,
 			);
 			name = Api;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */,
 				EB4FA5461CBDFB5700F6BD55 /* PlaceRating.swift in Sources */,
 				EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */,
+				34EB24201CD04750001308BA /* TimeLineHelpers.swift in Sources */,
 				EB4FA5441CBDFA8100F6BD55 /* Place.swift in Sources */,
 				EBEA893A1CCFB58800B2085B /* MyTourViewController.swift in Sources */,
 				EB4FA5541CBDFDF100F6BD55 /* TutorialsViewController.swift in Sources */,
@@ -531,7 +535,7 @@
 		};
 		EB3DE4D01CBAC6B800B84394 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 672559D64AD258114387F09A /* Pods-LetsTravel.debug.xcconfig */;
+			baseConfigurationReference = 2FA3C88D77CBFF5CB61CA3DC /* Pods-LetsTravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -548,7 +552,7 @@
 		};
 		EB3DE4D11CBAC6B800B84394 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B00F4C12C019F002DEC87B03 /* Pods-LetsTravel.release.xcconfig */;
+			baseConfigurationReference = 6FDD25A04DD0ED44052AE01A /* Pods-LetsTravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

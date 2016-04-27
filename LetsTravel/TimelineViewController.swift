@@ -50,6 +50,8 @@ class TimelineViewController: UIViewController {
             self.navigationItem.title = province!.provinceName! as String
         }
     }
+    
+    let timelineHelpers = TimeLineHelpers()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,19 +63,7 @@ class TimelineViewController: UIViewController {
             dateStartTextField.enabled = false
             doneButton.title = "Clone"
             TravelClient.sharedInstance.getTourDetail(tourId!, success: { (tour: Tour) in
-                
-                
-                
-                for tourEvent in tour.tourEvents! {
-                    let place = Place(name: tourEvent.placeName, placeId: tourEvent.placeId)
-                    if tourEvent.dayOrder! > self.placesToGo.count {
-                        self.placesToGo.append([place])
-                    } else {
-                        self.placesToGo[tourEvent.dayOrder! - 1].append(place)
-                    }
-                }
-                
-                
+                self.placesToGo =  self.timelineHelpers.getPlacesFromTour(tour)
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
@@ -98,7 +88,7 @@ class TimelineViewController: UIViewController {
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
         if tourId == nil {
-            let tour = generateTour()
+            let tour = timelineHelpers.fromPlacesToTour(placesToGo, startTime: startTime ?? 0, province: province)
             
             showLoading()
             TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
@@ -106,7 +96,7 @@ class TimelineViewController: UIViewController {
                 
                 self.handleLocalPushNotification(tour)
                 
-                Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: {
+                Alert.confirm("Create tour success", message: "Your tour has been created. Do you want to share it on FB ?", controller: self, done: {
                     self.generateFBShare(tour)
                 })
             }) { (error: NSError) in
@@ -119,10 +109,7 @@ class TimelineViewController: UIViewController {
         
         ActionSheetDatePicker.showPickerWithTitle("", datePickerMode: UIDatePickerMode.DateAndTime, selectedDate: NSDate(), doneBlock: { (picker: ActionSheetDatePicker!, selectedDate: AnyObject!, textField: AnyObject!) in
             self.selectedDate = selectedDate as? NSDate
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.locale = NSLocale.currentLocale()
-            dateFormatter.dateFormat = "EE dd/MM/yyyy hh:mm"
-            self.dateStartTextField.text = dateFormatter.stringFromDate(self.selectedDate!)
+            self.dateStartTextField.text = Utils.dateTotring(self.selectedDate!, format: "EE dd/MM/yyyy hh:mm")
             
             self.startTime = Int(selectedDate.timeIntervalSince1970)
         }, cancelBlock: { (picker: ActionSheetDatePicker!) in
@@ -130,38 +117,24 @@ class TimelineViewController: UIViewController {
         }, origin: sender)
     }
     
-    func generateTour() -> Tour {
-        let tour = Tour()
-        tour.startTime = startTime
-        tour.provinceId = province?.provinceId
-        var events = [TourEvent]()
-        for (index, places) in placesToGo.enumerate() {
-            for place in places {
-                let event = TourEvent()
-                event.dayOrder = index + 1
-                event.placeId = place.placeId
-                events.append(event)
-            }
-        }
-        tour.tourEvents = events
-        
-        return tour
-    }
-    
     func generateFBShare(tour: Tour) {
         
         TravelClient.sharedInstance.generateShareUrl(tour, success: { (hostlink: FBHostLink) in
             dispatch_async(dispatch_get_main_queue(), { 
-                let content = FBSDKShareLinkContent()
-                content.contentTitle = "Travel"
-                content.contentDescription = "Travel"
-                content.contentURL = NSURL(string: hostlink.canonical_url ?? "")
-                
-                FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
+                self.shareToFB(hostlink)
             })
         }) { (error: NSError) in
             
         }
+    }
+    
+    func shareToFB(hostlink: FBHostLink) {
+        let content = FBSDKShareLinkContent()
+        content.contentTitle = "Travel"
+        content.contentDescription = "Travel"
+        content.contentURL = NSURL(string: hostlink.canonical_url ?? "")
+        
+        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
     }
     
     func handleLocalPushNotification(tour: Tour) {
