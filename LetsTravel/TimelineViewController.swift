@@ -16,10 +16,12 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var addDateButton: UIButton!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     var placesToGo = [[Place]]() {
         didSet {
             let price = totalPrice
-            let priceStr = fromPriceToString(price)
+            let priceStr = Utils.fromPriceToString(price)
             totalLabel.text = priceStr + " VND"
         }
     }
@@ -57,6 +59,7 @@ class TimelineViewController: UIViewController {
         if tourId != nil {
             addDateButton.hidden = true
             dateStartTextField.enabled = false
+            doneButton.title = "Clone"
             TravelClient.sharedInstance.getTourDetail(tourId!, success: { (tour: Tour) in
                 
                 
@@ -94,19 +97,21 @@ class TimelineViewController: UIViewController {
     }
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
-        let tour = generateTour()
-        
-        showLoading()
-        TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
-            self.hideLoading()
+        if tourId == nil {
+            let tour = generateTour()
             
-            self.handleLocalPushNotification(tour)
-            
-            Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: { 
-                self.generateFBShare(tour)
-            })
-        }) { (error: NSError) in
-            
+            showLoading()
+            TravelClient.sharedInstance.createTour(tour, success: { (tour: Tour) in
+                self.hideLoading()
+                
+                self.handleLocalPushNotification(tour)
+                
+                Alert.confirm("Your tour has been created. Do you want to share it on FB ?", message: "", controller: self, done: {
+                    self.generateFBShare(tour)
+                })
+            }) { (error: NSError) in
+                
+            }
         }
     }
     
@@ -181,14 +186,6 @@ class TimelineViewController: UIViewController {
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
-    
-    func fromPriceToString(price: Double) -> String {
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = .DecimalStyle
-        numberFormatter.maximumFractionDigits  = 0
-        return numberFormatter.stringFromNumber(price) ?? "0"
-    }
-    
 }
 
 extension TimelineViewController: UITextFieldDelegate {
@@ -283,8 +280,12 @@ extension TimelineViewController: UITableViewDelegate {
 }
 
 extension TimelineViewController: CreatePlaceCellDelegate, UIPopoverPresentationControllerDelegate, PopupViewControllerDelegate {
+    
     func choosePlaceOption(cell: UITableViewCell, sender: UIButton, categoryId:Int) {
-        
+        showPopup(cell, categoryId: categoryId)
+    }
+    
+    func showPopup(cell: UITableViewCell, categoryId: Int) {
         let vc = PopupViewController(nibName: "PopupViewController", bundle: nil)
         vc.modalPresentationStyle = .Popover
         vc.preferredContentSize = CGSizeMake(300, 300)

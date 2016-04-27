@@ -19,7 +19,7 @@
 		34F6DB571CC4869600AC2990 /* CreatePlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */; };
 		3EE16E831CCFB36500969D4C /* PlaceDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE16E821CCFB36500969D4C /* PlaceDetails.storyboard */; };
 		3EE16E851CCFB84500969D4C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE16E841CCFB84500969D4C /* Utils.swift */; };
-		4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */; };
+		7BD274E591A5D134C86F75C6 /* Pods_LetsTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70227C23292D050EC2B8AEDD /* Pods_LetsTravel.framework */; };
 		EB0350791CC92F2D00ABB6EE /* ProvinceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */; };
 		EB03507B1CC92FB900ABB6EE /* ProvincesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */; };
 		EB15F3091CC3F11100084060 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15F3081CC3F11100084060 /* PageItemController.swift */; };
@@ -59,8 +59,9 @@
 		34F6DB561CC4869600AC2990 /* CreatePlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePlaceCell.swift; sourceTree = "<group>"; };
 		3EE16E821CCFB36500969D4C /* PlaceDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceDetails.storyboard; sourceTree = "<group>"; };
 		3EE16E841CCFB84500969D4C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		672559D64AD258114387F09A /* Pods-LetsTravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.debug.xcconfig"; sourceTree = "<group>"; };
+		70227C23292D050EC2B8AEDD /* Pods_LetsTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00F4C12C019F002DEC87B03 /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
 		EB0350781CC92F2D00ABB6EE /* ProvinceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvinceCell.swift; sourceTree = "<group>"; };
 		EB03507A1CC92FB900ABB6EE /* ProvincesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincesViewController.swift; sourceTree = "<group>"; };
 		EB15F3081CC3F11100084060 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		EB4FA55D1CBDFFC700F6BD55 /* TravelClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelClient.swift; sourceTree = "<group>"; };
 		EBEA89391CCFB58800B2085B /* MyTourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTourViewController.swift; sourceTree = "<group>"; };
 		EBEA893B1CCFC40D00B2085B /* MyTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTourCell.swift; sourceTree = "<group>"; };
-		EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsTravel.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,22 +98,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E59262677C5FE830008089C /* Pods_LetsTravel.framework in Frameworks */,
+				7BD274E591A5D134C86F75C6 /* Pods_LetsTravel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15BF148DC7B2B3AF5D12FA43 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */,
-				EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		342369221CCE19380010A086 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,12 +150,21 @@
 			name = FilteredPlaces;
 			sourceTree = "<group>";
 		};
+		3B6EA32B29954CC01B0A427A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				672559D64AD258114387F09A /* Pods-LetsTravel.debug.xcconfig */,
+				B00F4C12C019F002DEC87B03 /* Pods-LetsTravel.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9D84991D7E151DBC058B52A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				EB2F91461CC23D5E0014B3BE /* FBSDKCoreKit.framework */,
 				EB2F91471CC23D5E0014B3BE /* FBSDKLoginKit.framework */,
-				65DFAF60859F9162F31E480C /* Pods_LetsTravel.framework */,
+				70227C23292D050EC2B8AEDD /* Pods_LetsTravel.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 				EB3DE4BF1CBAC6B800B84394 /* LetsTravel */,
 				EB3DE4BE1CBAC6B800B84394 /* Products */,
 				9D84991D7E151DBC058B52A9 /* Frameworks */,
-				15BF148DC7B2B3AF5D12FA43 /* Pods */,
+				3B6EA32B29954CC01B0A427A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,7 +280,6 @@
 				EB3DE4BB1CBAC6B800B84394 /* Resources */,
 				CC2F6325556B0F433790D48E /* 📦 Embed Pods Frameworks */,
 				8C86C78338A4140FC39661C7 /* 📦 Copy Pods Resources */,
-				DB1443275AFCDCD68C46140E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -380,21 +379,6 @@
 			inputPaths = (
 			);
 			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LetsTravel/Pods-LetsTravel-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DB1443275AFCDCD68C46140E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,7 +531,7 @@
 		};
 		EB3DE4D01CBAC6B800B84394 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBBA4EB9BE2EF48321EACB99 /* Pods-LetsTravel.debug.xcconfig */;
+			baseConfigurationReference = 672559D64AD258114387F09A /* Pods-LetsTravel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -564,7 +548,7 @@
 		};
 		EB3DE4D11CBAC6B800B84394 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE8ACA604D4D45E676FD922A /* Pods-LetsTravel.release.xcconfig */;
+			baseConfigurationReference = B00F4C12C019F002DEC87B03 /* Pods-LetsTravel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
