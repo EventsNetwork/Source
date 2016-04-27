@@ -708,7 +708,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYt-TH-tZb">
-                                        <rect key="frame" x="84" y="4" width="11" height="21"/>
+                                        <rect key="frame" x="88" y="4" width="11" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -716,7 +716,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="ZYt-TH-tZb" firstAttribute="leading" secondItem="4OA-MN-upv" secondAttribute="trailing" constant="38" id="Csq-ij-0iW"/>
+                                    <constraint firstItem="ZYt-TH-tZb" firstAttribute="leading" secondItem="4OA-MN-upv" secondAttribute="trailing" constant="42" id="Csq-ij-0iW"/>
                                     <constraint firstItem="4OA-MN-upv" firstAttribute="leading" secondItem="XX0-Au-f7c" secondAttribute="leading" constant="8" id="Q0g-rI-87Q"/>
                                     <constraint firstItem="ZYt-TH-tZb" firstAttribute="centerY" secondItem="XX0-Au-f7c" secondAttribute="centerY" id="RNW-e5-iUO"/>
                                     <constraint firstItem="4OA-MN-upv" firstAttribute="centerY" secondItem="XX0-Au-f7c" secondAttribute="centerY" id="bvF-VO-3qz"/>
@@ -726,7 +726,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FcK-wl-gBJ">
                                 <rect key="frame" x="0.0" y="154" width="320" height="414"/>
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="separatorColor" red="0.8001802885" green="0.8001802885" blue="0.8001802885" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceTimelineCell" id="IgF-Zb-ODZ" customClass="PlaceTimelineCell" customModule="LetsTravel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="70"/>

@@ -245,15 +245,24 @@ extension TimelineViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if tourId != nil {
+            return 0
+        }
+        
         return 50
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if tourId != nil {
+            return nil
+        }
+        
         let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("CreatePlaceCell") as! CreatePlaceCell
         view.initView()
         view.hideOptions()
         view.delegate = self
         view.section = section
+    
         return view
     }
     
