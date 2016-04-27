@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FBSDKLoginKit
 
 class ToursViewController: UIViewController {
 
@@ -38,7 +37,7 @@ class ToursViewController: UIViewController {
         createPageViewController()
         setupPageControl()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "advancePage", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(ToursViewController.advancePage), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view.
     }
@@ -104,12 +103,6 @@ class ToursViewController: UIViewController {
         let firstController = getItemController(itemIndex)!
         let startingViewControllers = [firstController]
         pageViewController!.setViewControllers(startingViewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
-    }
-    
-    @IBAction func onLogoutClick(sender: UIBarButtonItem) {
-        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
-        loginManager.logOut()
-        TravelClient.sharedInstance.logout()
     }
     
     // MARK: - Navigation

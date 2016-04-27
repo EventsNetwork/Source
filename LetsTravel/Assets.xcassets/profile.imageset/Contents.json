@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "hottour.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "hottour-1.png",
+      "filename" : "profile.png",
       "scale" : "2x"
     },
     {
