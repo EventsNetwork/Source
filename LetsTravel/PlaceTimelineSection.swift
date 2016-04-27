@@ -25,7 +25,13 @@ class PlaceTimelineSection: UITableViewHeaderFooterView {
     weak var delegate: PlaceTimelineSectionDelegate?
     
     var closeButton: UIButton!
-    var hideCloseButton: Bool = false
+    var hideCloseButton: Bool = false {
+        didSet {
+            if closeButton != nil {
+                closeButton.hidden = hideCloseButton
+            }
+        }
+    }
     
     var label: UILabel!
     
@@ -63,6 +69,8 @@ class PlaceTimelineSection: UITableViewHeaderFooterView {
         closeButton.addTarget(self, action:"buttonHeaderClick:", forControlEvents: UIControlEvents.TouchUpInside)
         closeButton.tintColor = UIColor.whiteColor()
         
+        closeButton.hidden = hideCloseButton
+        
         contentView.addSubview(label)
         contentView.addSubview(closeButton)
         
@@ -74,9 +82,7 @@ class PlaceTimelineSection: UITableViewHeaderFooterView {
         
         contentView.backgroundColor = UIColor(red: 82.0/255.0, green: 191.0/255.0, blue: 144.0/255.0, alpha: 0.8)
         
-        if hideCloseButton == true {
-            closeButton.hidden = true
-        }
+        
     }
     
     func buttonHeaderClick(sender: UIButton) {

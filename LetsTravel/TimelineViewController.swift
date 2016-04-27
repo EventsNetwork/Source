@@ -82,10 +82,8 @@ class TimelineViewController: UIViewController {
     @IBAction func addDayClick(sender: UIButton) {
         placesToGo.append([])
         tableView.reloadData()
-        if placesToGo.count > 0 && placesToGo[placesToGo.count - 2].count > 0 {
-            let indexPath = NSIndexPath(forRow: placesToGo[placesToGo.count - 2].count - 1, inSection: placesToGo.count - 2)
-            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
-        }
+        
+        tableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Bottom, animated: true)
     }
     
     @IBAction func doneClick(sender: UIBarButtonItem) {
@@ -180,6 +178,8 @@ extension TimelineViewController: UITableViewDataSource {
         
         tableView.tableFooterView = UIView()
         
+        //tableView.setEditing(true, animated: true)
+        
         tableView.registerClass(PlaceTimelineSection.self, forHeaderFooterViewReuseIdentifier: "PlaceTimeLineHeader")
         let nib = UINib(nibName: "CreatePlaceCell", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "CreatePlaceCell")
@@ -245,16 +245,39 @@ extension TimelineViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if tourId != nil {
+            return 0
+        }
+        
         return 50
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if tourId != nil {
+            return nil
+        }
+        
         let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("CreatePlaceCell") as! CreatePlaceCell
         view.initView()
         view.hideOptions()
         view.delegate = self
         view.section = section
+    
         return view
+    }
+    
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.None
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let item = placesToGo[sourceIndexPath.section][sourceIndexPath.row]
+        placesToGo[sourceIndexPath.section].removeAtIndex(sourceIndexPath.row)
+        placesToGo[destinationIndexPath.section].insert(item, atIndex: destinationIndexPath.row)
     }
 }
 
