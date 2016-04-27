@@ -178,6 +178,8 @@ extension TimelineViewController: UITableViewDataSource {
         
         tableView.tableFooterView = UIView()
         
+        tableView.registerClass(PlaceTimelineSection.self, forHeaderFooterViewReuseIdentifier: "PlaceTimeLineHeader")
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -245,8 +247,11 @@ extension TimelineViewController: UITableViewDelegate {
         } else {
             hideCloseButton = false
         }
-        let view = PlaceTimelineSection(section: section, frame: CGRectMake(0, 0, tableView.frame.size.width, 25), hideCloseButton: hideCloseButton)
+        let view = tableView.dequeueReusableHeaderFooterViewWithIdentifier("PlaceTimeLineHeader") as! PlaceTimelineSection
+        
+        view.hideCloseButton = hideCloseButton
         view.delegate = self
+        view.section = section
         
         return view;
     }
