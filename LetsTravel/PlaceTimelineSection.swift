@@ -25,6 +25,7 @@ class PlaceTimelineSection: UITableViewHeaderFooterView {
     weak var delegate: PlaceTimelineSectionDelegate?
     
     var closeButton: UIButton!
+    
     var hideCloseButton: Bool = false {
         didSet {
             if closeButton != nil {
@@ -57,7 +58,7 @@ class PlaceTimelineSection: UITableViewHeaderFooterView {
         let text = "Day \(day + 1)"
         
         label = UILabel(frame: CGRectMake(11, 2, 100, 25))
-        let closeButton = UIButton(frame: CGRectMake(frame.size.width - 100, 5, 15, 15))
+        closeButton = UIButton(frame: CGRectMake(frame.size.width - 100, 5, 15, 15))
         
         label.text = text
         label.font.fontWithSize(12)
