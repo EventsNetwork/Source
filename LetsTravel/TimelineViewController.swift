@@ -47,7 +47,7 @@ class TimelineViewController: UIViewController {
 
     var province: Province? {
         didSet{
-            self.navigationItem.title = province!.provinceName! as String
+            self.navigationItem.title = province?.provinceName as? String
         }
     }
     
@@ -64,6 +64,9 @@ class TimelineViewController: UIViewController {
             doneButton.title = "Clone"
             TravelClient.sharedInstance.getTourDetail(tourId!, success: { (tour: Tour) in
                 self.placesToGo =  self.timelineHelpers.getPlacesFromTour(tour)
+                self.province = Province()
+                self.province?.provinceId = tour.provinceId
+                self.province?.provinceName = tour.provinceName
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
@@ -102,6 +105,12 @@ class TimelineViewController: UIViewController {
             }) { (error: NSError) in
                 
             }
+        } else {
+            tourId = nil
+            dateStartTextField.enabled = true
+            addDateButton.hidden = false
+            tableView.reloadData()
+            doneButton.title = "Done"
         }
     }
     
